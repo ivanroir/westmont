@@ -259,7 +259,7 @@ function takeSnapshot() {
     return new Promise(function (resolve, reject) {
       canvas.toBlob(function (blob) {
         resolve(blob);
-      }, 'image/jpeg');
+      }, 'image/jpg');
     });
   }
 
