@@ -243,8 +243,8 @@ function takeSnapshot() {
   canvas.width = width;
   canvas.height = height;
 
-  var destX = canvas.width / 2 - destWidth / 2;
-  var destY = canvas.height / 2 - destHeight / 2;
+  var destX = canvas.width / 2 - width / 2;
+  var destY = canvas.height / 2 - height / 2;
 
   context = canvas.getContext('2d');
   context.save(); 
