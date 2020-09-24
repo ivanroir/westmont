@@ -237,7 +237,7 @@ function takeSnapshot() {
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
   
-  var width = video.videoWidth * .75;
+  var width = video.videoWidth * .85;
   var height = video.videoHeight;
 
   canvas.width = width;
@@ -259,7 +259,7 @@ function takeSnapshot() {
     return new Promise(function (resolve, reject) {
       canvas.toBlob(function (blob) {
         resolve(blob);
-      }, 'image/jpg');
+      }, 'image/jpeg');
     });
   }
 
