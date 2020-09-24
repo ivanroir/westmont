@@ -237,7 +237,7 @@ function takeSnapshot() {
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
   
-  var width = video.videoWidth * .65;
+  var width = video.videoWidth * .70;
   var height = video.videoHeight;
 
   canvas.width = width;
