@@ -247,7 +247,7 @@ function takeSnapshot() {
   context.save(); 
   //context.scale(-1, 1); 
   //context.drawImage(video, width * -1, 0, width, height);
-  context.drawImage(video, 0, 0, width, height, 0, 0, width, height);
+  context.drawImage(video, 0, 0, width, height, 0, 0, width * -1, height);
   context.restore();
   context.drawImage(frame, 0, 0, width, height, 0, 0, width, height);
   
