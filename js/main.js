@@ -246,7 +246,6 @@ function takeSnapshot() {
   context = canvas.getContext('2d');
   context.save(); 
   context.scale(-1, 1); 
-  context.fillStyle = "blue";
   //context.drawImage(video, width * -1, 0, width, height);
   context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
   context.restore();
