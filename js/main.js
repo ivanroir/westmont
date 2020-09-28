@@ -270,6 +270,17 @@ function takeSnapshot() {
   // some API's (like Azure Custom Vision) need a blob with image data
   getCanvasBlob(canvas).then(function (blob) {
     // do something with the image blob
+    var img = document.createElement('img');
+    var blob = URL.createObjectURL(e.target.files[0]);
+    img.src = blob;
+    img.onload = function() {
+      var w = img.width;
+      var h = img.height;
+      console.log("NEW IMAGE width", w);
+      console.log("NEW IMAGE height: ", h);
+    }
+
+
     urlCreator = window.URL || window.webkitURL;
     imageUrl = urlCreator.createObjectURL(blob);
     document.querySelector("#cap").src = imageUrl;
