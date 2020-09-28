@@ -271,7 +271,7 @@ function takeSnapshot() {
   getCanvasBlob(canvas).then(function (blob) {
     // do something with the image blob
     var img = document.createElement('img');
-    var blob = URL.createObjectURL(e.target.files[0]);
+    var blob = URL.createObjectURL(blob);
     img.src = blob;
     img.onload = function() {
       var w = img.width;
