@@ -246,8 +246,8 @@ function takeSnapshot() {
   context = canvas.getContext('2d');
   context.save(); 
   context.scale(-1, 1); 
-  context.drawImage(video, width * -1, 0, width, height);
-  //context.drawImage(img, 0, 0, 250, 300, 0, 0, 250, 300);
+  //context.drawImage(video, width * -1, 0, width, height);
+  context.drawImage(video, width * -1, 0, width, height, 0, 0, width, height);
   context.restore();
   context.drawImage(frame, 0, 0, width, height);
   
