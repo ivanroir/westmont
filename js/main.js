@@ -247,7 +247,7 @@ function takeSnapshot() {
   context.save(); 
   context.scale(-1, 1); 
   //context.drawImage(video, width * -1, 0, width, height);
-  ctx.fillStyle = "#92B901";
+  context.fillStyle = "#92B901";
   context.fillRect(0, 0, width, height);
   context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
   context.restore();
