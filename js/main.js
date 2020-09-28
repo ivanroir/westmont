@@ -270,6 +270,11 @@ function takeSnapshot() {
   // some API's (like Azure Custom Vision) need a blob with image data
   getCanvasBlob(canvas).then(function (blob) {
     // do something with the image blob
+    urlCreator = window.URL || window.webkitURL;
+    imageUrl = urlCreator.createObjectURL(blob);
+    document.querySelector("#cap").src = imageUrl;
+    document.getElementById("imgURL").href = imageUrl;
+
     var img = document.createElement('img');
     img.src = blob;
     img.onload = function() {
@@ -279,11 +284,6 @@ function takeSnapshot() {
       console.log("NEW IMAGE height: ", h);
     }
 
-
-    urlCreator = window.URL || window.webkitURL;
-    imageUrl = urlCreator.createObjectURL(blob);
-    document.querySelector("#cap").src = imageUrl;
-    document.getElementById("imgURL").href = imageUrl;
   });
 }
 
