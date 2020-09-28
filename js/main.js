@@ -273,16 +273,7 @@ function takeSnapshot() {
     urlCreator = window.URL || window.webkitURL;
     imageUrl = urlCreator.createObjectURL(blob);
     document.querySelector("#cap").src = imageUrl;
-    document.getElementById("imgURL").href = imageUrl;
-
-    var img = document.createElement('img');
-    img.src = blob;
-    img.onload = function() {
-      var w = img.width;
-      var h = img.height;
-      console.log("NEW IMAGE width", w);
-      console.log("NEW IMAGE height: ", h);
-    }
+    document.getElementById("imgURL").href = imageUrl;  
 
   });
 }
