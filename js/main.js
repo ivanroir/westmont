@@ -234,14 +234,12 @@ function initCameraStream() {
 
 function takeSnapshot(input = null) {
 
-  if(input != null) {
-    var reader = new FileReader();      
-    reader.onload = function (e) {
-        $('#cap')
-          .attr('src', e.target.result);
-        console.log(e.target.result);
-    };
-  }
+  var reader = new FileReader();      
+  reader.onload = function (e) {
+      $('#cap')
+        .attr('src', e.target.result);
+      console.log(e.target.result);
+  };
 
   // if you'd like to show the canvas add it to the DOM
     var canvas = document.createElement('canvas');
