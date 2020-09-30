@@ -104,11 +104,12 @@
                     $('#cap')
                         .attr('src', e.target.result);
                 };
+                alert(reader.readAsDataURL(input.files[0]));
+
                 document.getElementById("captured").style.display = "block";
                 document.getElementById("controls").style.display = "none";
                 document.getElementById("buttons").style.display = "block";
                 reader.readAsDataURL(input.files[0]);
-                alert(reader.readAsDataURL(input.files[0]));
 
             }
         }
