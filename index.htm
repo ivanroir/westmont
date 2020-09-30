@@ -104,6 +104,7 @@
                 urlCreator = window.URL || window.webkitURL;
 
                 reader.onload = function (e) {
+                    alert(e.target.result)
                     $('#cap')
                         .attr('src', e.target.result);
                 };
