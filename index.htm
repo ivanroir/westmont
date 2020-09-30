@@ -78,7 +78,8 @@
         <div id="vid_container">
           <a id="imgURL" download>
             <img alt="capture" id="cap" class="image"  />
-          </a>          
+            <img src="img/frame4.png" alt="Frame" id="frame" class="image">
+            </a>          
        </div>
     </div>
   </div>
@@ -104,9 +105,7 @@
                     $('#cap')
                         .attr('src', e.target.result);
                 };
-
-                context = canvas.getContext('2d');
-                context.drawImage(frame, 0, 0, 400, 400);
+            
                 reader.readAsDataURL(input.files[0]);
             }
         }
