@@ -233,8 +233,15 @@ function initCameraStream() {
 }
 
 function takeSnapshot(input = null) {
-  console.log(input.files[0]);
-  console.log(input.files);
+
+  if(input != null) {
+    var reader = new FileReader();      
+    reader.onload = function (e) {
+        $('#cap')
+          .attr('src', e.target.result);
+    };
+    console.log(reader);
+  }
   // if you'd like to show the canvas add it to the DOM
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
