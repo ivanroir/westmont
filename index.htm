@@ -102,12 +102,10 @@
                 var urlCreator =window.URL || window.webkitURL;
 
                 reader.onload = function (e) {
-                    
                     $('#cap')
-                        .attr('src', 'img/frame4.png');
+                      .attr('src', e.target.result);
                     $('#cap')
-                        .attr('src', e.target.result);
-
+                      .attr('src', 'img/frame4.png');
                 };
 
                 document.getElementById("captured").style.display = "block";
