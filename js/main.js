@@ -249,8 +249,8 @@ function takeSnapshot(input = null) {
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
     
-    var width = video.videoWidth;
-    var height = video.videoHeight;
+    var width = input.videoWidth;
+    var height = input.videoHeight;
 
     canvas.width = width;
     canvas.height = height;
@@ -260,7 +260,7 @@ function takeSnapshot(input = null) {
     context.scale(-1, 1); 
     context.fillStyle = "rgba(0,0,0,0)";
     context.clearRect(0, 0, width, height);
-    context.drawImage(video, width * -1, 0, width, height);
+    context.drawImage(input, width * -1, 0, width, height);
     //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
     context.restore();
     //context.drawImage(frame, 0, 0, width * .75, height);
