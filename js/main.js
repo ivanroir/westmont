@@ -235,21 +235,20 @@ function initCameraStream() {
 function takeSnapshot(input = null) {
 
   if(input != null) {
-    var pict = document.getElementById("cap");;
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
-    
     
     if (input.files && input.files[0]) {
       
       var reader = new FileReader();      
       reader.onload = function (e) {
-        pict = e.target.result;
         $('#cap')
           .attr('src', e.target.result);
       };
       reader.readAsDataURL(input.files[0]);
     }
+
+    var pict = document.getElementById("cap");;
     
     var width = pict.videoWidth;
     var height = pict.videoHeight;
