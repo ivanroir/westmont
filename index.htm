@@ -102,9 +102,11 @@
                 var urlCreator =window.URL || window.webkitURL;
 
                 reader.onload = function (e) {
-                    alert("Hiii");
+                    
                     $('#cap')
                         .attr('src', e.target.result);
+                    console.log(e.target.result)
+
                 };
 
                 document.getElementById("captured").style.display = "block";
