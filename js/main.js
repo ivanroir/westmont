@@ -237,6 +237,7 @@ function takeSnapshot(input = null) {
   if(input != null) {
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
+    console.log(frame);
     
     if (input.files && input.files[0]) {
       
@@ -248,7 +249,8 @@ function takeSnapshot(input = null) {
       reader.readAsDataURL(input.files[0]);
     }
 
-    var pict = document.getElementById("cap");;
+    var pict = document.getElementById("cap");
+    console.log(pict);
     
     var width = pict.videoWidth;
     var height = pict.videoHeight;
@@ -276,10 +278,12 @@ function takeSnapshot(input = null) {
     var frame = document.getElementById("frame");
     var width = video.videoWidth;
     var height = video.videoHeight;
-
     canvas.width = width;
     canvas.height = height;
 
+    console.log(video);
+
+    
     context = canvas.getContext('2d');
     context.save(); 
     context.scale(-1, 1); 
