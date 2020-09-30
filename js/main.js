@@ -235,7 +235,7 @@ function initCameraStream() {
 function takeSnapshot(input = null) {
 
   if(input != null) {
-    var pict;
+    var pict = document.getElementById("cap");;
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
     
@@ -251,8 +251,8 @@ function takeSnapshot(input = null) {
       reader.readAsDataURL(input.files[0]);
     }
     
-    var width = pict.width;
-    var height = pict.height;
+    var width = pict.videoWidth;
+    var height = pict.videoHeight;
     canvas.width = width;
     canvas.height = height;
 
