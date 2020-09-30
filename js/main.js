@@ -234,10 +234,11 @@ function initCameraStream() {
 
 function takeSnapshot(input = null) {
   if (input.files && input.files[0]) {
+    console.log("INPUT");
+    console.log(input);
     var reader = new FileReader();      
     reader.onload = function (e) {
-      console.log("INPUT");
-      console.log(e.target.result);
+      
       $('#cap')
         .attr('src', e.target.result);
     };
