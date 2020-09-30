@@ -242,7 +242,7 @@ function takeSnapshot(input = null) {
         console.log(e.target.result);
     };
   }
-  else {
+
   // if you'd like to show the canvas add it to the DOM
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
@@ -263,8 +263,8 @@ function takeSnapshot(input = null) {
     context.restore();
     //context.drawImage(frame, 0, 0, width * .75, height);
     context.drawImage(frame, 0, 0, width, height);
-  }
   
+
   // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
 
   // https://developers.google.com/web/fundamentals/primers/promises
