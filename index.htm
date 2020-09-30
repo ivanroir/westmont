@@ -67,7 +67,7 @@
           ></button>
         </div>
         <div>
-         <input type='file' onchange="readURL(this);" />
+         <input type='file' id="takePhotoButton" />
         </div>
         <div id="buttons">
           <button onclick="divCaptureClose()">Back</button>
@@ -104,7 +104,7 @@
             var reader = new FileReader();
             var canvas = document.createElement('canvas');
             var frame = document.getElementById("frame");
-            var urlCreator =window.URL || window.webkitURL;
+            var urlCreator = window.URL || window.webkitURL;
 
             reader.onload = function (e) {
                 $('#cap')
