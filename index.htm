@@ -66,9 +66,10 @@
             aria-pressed="false"
           ></button>
         </div>
+        <div>
+         <input type='file' onchange="readURL(this);" onclick="divCapture()" />
+        </div>
         <div id="buttons">
-      <input type='file' onchange="readURL(this);" onclick="divCapture()" />
-
           <button onclick="divCaptureClose()">Back</button>
         </div>
       </div>
@@ -96,12 +97,16 @@
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
+                var canvas = document.createElement('canvas');
+                var frame = document.getElementById("frame");
 
                 reader.onload = function (e) {
                     $('#cap')
                         .attr('src', e.target.result);
                 };
 
+                context = canvas.getContext('2d');
+                context.drawImage(frame, 0, 0, 400, 400);
                 reader.readAsDataURL(input.files[0]);
             }
         }
