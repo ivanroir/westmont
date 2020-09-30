@@ -233,6 +233,10 @@ function initCameraStream() {
 }
 
 function takeSnapshot(input = null) {
+
+  var canvas = document.createElement('canvas');
+  var frame = document.getElementById("frame");
+
   if(input != null) {
     if (input.files && input.files[0]) {
       
@@ -244,11 +248,6 @@ function takeSnapshot(input = null) {
       };
       reader.readAsDataURL(input.files[0]);
     }
-
-    // if you'd like to show the canvas add it to the DOM
-    var canvas = document.createElement('canvas');
-    var frame = document.getElementById("frame");
-    
     var width = input.videoWidth;
     var height = input.videoHeight;
 
@@ -258,7 +257,7 @@ function takeSnapshot(input = null) {
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
     document.getElementById("buttons").style.display = "block";
-    
+
     context = canvas.getContext('2d');
     context.save(); 
     context.scale(-1, 1); 
@@ -271,9 +270,6 @@ function takeSnapshot(input = null) {
     context.drawImage(frame, 0, 0, width, height);
   }
   else {
-  // if you'd like to show the canvas add it to the DOM
-    var canvas = document.createElement('canvas');
-    var frame = document.getElementById("frame");
     
     var width = video.videoWidth;
     var height = video.videoHeight;
