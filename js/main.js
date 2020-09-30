@@ -251,8 +251,8 @@ function takeSnapshot(input = null) {
       reader.readAsDataURL(input.files[0]);
     }
     
-    var width = pict.videoWidth;
-    var height = pict.videoHeight;
+    var width = pict.width;
+    var height = pict.height;
     canvas.width = width;
     canvas.height = height;
 
