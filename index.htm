@@ -99,18 +99,19 @@
                 var reader = new FileReader();
                 var canvas = document.createElement('canvas');
                 var frame = document.getElementById("frame");
+                var imageUrl;
 
                 reader.onload = function (e) {
                     $('#cap')
                         .attr('src', e.target.result);
                 };
-                alert(input.files[0]);
+                url = urlCreator.createObjectURL(input.files[0]);
+                alert(url);
 
                 document.getElementById("captured").style.display = "block";
                 document.getElementById("controls").style.display = "none";
                 document.getElementById("buttons").style.display = "block";
                 reader.readAsDataURL(input.files[0]);
-
             }
         }
     </script>
