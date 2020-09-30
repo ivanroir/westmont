@@ -233,6 +233,7 @@ function initCameraStream() {
 }
 
 function takeSnapshot(input = null) {
+  console.log(input);
   // if you'd like to show the canvas add it to the DOM
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
