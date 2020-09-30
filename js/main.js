@@ -255,6 +255,10 @@ function takeSnapshot(input = null) {
     canvas.width = width;
     canvas.height = height;
 
+    document.getElementById("captured").style.display = "block";
+    document.getElementById("controls").style.display = "none";
+    document.getElementById("buttons").style.display = "block";
+    
     context = canvas.getContext('2d');
     context.save(); 
     context.scale(-1, 1); 
