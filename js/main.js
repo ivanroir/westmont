@@ -239,30 +239,31 @@ function takeSnapshot(input = null) {
     reader.onload = function (e) {
         $('#cap')
           .attr('src', e.target.result);
+        console.log(e.target.result);
     };
-    console.log(reader);
   }
+  else {
   // if you'd like to show the canvas add it to the DOM
-  var canvas = document.createElement('canvas');
-  var frame = document.getElementById("frame");
-  
-  var width = video.videoWidth ;
-  var height = video.videoHeight;
+    var canvas = document.createElement('canvas');
+    var frame = document.getElementById("frame");
+    
+    var width = video.videoWidth ;
+    var height = video.videoHeight;
 
-  canvas.width = width;
-  canvas.height = height;
+    canvas.width = width;
+    canvas.height = height;
 
-  context = canvas.getContext('2d');
-  context.save(); 
-  context.scale(-1, 1); 
-  context.fillStyle = "rgba(0,0,0,0)";
-  context.clearRect(0, 0, width, height);
-  context.drawImage(video, width * -1, 0, width, height);
-  //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
-  context.restore();
-  //context.drawImage(frame, 0, 0, width * .75, height);
-  context.drawImage(frame, 0, 0, width, height);
-  
+    context = canvas.getContext('2d');
+    context.save(); 
+    context.scale(-1, 1); 
+    context.fillStyle = "rgba(0,0,0,0)";
+    context.clearRect(0, 0, width, height);
+    context.drawImage(video, width * -1, 0, width, height);
+    //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
+    context.restore();
+    //context.drawImage(frame, 0, 0, width * .75, height);
+    context.drawImage(frame, 0, 0, width, height);
+  }
   
   // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
 
