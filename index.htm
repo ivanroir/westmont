@@ -101,7 +101,8 @@
                 var frame = document.getElementById("frame");
                 var imageUrl;
                 var urlCreator;
-
+                urlCreator = window.URL || window.webkitURL;
+                
                 reader.onload = function (e) {
                     $('#cap')
                         .attr('src', e.target.result);
