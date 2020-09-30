@@ -236,12 +236,15 @@ function takeSnapshot(input = null) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();      
     reader.onload = function (e) {
+      console.log("INPUT");
       console.log(e.target.result);
       $('#cap')
         .attr('src', e.target.result);
     };
     reader.readAsDataURL(input.files[0]);
   }
+  console.log("VIDEO");
+  console.log(video);
 
   // if you'd like to show the canvas add it to the DOM
     var canvas = document.createElement('canvas');
