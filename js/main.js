@@ -14,7 +14,7 @@ var toggleFullScreenButton;
 var switchCameraButton;
 var amountOfCameras = 0;
 var currentFacingMode = 'environment';
-var urlCreator
+var urlCreator;
 var imageUrl;
 
 // this function counts the amount of video inputs
