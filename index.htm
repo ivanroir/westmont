@@ -99,20 +99,20 @@
                 var reader = new FileReader();
                 var canvas = document.createElement('canvas');
                 var frame = document.getElementById("frame");
-                var imageUrl;
                 var urlCreator;
-                urlCreator = window.URL || window.webkitURL;
                 
+                urlCreator = window.URL || window.webkitURL;
+
                 reader.onload = function (e) {
                     $('#cap')
                         .attr('src', e.target.result);
                 };
-                url = urlCreator.createObjectURL(input.files[0]);
-                alert(url);
 
                 document.getElementById("captured").style.display = "block";
                 document.getElementById("controls").style.display = "none";
                 document.getElementById("buttons").style.display = "block";
+
+                document.getElementById("imgURL").href = urlCreator.createObjectURL(input.files[0]); 
                 reader.readAsDataURL(input.files[0]);
             }
         }
