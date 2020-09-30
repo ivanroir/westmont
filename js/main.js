@@ -235,8 +235,7 @@ function initCameraStream() {
 function takeSnapshot(input = null) {
   if(input != null) {
     if (input.files && input.files[0]) {
-      console.log("INPUT");
-      console.log(input);
+      
       var reader = new FileReader();      
       reader.onload = function (e) {
         
@@ -245,10 +244,29 @@ function takeSnapshot(input = null) {
       };
       reader.readAsDataURL(input.files[0]);
     }
-  }
-  console.log("VIDEO");
-  console.log(video);
 
+    // if you'd like to show the canvas add it to the DOM
+    var canvas = document.createElement('canvas');
+    var frame = document.getElementById("frame");
+    
+    var width = video.videoWidth;
+    var height = video.videoHeight;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    context = canvas.getContext('2d');
+    context.save(); 
+    context.scale(-1, 1); 
+    context.fillStyle = "rgba(0,0,0,0)";
+    context.clearRect(0, 0, width, height);
+    context.drawImage(video, width * -1, 0, width, height);
+    //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
+    context.restore();
+    //context.drawImage(frame, 0, 0, width * .75, height);
+    context.drawImage(frame, 0, 0, width, height);
+  }
+  else {
   // if you'd like to show the canvas add it to the DOM
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
@@ -269,7 +287,7 @@ function takeSnapshot(input = null) {
     context.restore();
     //context.drawImage(frame, 0, 0, width * .75, height);
     context.drawImage(frame, 0, 0, width, height);
-  
+  }
 
   // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
 
