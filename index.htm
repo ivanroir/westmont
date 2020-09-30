@@ -99,12 +99,10 @@
                 var reader = new FileReader();
                 var canvas = document.createElement('canvas');
                 var frame = document.getElementById("frame");
-                var urlCreator;
-                
-                urlCreator = window.URL || window.webkitURL;
+                var urlCreator =window.URL || window.webkitURL;
 
                 reader.onload = function (e) {
-                    alert(e.target.result)
+                    alert("Hiii");
                     $('#cap')
                         .attr('src', e.target.result);
                 };
