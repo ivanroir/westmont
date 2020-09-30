@@ -77,6 +77,7 @@
     <div class="captured" id="captured" onclick="divCaptureClose()">
         <div id="vid_container">
           <a id="imgURL" download>
+            <img src="img/frame4.png" alt="Frame" id="frame" class="image">
             <img alt="capture" id="cap" class="image"  />
             </a>          
        </div>
@@ -102,9 +103,8 @@
                 var urlCreator =window.URL || window.webkitURL;
 
                 reader.onload = function (e) {
-                  $('#cap')
-                      .attr('src', 'img/frame4.png');
-                    
+                    $('#cap')
+                      .attr('src', e.target.result);
                 };
 
                 document.getElementById("captured").style.display = "block";
