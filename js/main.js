@@ -237,7 +237,6 @@ function takeSnapshot(input = null) {
   if(input != null) {
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
-    var pict = document.getElementById("cap");
     
     if (input.files && input.files[0]) {
       
@@ -248,7 +247,8 @@ function takeSnapshot(input = null) {
       };
       reader.readAsDataURL(input.files[0]);
     }
-
+    var pict = document.getElementById("cap");
+    console.log(pict);
     imageUrl = urlCreator.createObjectURL(pict);
 
     
