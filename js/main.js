@@ -238,7 +238,7 @@ function takeSnapshot(input = null) {
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
     var url;
-    if (input.files && input.files[0]) {
+    //if (input.files && input.files[0]) {
       
       var reader = new FileReader();      
       reader.onload = function (e) {
@@ -272,7 +272,7 @@ function takeSnapshot(input = null) {
       context.restore();
       //context.drawImage(frame, 0, 0, width * .75, height);
       context.drawImage(frame, 0, 0, width, height);
-    }
+   // }
   }
   else {
     
