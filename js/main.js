@@ -259,8 +259,6 @@ function takeSnapshot(input = null) {
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
     document.getElementById("buttons").style.display = "block";
-    console.log("picture");
-    console.log(pict);
 
     context = canvas.getContext('2d');
     context.save(); 
@@ -282,7 +280,6 @@ function takeSnapshot(input = null) {
     canvas.width = width;
     canvas.height = height;
 
-    console.log(video);
 
     
     context = canvas.getContext('2d');
@@ -304,6 +301,8 @@ function takeSnapshot(input = null) {
   function getCanvasBlob(canvas) {
     return new Promise(function (resolve, reject) {
       canvas.toBlob(function (blob) {
+      console.log(blob);
+
         resolve(blob);
       }, 'image/jpeg');
     });
