@@ -312,6 +312,7 @@ function takeSnapshot(input = null) {
   getCanvasBlob(canvas).then(function (blob) {
     // do something with the image blob
     urlCreator = window.URL || window.webkitURL;
+    alert(blob);
     imageUrl = urlCreator.createObjectURL(blob);
     document.querySelector("#cap").src = imageUrl;
     document.getElementById("imgURL").href = imageUrl;  
