@@ -16,6 +16,7 @@ var amountOfCameras = 0;
 var currentFacingMode = 'environment';
 var urlCreator;
 var imageUrl;
+var pict = document.getElementById("cap");
 
 // this function counts the amount of video inputs
 // it replaces DetectRTC that was previously implemented.
@@ -248,7 +249,6 @@ function takeSnapshot(input = null) {
       };
       reader.readAsDataURL(input.files[0]);
   
-      var pict = document.getElementById("cap");
       
       var width = pict.videoWidth;
       var height = pict.videoHeight;
@@ -269,10 +269,10 @@ function takeSnapshot(input = null) {
       context.restore();
       //context.drawImage(frame, 0, 0, width * .75, height);
       context.drawImage(frame, 0, 0, width, height);
+      console.log(context);
    // }
   }
-  else {
-    
+  else {    
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
     var width = video.videoWidth;
