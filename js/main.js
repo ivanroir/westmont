@@ -234,10 +234,10 @@ function initCameraStream() {
 }
 
 function takeSnapshot(input = null) {
+  var canvas = document.createElement('canvas');
+  var frame = document.getElementById("frame");
 
   if(input != null) {
-    var canvas = document.createElement('canvas');
-    var frame = document.getElementById("frame");
     var url = input.files[0];
     //if (input.files && input.files[0]) {
       
@@ -268,12 +268,9 @@ function takeSnapshot(input = null) {
       context.restore();
       //context.drawImage(frame, 0, 0, width * .75, height);
       context.drawImage(frame, 0, 0, width, height);
-      console.log(context);
    // }
   }
   else {    
-    var canvas = document.createElement('canvas');
-    var frame = document.getElementById("frame");
     var width = video.videoWidth;
     var height = video.videoHeight;
     canvas.width = width;
@@ -289,7 +286,7 @@ function takeSnapshot(input = null) {
     //context.drawImage(frame, 0, 0, width * .75, height);
     context.drawImage(frame, 0, 0, width, height);
   }
-
+  console.log(context);
   // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
 
   // https://developers.google.com/web/fundamentals/primers/promises
@@ -297,8 +294,7 @@ function takeSnapshot(input = null) {
   function getCanvasBlob(canvas) {
     return new Promise(function (resolve, reject) {
       canvas.toBlob(function (blob) {
-      console.log(blob);
-
+        console.log(blob);
         resolve(blob);
       }, 'image/jpeg');
     });
