@@ -237,40 +237,43 @@ function takeSnapshot(input = null) {
   if(input != null) {
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
-    
+    var url;
     if (input.files && input.files[0]) {
       
       var reader = new FileReader();      
       reader.onload = function (e) {
         $('#cap')
           .attr('src', e.target.result);
-      };
+          url=e.target.result;
+           console.log("URL");
+    };
       reader.readAsDataURL(input.files[0]);
+  
+      var pict = document.getElementById("cap");
+      console.log(url);
+      imageUrl = urlCreator.createObjectURL(pict);
+
+      
+      var width = pict.videoWidth;
+      var height = pict.videoHeight;
+      canvas.width = width;
+      canvas.height = height;
+
+      document.getElementById("captured").style.display = "block";
+      document.getElementById("controls").style.display = "none";
+      document.getElementById("buttons").style.display = "block";
+
+      context = canvas.getContext('2d');
+      context.save(); 
+      context.scale(-1, 1); 
+      context.fillStyle = "rgba(0,0,0,0)";
+      context.clearRect(0, 0, width, height);
+      context.drawImage(pict, width * -1, 0, width, height);
+      //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
+      context.restore();
+      //context.drawImage(frame, 0, 0, width * .75, height);
+      context.drawImage(frame, 0, 0, width, height);
     }
-    var pict = document.getElementById("cap");
-    console.log(pict);
-    imageUrl = urlCreator.createObjectURL(pict);
-
-    
-    var width = pict.videoWidth;
-    var height = pict.videoHeight;
-    canvas.width = width;
-    canvas.height = height;
-
-    document.getElementById("captured").style.display = "block";
-    document.getElementById("controls").style.display = "none";
-    document.getElementById("buttons").style.display = "block";
-
-    context = canvas.getContext('2d');
-    context.save(); 
-    context.scale(-1, 1); 
-    context.fillStyle = "rgba(0,0,0,0)";
-    context.clearRect(0, 0, width, height);
-    context.drawImage(pict, width * -1, 0, width, height);
-    //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
-    context.restore();
-    //context.drawImage(frame, 0, 0, width * .75, height);
-    context.drawImage(frame, 0, 0, width, height);
   }
   else {
     
