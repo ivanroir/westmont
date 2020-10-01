@@ -238,16 +238,16 @@ function takeSnapshot(input = null) {
   if(input != null) {
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
-    var url;
+    var url = input.files[0];
     //if (input.files && input.files[0]) {
       
-      var reader = new FileReader();      
+      /*var reader = new FileReader();      
       reader.onload = function (e) {
         $('#cap')
           .attr('src', e.target.result);
           url=e.target.result;
       };
-      reader.readAsDataURL(input.files[0]);
+      reader.readAsDataURL(input.files[0]);*/
   
       
       var width = pict.videoWidth;
@@ -262,9 +262,8 @@ function takeSnapshot(input = null) {
       context = canvas.getContext('2d');
       context.save(); 
       context.scale(-1, 1); 
-      context.fillStyle = "rgba(0,0,0,0)";
       context.clearRect(0, 0, width, height);
-      context.drawImage(pict, width * -1, 0, width, height);
+      context.drawImage(url, width, 0, width, height);
       //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
       context.restore();
       //context.drawImage(frame, 0, 0, width * .75, height);
@@ -283,7 +282,6 @@ function takeSnapshot(input = null) {
     context = canvas.getContext('2d');
     context.save(); 
     context.scale(-1, 1); 
-    context.fillStyle = "rgba(0,0,0,0)";
     context.clearRect(0, 0, width, height);
     context.drawImage(pict, width * -1, 0, width, height);
     //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
