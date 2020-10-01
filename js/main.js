@@ -237,19 +237,18 @@ function takeSnapshot(input = null) {
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
 
-  if(input != null) {
+  /*if(input != null) {
     var url = input.files[0];
     //if (input.files && input.files[0]) {
       
-      /*var reader = new FileReader();      
+      var reader = new FileReader();      
       reader.onload = function (e) {
         $('#cap')
           .attr('src', e.target.result);
           url=e.target.result;
       };
-      reader.readAsDataURL(input.files[0]);*/
+      reader.readAsDataURL(input.files[0]);
   
-      
       var width = pict.videoWidth;
       var height = pict.videoHeight;
       canvas.width = width;
@@ -270,7 +269,7 @@ function takeSnapshot(input = null) {
       context.drawImage(frame, 0, 0, width, height);
    // }
   }
-  else {    
+  else {    */
     var width = video.videoWidth;
     var height = video.videoHeight;
     canvas.width = width;
@@ -285,7 +284,7 @@ function takeSnapshot(input = null) {
     context.restore();
     //context.drawImage(frame, 0, 0, width * .75, height);
     context.drawImage(frame, 0, 0, width, height);
-  }
+ // }
   // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
 
   // https://developers.google.com/web/fundamentals/primers/promises
