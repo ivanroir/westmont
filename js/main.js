@@ -246,11 +246,11 @@ function takeSnapshot(input = null) {
           .attr('src', e.target.result);
           url=e.target.result;
            console.log("URL");
-    };
+           console.log(url);
+      };
       reader.readAsDataURL(input.files[0]);
   
       var pict = document.getElementById("cap");
-      console.log(url);
       imageUrl = urlCreator.createObjectURL(pict);
 
       
