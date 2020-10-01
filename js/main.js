@@ -249,9 +249,6 @@ function takeSnapshot(input = null) {
       reader.readAsDataURL(input.files[0]);
   
       var pict = document.getElementById("cap");
-      imageUrl = urlCreator.createObjectURL(pict);
-      console.log(imageUrl); 
-
       
       var width = pict.videoWidth;
       var height = pict.videoHeight;
