@@ -286,12 +286,12 @@ function takeSnapshot(input = null) {
     //context.drawImage(frame, 0, 0, width * .75, height);
     context.drawImage(frame, 0, 0, width, height);
   }
-  console.log(context);
   // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
 
   // https://developers.google.com/web/fundamentals/primers/promises
   // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
   function getCanvasBlob(canvas) {
+  console.log(canvas);
     return new Promise(function (resolve, reject) {
       canvas.toBlob(function (blob) {
         console.log(blob);
