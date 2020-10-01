@@ -245,13 +245,12 @@ function takeSnapshot(input = null) {
         $('#cap')
           .attr('src', e.target.result);
           url=e.target.result;
-           console.log("URL");
-           console.log(url); 
       };
       reader.readAsDataURL(input.files[0]);
   
       var pict = document.getElementById("cap");
       imageUrl = urlCreator.createObjectURL(pict);
+      console.log(imageUrl); 
 
       
       var width = pict.videoWidth;
@@ -284,9 +283,6 @@ function takeSnapshot(input = null) {
     canvas.width = width;
     canvas.height = height;
 
-    var pict = document.getElementById("cap");
-
-    
     context = canvas.getContext('2d');
     context.save(); 
     context.scale(-1, 1); 
