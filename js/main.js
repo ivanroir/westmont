@@ -250,7 +250,6 @@ function takeSnapshot(input = null) {
     }
 
     var pict = document.getElementById("cap");
-    console.log(pict);
     
     var width = pict.videoWidth;
     var height = pict.videoHeight;
@@ -260,6 +259,8 @@ function takeSnapshot(input = null) {
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
     document.getElementById("buttons").style.display = "block";
+    console.log("picture");
+    console.log(pict);
 
     context = canvas.getContext('2d');
     context.save(); 
