@@ -239,6 +239,22 @@ function takeSnapshot(input = null) {
 
   console.log(input.files[0]);
   console.log(video);
+
+
+  var _URL = window.URL || window.webkitURL;
+  $("#cap").change(function (e) {
+      var file, img;
+      if ((file = this.files[0])) {
+          img = new Image();
+          var objectUrl = _URL.createObjectURL(file);
+          img.onload = function () {
+              console.log(this.width + " " + this.height);
+              _URL.revokeObjectURL(objectUrl);
+          };
+          img.src = objectUrl;
+      }
+  });
+
   /*if(input != null) {
     var url = input.files[0];
     //if (input.files && input.files[0]) {
