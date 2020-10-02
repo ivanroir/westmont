@@ -241,6 +241,7 @@ function takeSnapshot(input = null) {
   //var _URL = window.URL || window.webkitURL;
   var file, img;
   file = input.files[0];
+  console.log(file);
   img = new Image();
   //var objectUrl = _URL.createObjectURL(file);
   //console.log(objectUrl);
