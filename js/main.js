@@ -239,19 +239,17 @@ function takeSnapshot(input = null) {
 
 
   var _URL = window.URL || window.webkitURL;
-  $("#cap").change(function (e) {
-      var file, img;
-      file = input.files[0]
-      img = new Image();
-      var objectUrl = _URL.createObjectURL(file);
-      console.log(objectUrl);
-      img.onload = function () {
-          console.log(this.width + " " + this.height);
-          _URL.revokeObjectURL(objectUrl);
-      };
-      img.src = objectUrl;
-      console.log(img.src);
-    });
+  var file, img;
+  file = input.files[0]
+  img = new Image();
+  var objectUrl = _URL.createObjectURL(file);
+  console.log(objectUrl);
+  img.onload = function () {
+      console.log(this.width + " " + this.height);
+      _URL.revokeObjectURL(objectUrl);
+  };
+  img.src = objectUrl;
+  console.log(img.src);
 
   /*if(input != null) {
     var url = input.files[0];
