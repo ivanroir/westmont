@@ -237,21 +237,20 @@ function takeSnapshot(input = null) {
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
 
-  console.log(input.files[0]);
-  console.log(video);
-
 
   var _URL = window.URL || window.webkitURL;
   $("#cap").change(function (e) {
       var file, img;
-      if ((file = this.files[0])) {
+      if ((file = input.files[0])) {
           img = new Image();
           var objectUrl = _URL.createObjectURL(file);
+          console.log(objectUrl);
           img.onload = function () {
               console.log(this.width + " " + this.height);
               _URL.revokeObjectURL(objectUrl);
           };
           img.src = objectUrl;
+          console.log(img.src);
       }
   });
 
