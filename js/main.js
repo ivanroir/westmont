@@ -240,6 +240,7 @@ function takeSnapshot(input = null) {
 
   var _URL = window.URL || window.webkitURL;
   $("#file").change(function (e) {
+    console.log("FILE");
       var file, img;
       if ((file = input.files[0])) {
           img = new Image();
