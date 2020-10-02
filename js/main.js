@@ -237,10 +237,8 @@ function takeSnapshot(input = null) {
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
 
-  console.log(input.files[0].videoWidth);
-  console.log(input.files[0].videoHeight);
-  console.log(video.videoWidth);
-  console.log(video.videoHeight);
+  console.log(input);
+  console.log(video);
   /*if(input != null) {
     var url = input.files[0];
     //if (input.files && input.files[0]) {
