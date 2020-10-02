@@ -238,41 +238,20 @@ function takeSnapshot(input = null) {
   var frame = document.getElementById("frame");
 
 
-  //var _URL = window.URL || window.webkitURL;
-  var file, img;
-  file = input.files[0];
-  img = new Image();
-  //var objectUrl = _URL.createObjectURL(file);
-  //console.log(objectUrl);
-  img.onload = function () {
-
-    var width = this.width;
-    var height = this.height;
-    console.log(width);
-    console.log(height);
-    canvas.width = width;
-    canvas.height = height;
-
-    document.getElementById("captured").style.display = "block";
-    document.getElementById("controls").style.display = "none";
-    document.getElementById("buttons").style.display = "block";
-
-    context = canvas.getContext('2d');
-    context.save(); 
-    context.scale(-1, 1); 
-    context.clearRect(0, 0, width, height);
-    context.drawImage(img, width, 0, width, height);
-    context.drawImage(file, width, 0, width, height);
-    //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
-    context.restore();
-    //context.drawImage(frame, 0, 0, width * .75, height);
-    context.drawImage(frame, 0, 0, width, height);
-      
-      //console.log(this.width + " " + this.height);
-      //_URL.revokeObjectURL(objectUrl);
-  };
-  //img.src = objectUrl;
-  //console.log(img.src);
+  var _URL = window.URL || window.webkitURL;
+  $("#cap").change(function (e) {
+      var file, img;
+      if ((file = input.files[0])) {
+          img = new Image();
+          var objectUrl = _URL.createObjectURL(file);
+          console.log(this.width + " " + this.height);
+          img.onload = function () {
+              console.log(this.width + " " + this.height);
+              _URL.revokeObjectURL(objectUrl);
+          };
+          img.src = objectUrl;
+      }
+  });
 
   /*if(input != null) {
     var url = input.files[0];
@@ -307,7 +286,7 @@ function takeSnapshot(input = null) {
    // }
   }
   else {    */
-    /*var width = video.videoWidth;
+    var width = video.videoWidth;
     var height = video.videoHeight;
     canvas.width = width;
     canvas.height = height;
@@ -320,7 +299,7 @@ function takeSnapshot(input = null) {
     //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
     context.restore();
     //context.drawImage(frame, 0, 0, width * .75, height);
-    context.drawImage(frame, 0, 0, width, height);*/
+    context.drawImage(frame, 0, 0, width, height);
  // }
   // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
 
