@@ -239,7 +239,7 @@ function takeSnapshot(input = null) {
 
 
   var _URL = window.URL || window.webkitURL;
-  $("#cap").change(function (e) {
+  $("#file").change(function (e) {
       var file, img;
       if ((file = input.files[0])) {
           img = new Image();
