@@ -242,7 +242,7 @@ function takeSnapshot(input = null) {
   var file, img;
   file = input.files[0];
   img = new Image();
-  var objectUrl = _URL.createObjectURL(file);
+  //var objectUrl = _URL.createObjectURL(file);
   //console.log(objectUrl);
   img.onload = function () {
 
@@ -269,7 +269,7 @@ function takeSnapshot(input = null) {
       //console.log(this.width + " " + this.height);
       //_URL.revokeObjectURL(objectUrl);
   };
-  img.src = objectUrl;
+  //img.src = objectUrl;
   //console.log(img.src);
 
   /*if(input != null) {
