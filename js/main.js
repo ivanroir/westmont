@@ -237,36 +237,36 @@ function takeSnapshot(input = null) {
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
 
-  /*if(input != null) {
+  if(input != null) {
     var url = input.files[0];
-    //if (input.files && input.files[0]) {
+    if (input.files && input.files[0]) {
       
       var reader = new FileReader();      
       reader.onload = function (e) {
         $('#cap')
           .attr('src', e.target.result);
-          url=e.target.result;
+            
+  
+        var width = pict.videoWidth;
+        var height = pict.videoHeight;
+        canvas.width = width;
+        canvas.height = height;
+
+        document.getElementById("captured").style.display = "block";
+        document.getElementById("controls").style.display = "none";
+        document.getElementById("buttons").style.display = "block";
+
+        context = canvas.getContext('2d');
+        context.save(); 
+        context.scale(-1, 1); 
+        context.clearRect(0, 0, width, height);
+        context.drawImage(e.target.result , width, 0, width, height);
+        //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
+        context.restore();
+        //context.drawImage(frame, 0, 0, width * .75, height);
+        context.drawImage(frame, 0, 0, width, height);
       };
       reader.readAsDataURL(input.files[0]);
-  
-      var width = pict.videoWidth;
-      var height = pict.videoHeight;
-      canvas.width = width;
-      canvas.height = height;
-
-      document.getElementById("captured").style.display = "block";
-      document.getElementById("controls").style.display = "none";
-      document.getElementById("buttons").style.display = "block";
-
-      context = canvas.getContext('2d');
-      context.save(); 
-      context.scale(-1, 1); 
-      context.clearRect(0, 0, width, height);
-      context.drawImage(pict, width, 0, width, height);
-      //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
-      context.restore();
-      //context.drawImage(frame, 0, 0, width * .75, height);
-      context.drawImage(frame, 0, 0, width, height);
    // }
   }
   else {    */
