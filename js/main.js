@@ -13,7 +13,7 @@ var takePhotoButton;
 var toggleFullScreenButton;
 var switchCameraButton;
 var amountOfCameras = 0;
-var currentFacingMode = 'user';
+var currentFacingMode = 'environment';
 var urlCreator;
 var imageUrl;
 var pict = document.getElementById("cap");
@@ -311,6 +311,7 @@ function takeSnapshot(input = null) {
   // https://developers.google.com/web/fundamentals/primers/promises
   // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
   function getCanvasBlob(canvas) {
+  console.log(canvas);
     return new Promise(function (resolve, reject) {
       canvas.toBlob(function (blob) {
         resolve(blob);
