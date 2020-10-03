@@ -97,7 +97,7 @@ function initCameraUI() {
   toggleFullScreenButton = document.getElementById('toggleFullScreenButton');
   switchCameraButton = document.getElementById('switchCameraButton');
   downloadButton = document.getElementById('downloadButton');
-  
+  toggleFullScreenButton.style.display = 'none';
   // https://developer.mozilla.org/nl/docs/Web/HTML/Element/button
   // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role
 
@@ -119,7 +119,7 @@ function initCameraUI() {
   if (screenfull.isEnabled) {
     screenfull.on('change', fullScreenChange);
 
-    toggleFullScreenButton.style.display = 'block';
+    toggleFullScreenButton.style.display = 'none';
 
     // set init values
     fullScreenChange();
