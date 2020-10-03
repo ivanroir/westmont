@@ -39,12 +39,17 @@
         display: none;
       }       
       </style>
-      
+      <script src="js/adapter.min.js"></script>
+      <script src="js/screenfull.min.js"></script>
+      <script src="js/howler.core.min.js"></script>
+      <script src="js/main.js"></script>
   </head>
   <body>
     <div id="container">
       <div id="vid_container">
-        
+        <script>
+          console.log(currentFacingMode);
+        </script>
         <video style="transform: scaleX(-1);" id="video" autoplay playsinline></video>
         <div id="video_overlay"></div>
         <div class="overlay">
@@ -119,15 +124,10 @@
           }
         }
     </script>
-    <script src="js/adapter.min.js"></script>
-    <script src="js/screenfull.min.js"></script>
-    <script src="js/howler.core.min.js"></script>
-    <script src="js/main.js"></script>
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>
-      console.log(currentFacingMode);
-    </script>
+    
   </body>
 </html>
