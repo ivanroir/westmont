@@ -170,13 +170,14 @@
           if ((file = input.files[0])) {
               console.log("FILE");
               img = new Image();
-              var objectUrl = _URL.createObjectURL(file);
-              console.log(this.width + " " + this.height);
+              var objectUrl = _URL.createObjectURL(file);              
               img.onload = function () {
                   console.log(this.width + " " + this.height);
                   _URL.revokeObjectURL(objectUrl);
+                  console.log(_URL);
               };
               img.src = objectUrl;
+              console.log(img.src);
             }
         }
         
