@@ -166,21 +166,18 @@
         function readURL(input) {
           var _URL = window.URL || window.webkitURL;
           console.log(input.files[0]);
-
-          $("#file").change(function (e) {
-            console.log("FILE");
-              var file, img;
-              if ((file = input.files[0])) {
-                  img = new Image();
-                  var objectUrl = _URL.createObjectURL(file);
+          var file, img;
+          if ((file = input.files[0])) {
+              console.log("FILE");
+              img = new Image();
+              var objectUrl = _URL.createObjectURL(file);
+              console.log(this.width + " " + this.height);
+              img.onload = function () {
                   console.log(this.width + " " + this.height);
-                  img.onload = function () {
-                      console.log(this.width + " " + this.height);
-                      _URL.revokeObjectURL(objectUrl);
-                  };
-                  img.src = objectUrl;
-              }
-          })
+                  _URL.revokeObjectURL(objectUrl);
+              };
+              img.src = objectUrl;
+            }
         }
         
     </script>
