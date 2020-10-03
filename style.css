@@ -170,7 +170,7 @@ button {
 
   #frameTitle {
     left: calc(85% - 32px);
-    top: calc(40% - 32px);
+    top: calc(35% - 32px);
   }
 
   #frame1 {
@@ -229,7 +229,7 @@ button {
 
   #frameTitle {
     left: calc(50% - 32px);
-    top: calc(75% - 32px);
+    top: calc(80% - 32px);
   }
   
   #frame1 {
