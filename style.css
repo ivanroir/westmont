@@ -163,18 +163,18 @@ button {
   }
 
   #frame1 {
-    left: calc(80% - 32px);
+    left: calc(70% - 32px);
     top: calc(50% - 32px);
   }
   
   #frame2 {
-    left: calc(80% - 24px);
-    top: calc(50% - 24px);
+    left: calc(80% - 32px);
+    top: calc(50% - 32px);
   }
 
   #frame3 {
-    left: calc(80% - 48px);
-    top: calc(50% - 48px);
+    left: calc(90% - 32px);
+    top: calc(50% - 32px);
   }
 
   #backButton {
@@ -217,7 +217,7 @@ button {
   }
 
   #frame1 {
-    left: calc(25% - 32px);
+    left: calc(50% - 32px);
     top: calc(82% - 32px);
   }
 
@@ -227,7 +227,7 @@ button {
   }
 
   #frame3 {
-    left: calc(75% - 32px);
+    left: calc(50% - 32px);
     top: calc(82% - 32px);
   }
 
