@@ -86,7 +86,8 @@ button {
 }
 #frameTitle {
   width: 32px;
-  height: 32px;  
+  height: 32px; 
+  border-style: none;
 }
 
 
@@ -168,8 +169,8 @@ button {
   }
 
   #frameTitle {
-    left: calc(90% - 32px);
-    top: calc(50% - 32px);
+    left: calc(85% - 32px);
+    top: calc(40% - 32px);
   }
 
   #frame1 {
@@ -228,7 +229,7 @@ button {
 
   #frameTitle {
     left: calc(50% - 32px);
-    top: calc(70% - 32px);
+    top: calc(75% - 32px);
   }
   
   #frame1 {
