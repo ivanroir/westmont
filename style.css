@@ -86,8 +86,8 @@ button {
 }
 
 #frame1 {
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -153,6 +153,16 @@ button {
     left: calc(80% - 32px);
     top: calc(50% - 32px);
   }
+  
+  #frame2 {
+    left: calc(80% - 24px);
+    top: calc(50% - 24px);
+  }
+
+  #frame3 {
+    left: calc(80% - 48px);
+    top: calc(50% - 48px);
+  }
 
   #backButton {
     left: calc(20% - 32px);
@@ -197,6 +207,17 @@ button {
     left: calc(50% - 32px);
     top: calc(82% - 32px);
   }
+
+  #frame2 {
+    left: calc(50% - 32px);
+    top: calc(82% - 32px);
+  }
+
+  #frame3 {
+    left: calc(50% - 32px);
+    top: calc(82% - 32px);
+  }
+
 
   #backButton {
     left: calc(50% - 32px);
