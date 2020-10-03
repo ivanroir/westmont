@@ -56,7 +56,7 @@
       <div id="vid_container">
         <script>
           function switchCamera(){
-            if (currentFacingMode == "environment"){
+            if (currentFacingMode != "environment"){
               document.getElementById("environment").style.display = "block";
               document.getElementById("user").style.display = "none";
             }else{
