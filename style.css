@@ -84,6 +84,11 @@ button {
   display: none;
   background-image: url('img/ic_fullscreen_exit_white_48px.svg');
 }
+#frameTitle {
+  width: 32px;
+  height: 32px;  
+}
+
 
 #frame1 {
   width: 32px;
@@ -162,18 +167,23 @@ button {
     top: calc(50% - 32px);
   }
 
+  #frameTitle {
+    left: calc(90% - 32px);
+    top: calc(50% - 32px);
+  }
+
   #frame1 {
-    left: calc(70% - 32px);
+    left: calc(80% - 32px);
     top: calc(60% - 32px);
   }
   
   #frame2 {
-    left: calc(80% - 32px);
+    left: calc(90% - 32px);
     top: calc(60% - 32px);
   }
 
   #frame3 {
-    left: calc(90% - 32px);
+    left: calc(100% - 32px);
     top: calc(60% - 32px);
   }
 
@@ -216,6 +226,11 @@ button {
     top: calc(82% - 32px);
   }
 
+  #frameTitle {
+    left: calc(50% - 32px);
+    top: calc(70% - 32px);
+  }
+  
   #frame1 {
     left: calc(40% - 32px);
     top: calc(82% - 32px);
