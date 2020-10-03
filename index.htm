@@ -41,9 +41,11 @@
       .user{
         display: none;
       }
-
       .environment{
         display: block;
+      }
+      .download{
+        display: none;
       }
       </style>
       <script src="js/adapter.min.js"></script>
@@ -91,8 +93,8 @@
             ></button>
           </div>
           <div>
-            <a id="imgURL" download>
-              <button type="button" class="btn btn-primary">Download</button>
+            <a class="download" id="imgURL" download>
+              <button type="button" class="btn btn-link">Download</button>
             </a>
           <!--<input type='file' id="" onchange="readURL(this);" />-->
           <!--<input type='file' id="file" onchange="takeSnapshot(this);" />-->
@@ -101,7 +103,6 @@
 
         <div class="captured" id="captured" onclick="divCaptureClose()">
           <div id="vid_container">
-            
             <!--<div class="overlay">
                 <img src="img/frame4.png" alt="Frame" id="frame" class="image">
               </div>-->
@@ -114,14 +115,16 @@
             document.getElementById("captured").style.display = "block";
             document.getElementById("controls").style.display = "none";
             document.getElementById("buttons").style.display = "block";
+            document.getElementById("imgURL").style.display = "block";
         }
         function divCaptureClose() {
             document.getElementById("captured").style.display = "none";
             document.getElementById("controls").style.display = "block";
             document.getElementById("buttons").style.display = "none";
+            document.getElementById("imgURL").style.display = "none";
         }
 
-        function readURL(input) {
+        /*function readURL(input) {
           if (input.files && input.files[0]) {
             var reader = new FileReader();
             
@@ -139,7 +142,7 @@
             document.getElementById("imgURL").href = urlCreator.createObjectURL(input.files[0]); 
             reader.readAsDataURL(input.files[0]);
           }
-        }
+        }*/
     </script>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
