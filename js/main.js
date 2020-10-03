@@ -13,7 +13,7 @@ var takePhotoButton;
 var toggleFullScreenButton;
 var switchCameraButton;
 var amountOfCameras = 0;
-var currentFacingMode = 'environment';
+var currentFacingMode = 'user';
 var urlCreator;
 var imageUrl;
 var pict = document.getElementById("cap");
@@ -140,8 +140,8 @@ function initCameraUI() {
     switchCameraButton.style.display = 'block';
 
     switchCameraButton.addEventListener('click', function () {
-      if (currentFacingMode === 'user') currentFacingMode = 'environment';
-      else currentFacingMode = 'user';
+      if (currentFacingMode === 'environment') currentFacingMode = 'user';
+      else currentFacingMode = 'environment';
 
       initCameraStream();
     });
