@@ -293,16 +293,16 @@ function takeSnapshot(input = null) {
     canvas.height = height;
 
     context = canvas.getContext('2d');
-    context.save(); 
-    //context.scale(-1, 1); 
-    context.clearRect(0, 0, width, height);
-    //if (currentFacingMode != "environment"){
+    if (currentFacingMode != "environment"){
       context.drawImage(video, 0, 0, width, height);
-    //}else{
-      //context.drawImage(video, width * -1, 0, width, height);
-    //}
+    }else{
+      context.save(); 
+      context.scale(-1, 1); 
+      context.clearRect(0, 0, width, height);
+      context.drawImage(video, width * -1, 0, width, height);
+      context.restore();
+    }
     //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
-    context.restore();
     //context.drawImage(frame, 0, 0, width * .75, height);
     context.drawImage(frame, 0, 0, width, height);
  // }
