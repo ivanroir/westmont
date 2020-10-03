@@ -117,10 +117,10 @@
           </a>
         </div>
         
-        <!--<div>
-         <input type='file' id="" onchange="readURL(this);" />
-         input type='file' id="file" onchange="takeSnapshot(this);" />
-        </div>-->
+        <div>
+         <input type='file' id="file" name="file" onchange="readURL(this);" />
+         <!--<input type='file' id="file" onchange="takeSnapshot(this);" />-->
+        </div>
       </div>
     
       <div class="captured" id="captured" onclick="divCaptureClose()">
@@ -162,6 +162,25 @@
             reader.readAsDataURL(input.files[0]);
           }
         }*/
+
+        function readURL(input) {
+          var _URL = window.URL || window.webkitURL;
+          $("#file").change(function (e) {
+            console.log("FILE");
+              var file, img;
+              if ((file = input.files[0])) {
+                  img = new Image();
+                  var objectUrl = _URL.createObjectURL(file);
+                  console.log(this.width + " " + this.height);
+                  img.onload = function () {
+                      console.log(this.width + " " + this.height);
+                      _URL.revokeObjectURL(objectUrl);
+                  };
+                  img.src = objectUrl;
+              }
+          })
+        }
+        
     </script>
     <script src="js/adapter.min.js"></script>
     <script src="js/screenfull.min.js"></script>
