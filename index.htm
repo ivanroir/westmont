@@ -56,7 +56,7 @@
       <div id="vid_container">
         <script>
           function switchCamera(){
-            if (currentFacingMode != "environment"){
+            if (currentFacingMode == "environment"){
               document.getElementById("video").style.transform = "scaleX(1)";
             }else{
               document.getElementById("video").style.transform = "scaleX(-1)";
