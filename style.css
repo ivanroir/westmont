@@ -233,17 +233,17 @@ button {
   }
   
   #frame1 {
-    left: calc(25% - 32px);
+    left: calc(40% - 32px);
     top: calc(92% - 32px);
   }
 
   #frame2 {
-    left: calc(50% - 32px);
+    left: calc(65% - 32px);
     top: calc(92% - 32px);
   }
 
   #frame3 {
-    left: calc(75% - 32px);
+    left: calc(90% - 32px);
     top: calc(92% - 32px);
   }
 
