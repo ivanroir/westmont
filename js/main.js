@@ -297,7 +297,7 @@ function takeSnapshot(input = null) {
     //context.scale(-1, 1); 
     context.clearRect(0, 0, width, height);
     //if (currentFacingMode != "environment"){
-      context.drawImage(video, width, 0, width, height);
+      context.drawImage(video, 0, 0, width, height);
     //}else{
       //context.drawImage(video, width * -1, 0, width, height);
     //}
