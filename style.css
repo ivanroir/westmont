@@ -98,7 +98,6 @@ button {
 }
 
 #downloadButton {
-  display: none;
   width: 80px;
   height: 80px;
   background-image: url('img/ic_get_app_white_36dp.svg');
