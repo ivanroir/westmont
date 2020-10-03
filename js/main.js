@@ -303,7 +303,6 @@ function takeSnapshot(input = null) {
     }else{
       context.save(); 
       context.scale(-1, 1); 
-      context.clearRect(0, 0, width, height);
       context.drawImage(video, width * -1, 0, width, height);
       context.restore();
     }

@@ -83,15 +83,32 @@
         <div class="buttons" id="buttons">
           <button 
             type="button" 
+            name="back"
             id="backButton"
             onclick="divCaptureClose()">Back</button>
           <a id="imgURL" download>
             <button 
               type="button" 
+              name="download"
               id="downloadButton"
               onclick="divCaptureClose()">Download</button>
           </a>
         </div>
+        <button
+            id="frame1"
+            name="frame 1"
+            type="button"
+            onclick="document.getElementById('frame').src='img/frame4.png'">1</button>
+        <button
+            id="frame2"
+            name="frame 2"
+            type="button"
+            onclick="document.getElementById('frame').src='img/frame2.png'">2</button>
+        <button
+            id="frame3"
+            name="frame 3"
+            type="button"
+            onclick="document.getElementById('frame').src='img/frame3.png'">3</button>
         <!--<div>
          <input type='file' id="" onchange="readURL(this);" />
          input type='file' id="file" onchange="takeSnapshot(this);" />
