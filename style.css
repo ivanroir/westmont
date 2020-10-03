@@ -92,6 +92,19 @@ button {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+#frame2 {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#frame3 {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 #switchCameraButton {
   display: none;
   width: 64px;
@@ -204,7 +217,7 @@ button {
   }
 
   #frame1 {
-    left: calc(50% - 32px);
+    left: calc(25% - 32px);
     top: calc(82% - 32px);
   }
 
@@ -214,7 +227,7 @@ button {
   }
 
   #frame3 {
-    left: calc(50% - 32px);
+    left: calc(75% - 32px);
     top: calc(82% - 32px);
   }
 
