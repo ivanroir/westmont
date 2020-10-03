@@ -294,7 +294,7 @@ function takeSnapshot(input = null) {
 
     context = canvas.getContext('2d');
     context.save(); 
-    context.scale(-1, 1); 
+    //context.scale(-1, 1); 
     context.clearRect(0, 0, width, height);
     //if (currentFacingMode != "environment"){
       context.drawImage(video, width, 0, width, height);
