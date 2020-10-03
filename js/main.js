@@ -311,10 +311,8 @@ function takeSnapshot(input = null) {
   // https://developers.google.com/web/fundamentals/primers/promises
   // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
   function getCanvasBlob(canvas) {
-  console.log(canvas);
     return new Promise(function (resolve, reject) {
       canvas.toBlob(function (blob) {
-        console.log(blob);
         resolve(blob);
       }, 'image/jpeg');
     });
@@ -324,7 +322,6 @@ function takeSnapshot(input = null) {
   getCanvasBlob(canvas).then(function (blob) {
     // do something with the image blob
     urlCreator = window.URL || window.webkitURL;
-    console.log(blob);
     imageUrl = urlCreator.createObjectURL(blob);
     document.querySelector("#cap").src = imageUrl;
     document.getElementById("imgURL").href = imageUrl;  
