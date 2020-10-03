@@ -91,19 +91,21 @@
             ></button>
           </div>
           <div>
+            <a id="imgURL" download>
+              <button type="button" class="btn btn-primary">Download</button>
+            </a>
           <!--<input type='file' id="" onchange="readURL(this);" />-->
           <!--<input type='file' id="file" onchange="takeSnapshot(this);" />-->
           </div>
-          <div class="captured" id="captured" onclick="divCaptureClose()">
-            <div id="vid_container">
-              <a id="imgURL" download>
-                <button type="button" class="btn btn-primary">Download</button>
-              </a>
-              <!--<div class="overlay">
-                  <img src="img/frame4.png" alt="Frame" id="frame" class="image">
-                </div>-->
-                <img alt="capture" id="cap" class="image"  />
-            </div>
+        </div>
+
+        <div class="captured" id="captured" onclick="divCaptureClose()">
+          <div id="vid_container">
+            
+            <!--<div class="overlay">
+                <img src="img/frame4.png" alt="Frame" id="frame" class="image">
+              </div>-->
+              <img alt="capture" id="cap" class="image"  />
           </div>
        </div>
       </div>
