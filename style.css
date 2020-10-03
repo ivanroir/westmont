@@ -98,7 +98,6 @@ button {
 }
 
 #backButton {
-  display: none;
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -141,6 +140,12 @@ button {
     left: calc(80% - 32px);
     top: calc(50% - 32px);
   }
+
+  #backButton {
+    left: calc(20% - 32px);
+    top: calc(50% - 32px);
+  }
+
 }
 
 @media screen and (orientation: landscape) {
@@ -173,5 +178,10 @@ button {
   #toggleFullScreenButton {
     left: calc(50% - 32px);
     top: calc(82% - 32px);
+  }
+
+  #backButton {
+    left: calc(50% - 32px);
+    top: calc(18% - 32px);
   }
 }
