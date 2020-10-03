@@ -62,10 +62,7 @@
           <img src="img/frame4.png" alt="Frame" id="frame" class="image">
         </div>
       </div>
-      <div id="vid_container"></div>
-      <div class="buttons" id="buttons">
-        <button type="button" class="btn btn-primary" onclick="divCaptureClose()">Back</button>
-      </div>
+      
       <div id="gui_controls">
         <div id="controls">
           <button
@@ -83,7 +80,11 @@
             aria-pressed="false"
           ></button>
         </div>
-        <div class="try" id="try">
+        <div class="buttons" id="buttons">
+          <button 
+            type="button" 
+            id="backButton"
+            onclick="divCaptureClose()">Back</button>
           <a id="imgURL" download>
             <button 
               type="button" 
@@ -114,13 +115,11 @@
             document.getElementById("captured").style.display = "block";
             document.getElementById("controls").style.display = "none";
             document.getElementById("buttons").style.display = "block";
-            document.getElementById("try").style.display = "block";
         }
         function divCaptureClose() {
             document.getElementById("captured").style.display = "none";
             document.getElementById("controls").style.display = "block";
             document.getElementById("buttons").style.display = "none";
-            document.getElementById("try").style.display = "none";
         }
 
         /*function readURL(input) {

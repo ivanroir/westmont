@@ -97,6 +97,14 @@ button {
   background-image: url('img/ic_camera_front_white_36px.svg');
 }
 
+#backButton {
+  display: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 #downloadButton {
   left: calc(50% - 40px);
   top: calc(50% - 40px);
