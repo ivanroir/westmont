@@ -55,12 +55,15 @@
     <div id="container">
       <div id="vid_container">
         <script>
-          if (currentFacingMode == "environment") {
-            document.getElementById("environment").style.display = "block";
-            document.getElementById("user").style.display = "none";
-          }else{
-            document.getElementById("environment").style.display = "block";
-            document.getElementById("user").style.display = "none";
+          function switchCamera(){
+            console.log(currentFacingMode);
+            /*if (){
+              document.getElementById("environment").style.display = "block";
+              document.getElementById("user").style.display = "none";
+
+              document.getElementById("environment").style.display = "block";
+              document.getElementById("user").style.display = "none";*/
+            }
           }
         </script>
         <div class="environment" id="environment">
@@ -81,6 +84,7 @@
             name="switch Camera"
             type="button"
             aria-pressed="false"
+            onclick="switchCamera()"
           ></button>
           <button id="takePhotoButton" name="Take Photo" type="button" onclick="divCapture()"></button>
           <button
