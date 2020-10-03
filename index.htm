@@ -57,20 +57,13 @@
         <script>
           function switchCamera(){
             if (currentFacingMode != "environment"){
-              document.getElementById("environment").style.display = "block";
-              document.getElementById("user").style.display = "none";
+              document.getElementById("video").style.transform = "scaleX(1)";
             }else{
-              document.getElementById("user").style.display = "block";
-              document.getElementById("environment").style.display = "none";
+              document.getElementById("video").style.transform = "scaleX(-1)";
             }
           }
         </script>
-        <div class="environment" id="environment">
-          <video id="video" autoplay playsinline></video>
-        </div>
-        <div class="user" id="user">
-          <video style="transform: scaleX(-1);" id="video" autoplay playsinline></video>
-        </div>
+        <video style="transform: scaleX(-1);" id="video" autoplay playsinline></video>
         <div id="video_overlay"></div>
         <div class="overlay">
           <img src="img/frame4.png" alt="Frame" id="frame" class="image">
