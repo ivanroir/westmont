@@ -45,8 +45,10 @@
       .environment{
         display: block;
       }
-      </style>
-      
+      .try{
+        display: none;
+      }
+      </style>      
   </head>
   <body>
     <div id="container">
@@ -78,6 +80,12 @@
             aria-pressed="false"
           ></button>
         </div>
+        <div class="try" id="try"></div>
+        <button 
+          type="button" 
+          id="downloadButton"
+          onclick="divCaptureClose()">Download</button>
+        
         <!--<div>
          <input type='file' id="" onchange="readURL(this);" />
          input type='file' id="file" onchange="takeSnapshot(this);" />
@@ -101,11 +109,13 @@
             document.getElementById("captured").style.display = "block";
             document.getElementById("controls").style.display = "none";
             document.getElementById("buttons").style.display = "block";
+            document.getElementById("try").style.display = "block";
         }
         function divCaptureClose() {
             document.getElementById("captured").style.display = "none";
             document.getElementById("controls").style.display = "block";
             document.getElementById("buttons").style.display = "none";
+            document.getElementById("try").style.display = "none";
         }
 
         /*function readURL(input) {

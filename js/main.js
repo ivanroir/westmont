@@ -96,7 +96,8 @@ function initCameraUI() {
   takePhotoButton = document.getElementById('takePhotoButton');
   toggleFullScreenButton = document.getElementById('toggleFullScreenButton');
   switchCameraButton = document.getElementById('switchCameraButton');
-
+  downloadButton = document.getElementById('downloadButton');
+  
   // https://developer.mozilla.org/nl/docs/Web/HTML/Element/button
   // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role
 
@@ -177,6 +178,10 @@ function initCameraUI() {
     },
     false,
   );
+
+  downloadButton.addEventListener('click', function () {
+    
+  });
 }
 
 // https://github.com/webrtc/samples/blob/gh-pages/src/content/devices/input-output/js/main.js
