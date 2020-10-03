@@ -97,6 +97,15 @@ button {
   background-image: url('img/ic_camera_front_white_36px.svg');
 }
 
+#downloadButton {
+  display: none;
+  width: 80px;
+  height: 80px;
+  background-image: url('img/ic_get_app_white_36dp.svg');
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 @media screen and (orientation: portrait) {
   /* portrait-specific styles */
 
