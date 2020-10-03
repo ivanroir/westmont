@@ -293,7 +293,7 @@ function takeSnapshot(input = null) {
     canvas.height = height;
 
     context = canvas.getContext('2d');
-    if (currentFacingMode != "environment"){
+    if (currentFacingMode == "environment"){
       context.drawImage(video, 0, 0, width, height);
     }else{
       context.save(); 
