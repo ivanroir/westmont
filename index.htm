@@ -118,8 +118,8 @@
         </div>
         
         <div>
-         <!--<input type='file' id="file" name="file" onchange="readURL(this);" />-->
-         <input type='file' id="file" name="file" onchange="takeSnapshot(this);" />
+         <input type='file' id="file" name="file" onchange="readURL(this);" />
+         <!--<input type='file' id="file" name="file" onchange="takeSnapshot(this);" />-->
         </div>
       </div>
     
@@ -145,7 +145,7 @@
             document.getElementById("buttons").style.display = "none";
         }
 
-        /*function readURL(input) {
+        function readURL(input) {
           if (input.files && input.files[0]) {
             var reader = new FileReader();
             
@@ -162,7 +162,7 @@
             reader.readAsDataURL(input.files[0]);
           }
         }
-        function readURL(input) {
+        /*function readURL(input) {
           var _URL = window.URL || window.webkitURL;
           console.log(input.files[0]);
           var file, img;
