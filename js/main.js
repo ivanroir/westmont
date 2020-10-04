@@ -243,6 +243,19 @@ function takeSnapshot(input = null) {
   var frame = document.getElementById("frame");
 
   if (input  != null) {
+
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      
+      var urlCreator = window.URL || window.webkitURL;
+
+      reader.onload = function (e) {
+          $('#fileImage')
+            .attr('src', e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+    
     var fileImage = document.getElementById("fileImage");
     
     console.log("fileImage");
