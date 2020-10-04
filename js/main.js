@@ -256,10 +256,10 @@ function takeSnapshot(input = null) {
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
     document.getElementById("buttons").style.display = "block";
-    document.getElementById("imgURL").href = urlCreator.createObjectURL(input.files[0]); 
-    reader.readAsDataURL(input.files[0]);
+    /*document.getElementById("imgURL").href = urlCreator.createObjectURL(input.files[0]); 
+    reader.readAsDataURL(input.files[0]);*/
 
-    var width = 1280;
+    /*var width = 1280;
     var height = 1080;
     canvas.width = width;
     canvas.height = height;
@@ -272,7 +272,7 @@ function takeSnapshot(input = null) {
     //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
     //context.restore();
     //context.drawImage(frame, 0, 0, width * .75, height);
-    context.drawImage(frame, 0, 0, width, height);
+    context.drawImage(frame, 0, 0, width, height);*/
      
 
   /*img.src = objectUrl;
