@@ -272,7 +272,8 @@ function takeSnapshot(input = null) {
       
       reader.onload = (e) => $('#fileImage').attr('src', e.target.result);      
       reader.readAsDataURL(input.files[0]);
-    }
+    var fileImage = document.getElementById("fileImage");
+  
 
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
@@ -283,14 +284,13 @@ function takeSnapshot(input = null) {
     canvas.width = width;
     canvas.height = height;
     
-    var fileImage = document.getElementById("fileImage");
     /*fileImage.onload = () => {
       context.drawImage(fileImage, 0, 0, width, height);
     };
     console.log(fileImage);*/
     context.drawImage(fileImage, 0, 0, width, height);
     context.drawImage(frame, 0, 0, width, height);
-
+  }
   } else {
     var width = video.videoWidth;
     var height = video.videoHeight;
