@@ -274,9 +274,7 @@ function takeSnapshot(input = null) {
       console.log(fileImage);
       context.drawImage(img, 0, 0, width, height);
       context.drawImage(frame, 0, 0, width, height);
-  }
-  document.getElementById("imgURL").href = context.toDataURL("image/png");
-    
+    }
   } else {
     var width = video.videoWidth;
     var height = video.videoHeight;
