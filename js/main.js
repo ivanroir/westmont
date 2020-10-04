@@ -269,6 +269,7 @@ function takeSnapshot(input = null) {
           if( evt.target.readyState == FileReader.DONE) {
             img.src = evt.target.result;
             img.onload = () => context.drawImage(img, 0, 0, width, height);
+            console.log(img);
           }
         }    
       } else {
