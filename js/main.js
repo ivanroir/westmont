@@ -253,8 +253,8 @@ function takeSnapshot(input = null) {
       reader.readAsDataURL(input.files[0]);
     }
 
-    var fileImage = document.getElementById("fileImage");
-    console.log(fileImage.src);
+    var fileImage = document.getElementById("fileImage").src;
+    console.log(fileImage);
 
     fileImage.onload = function (e) {
       console.log("E");
