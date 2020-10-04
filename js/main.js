@@ -242,7 +242,7 @@ function takeSnapshot(input = null) {
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
 
-  var context = document.getElementById('canvasIndex').getContext('2d');
+  //var context = document.getElementById('cap').getContext('2d');
 
   if (input  != null) {
     if (input.files && input.files[0]) {
@@ -265,7 +265,7 @@ function takeSnapshot(input = null) {
     canvas.width = width;
     canvas.height = height;
 
-    //context = canvas.getContext('2d');
+    context = canvas.getContext('2d');
 
     var img = new Image;
     img.src = URL.createObjectURL(input.files[0]);
@@ -281,7 +281,7 @@ function takeSnapshot(input = null) {
     canvas.width = width;
     canvas.height = height;
 
-    //context = canvas.getContext('2d');
+    context = canvas.getContext('2d');
     if (currentFacingMode == "environment"){
       context.drawImage(video, 0, 0, width, height);
     }else{
@@ -314,7 +314,7 @@ function takeSnapshot(input = null) {
     // do something with the image blob
     urlCreator = window.URL || window.webkitURL;
     imageUrl = urlCreator.createObjectURL(blob);
-    document.querySelector("#canvasIndex").src = imageUrl;
+    document.querySelector("#cap").src = imageUrl;
     document.getElementById("imgURL").href = imageUrl;  
     console.log(imageUrl);
   });
