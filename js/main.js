@@ -243,7 +243,7 @@ function takeSnapshot(input = null) {
   var frame = document.getElementById("frame");
 
   if (input  != null) {
-
+    console.log("FILE");
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       
@@ -255,7 +255,7 @@ function takeSnapshot(input = null) {
       };
       reader.readAsDataURL(input.files[0]);
     }
-    
+
     var fileImage = document.getElementById("fileImage");
     
     console.log("fileImage");
