@@ -263,8 +263,9 @@ function takeSnapshot(input = null) {
     canvas.width = width;
     canvas.height = height;
     context = canvas.getContext('2d');
-
-    fileImage.onload = function (e) {
+    var img = new Image;
+    img.src = URL.createObjectURL(input.files[0]);
+    img.onload = function (e) {
       var fileImage = document.getElementById("fileImage");
       console.log(fileImage);
       context.drawImage(fileImage, 0, 0, width, height);
