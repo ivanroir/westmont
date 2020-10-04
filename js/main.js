@@ -262,8 +262,8 @@ function takeSnapshot(input = null) {
           console.log(_URL);*/
 
 
-          var width = this.width;
-          var height = this.height;
+          var width = "1280px";
+          var height = "1080px";
           canvas.width = width;
           canvas.height = height;
     
@@ -275,7 +275,7 @@ function takeSnapshot(input = null) {
          // context.save(); 
           //context.scale(-1, 1); 
           //context.clearRect(0, 0, width, height);
-          context.drawImage(e.target.result, 0, 0, width, height);
+          context.drawImage(pict, 0, 0, width, height);
           //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
           //context.restore();
           //context.drawImage(frame, 0, 0, width * .75, height);
