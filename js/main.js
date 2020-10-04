@@ -285,9 +285,9 @@ function takeSnapshot(input = null) {
     
     console.log(fileImage);
     image.onload = () => { 
-      var fileImage =document.getElementById("fileImage");   
-      context.drawImage(fileImage, 0, 0, width, height);
+      document.getElementById("fileImage");   
     }
+    context.drawImage(image, 0, 0, width, height);
     context.drawImage(frame, 0, 0, width, height);
 
   } else {
