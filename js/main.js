@@ -273,8 +273,9 @@ function takeSnapshot(input = null) {
       var fileImage = document.getElementById("fileImage");
       console.log(fileImage);
       context.drawImage(img, 0, 0, width, height);
-      context.drawImage(frame, 0, 0, width, height);
     }
+    context.drawImage(frame, 0, 0, width, height);
+
   } else {
     var width = video.videoWidth;
     var height = video.videoHeight;
