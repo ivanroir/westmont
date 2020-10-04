@@ -243,22 +243,26 @@ function takeSnapshot(input = null) {
   var frame = document.getElementById("frame");
   var cap = document.getElementById("cap");
 
-  if(input != null) {
-
-    var reader = new FileReader();      
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    var urlCreator = window.URL || window.webkitURL;
+    
     reader.onload = function (e) {
-      $('#cap').attr('src', e.target.result);
+        $('#cap')
+          .attr('src', e.target.result);
     };
+
+    document.getElementById("captured").style.display = "block";
+    document.getElementById("controls").style.display = "none";
+    document.getElementById("buttons").style.display = "block";
+    document.getElementById("imgURL").href = urlCreator.createObjectURL(input.files[0]); 
     reader.readAsDataURL(input.files[0]);
 
     var width = 1280;
     var height = 1080;
     canvas.width = width;
     canvas.height = height;
-
-    document.getElementById("captured").style.display = "block";
-    document.getElementById("controls").style.display = "none";
-    document.getElementById("buttons").style.display = "block";
 
     context = canvas.getContext('2d');
     // context.save(); 
