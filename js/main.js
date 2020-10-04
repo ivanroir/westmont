@@ -246,8 +246,6 @@ function takeSnapshot(input = null) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       
-      var urlCreator = window.URL || window.webkitURL;
-
       reader.onload = function (e) {
           $('#fileImage')
             .attr('src', e.target.result);
@@ -268,65 +266,10 @@ function takeSnapshot(input = null) {
     var height = 1080;
     canvas.width = width;
     canvas.height = height;
-
     context = canvas.getContext('2d');
-    // context.save(); 
-    //context.scale(-1, 1); 
-    //context.clearRect(0, 0, width, height);
     context.drawImage(fileImage, 0, 0, width, height);
-    //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
-    //context.restore();
-    //context.drawImage(frame, 0, 0, width * .75, height);
     context.drawImage(frame, 0, 0, width, height);
      
-
-  /*img.src = objectUrl;
-  console.log(img.src);
-  }*/
-
-  /*if(input != null) {
-    var url = input.files[0];
-    //if (input.files && input.files[0]) {
-      
-      var reader = new FileReader();      
-      reader.onload = function (e) {
-        $('#cap')
-          .attr('src', e.target.result);
-          url=e.target.result;
-      };
-      reader.readAsDataURL(input.files[0]);
-  
-      var width = pict.videoWidth;
-      var height = pict.videoHeight;
-      canvas.width = width;
-      canvas.height = height;
-
-      document.getElementById("captured").style.display = "block";
-      document.getElementById("controls").style.display = "none";
-      document.getElementById("buttons").style.display = "block";
-
-      context = canvas.getContext('2d');
-      context.save(); 
-      context.scale(-1, 1); 
-      context.clearRect(0, 0, width, height);
-      context.drawImage(pict, width, 0, width, height);
-      //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
-      context.restore();
-      //context.drawImage(frame, 0, 0, width * .75, height);
-      context.drawImage(frame, 0, 0, width, height);
-
-      //console.log(e.target.result);
-    /*};
-
-    if ((file = input.files[0])) {
-      console.log("FILE");
-      img = new Image();
-      var objectUrl = _URL.createObjectURL(input.files[0]);              
-      img.onload = function (e) {
-          console.log(this.width + " " + this.height);
-          _URL.revokeObjectURL(objectUrl);
-          console.log(_URL);*/
-   // }*/
   } else {
     var width = video.videoWidth;
     var height = video.videoHeight;

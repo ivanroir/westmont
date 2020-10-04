@@ -134,50 +134,49 @@
         </div>
       </div>
     </div>
-      <script>
-        function divCapture() {
-            document.getElementById("captured").style.display = "block";
-            document.getElementById("controls").style.display = "none";
-            document.getElementById("buttons").style.display = "block";
-        }
-        function divCaptureClose() {
-            document.getElementById("captured").style.display = "none";
-            document.getElementById("controls").style.display = "block";
-            document.getElementById("buttons").style.display = "none";
-        }
+    <img id="fileImage" class="image" />
+    <script>
+      function divCapture() {
+          document.getElementById("captured").style.display = "block";
+          document.getElementById("controls").style.display = "none";
+          document.getElementById("buttons").style.display = "block";
+      }
+      function divCaptureClose() {
+          document.getElementById("captured").style.display = "none";
+          document.getElementById("controls").style.display = "block";
+          document.getElementById("buttons").style.display = "none";
+      }
 
-        function readURL(input) {
-          if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            var urlCreator = window.URL || window.webkitURL;
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          
+          var urlCreator = window.URL || window.webkitURL;
 
-            reader.onload = function (e) {
-                $('#fileImage')
-                  .attr('src', e.target.result);
+          reader.onload = function (e) {
+              $('#fileImage')
+                .attr('src', e.target.result);
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      /*function readURL(input) {
+        var _URL = window.URL || window.webkitURL;
+        console.log(input.files[0]);
+        var file, img;
+        if ((file = input.files[0])) {
+            console.log("FILE");
+            img = new Image();
+            var objectUrl = _URL.createObjectURL(input.files[0]);              
+            img.onload = function () {
+                console.log(this.width + " " + this.height);
+                _URL.revokeObjectURL(objectUrl);
+                console.log(_URL);
             };
-            reader.readAsDataURL(input.files[0]);
+            img.src = objectUrl;
+            console.log(img.src);
           }
-        }
-        /*function readURL(input) {
-          var _URL = window.URL || window.webkitURL;
-          console.log(input.files[0]);
-          var file, img;
-          if ((file = input.files[0])) {
-              console.log("FILE");
-              img = new Image();
-              var objectUrl = _URL.createObjectURL(input.files[0]);              
-              img.onload = function () {
-                  console.log(this.width + " " + this.height);
-                  _URL.revokeObjectURL(objectUrl);
-                  console.log(_URL);
-              };
-              img.src = objectUrl;
-              console.log(img.src);
-            }
-        } */
-
-        
+      } */        
     </script>
     <script src="js/adapter.min.js"></script>
     <script src="js/screenfull.min.js"></script>
@@ -195,6 +194,5 @@
         }
       }
     </script>
-    <img id="fileImage" class="image" />         
   </body>
 </html>
