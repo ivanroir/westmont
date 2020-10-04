@@ -248,7 +248,7 @@ function takeSnapshot(input = null) {
     reader.onload = function (e) {
       $('#cap').attr('src', e.target.result);
     };
-    reader.readAsDataURL(input.files[0]);
+    /*reader.readAsDataURL(input.files[0]);
 
     var width = 1280;
     var height = 1080;
@@ -257,9 +257,9 @@ function takeSnapshot(input = null) {
 
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
-    document.getElementById("buttons").style.display = "block";
+    document.getElementById("buttons").style.display = "block";*/
 
-    context = canvas.getContext('2d');
+    //context = canvas.getContext('2d');
     // context.save(); 
     //context.scale(-1, 1); 
     //context.clearRect(0, 0, width, height);
@@ -267,7 +267,7 @@ function takeSnapshot(input = null) {
     //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
     //context.restore();
     //context.drawImage(frame, 0, 0, width * .75, height);
-    context.drawImage(frame, 0, 0, width, height);
+    //context.drawImage(frame, 0, 0, width, height);
      
 
   /*img.src = objectUrl;
