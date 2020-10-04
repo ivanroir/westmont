@@ -251,7 +251,7 @@ function takeSnapshot(input = null) {
     reader.onload = function (e) {
       $('#cap').attr('src', e.target.result);
       console.log(e.target.result);
-    };
+    /*};
 
     if ((file = input.files[0])) {
       console.log("FILE");
@@ -260,7 +260,7 @@ function takeSnapshot(input = null) {
       img.onload = function (e) {
           console.log(this.width + " " + this.height);
           _URL.revokeObjectURL(objectUrl);
-          console.log(_URL);
+          console.log(_URL);*/
 
 
           var width = this.width;
