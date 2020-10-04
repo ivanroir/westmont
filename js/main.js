@@ -260,7 +260,8 @@ function takeSnapshot(input = null) {
           console.log(this.width + " " + this.height);
           _URL.revokeObjectURL(objectUrl);
           console.log(_URL);*/
-
+        };
+        reader.readAsDataURL(input.files[0]);
 
           var width = 1280;
           var height = 1080;
@@ -280,8 +281,7 @@ function takeSnapshot(input = null) {
           //context.restore();
           //context.drawImage(frame, 0, 0, width * .75, height);
           context.drawImage(frame, 0, 0, width, height);
-      };
-      reader.readAsDataURL(input.files[0]);
+     
 
       /*img.src = objectUrl;
       console.log(img.src);
@@ -318,7 +318,7 @@ function takeSnapshot(input = null) {
       //context.drawImage(frame, 0, 0, width * .75, height);
       context.drawImage(frame, 0, 0, width, height);
    // }*/
-  } else {    
+  } else {
     var width = video.videoWidth;
     var height = video.videoHeight;
     canvas.width = width;
