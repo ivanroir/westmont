@@ -249,32 +249,14 @@ function takeSnapshot(input = null) {
     context = canvas.getContext('2d');
     var image = new Image();
     
-    /*fileinput.onchange = function(evt) {
-	    var files = evt.target.files; // FileList object
-	    var file = files[0];
-	    if(file.type.match('image.*')) {
-        var reader = new FileReader();
-        // Read in the image file as a data URL.
-        reader.readAsDataURL(file);
-        reader.onload = function(evt){
-          if( evt.target.readyState == FileReader.DONE) {
-            img.src = evt.target.result;
-            img.onload = () => context.drawImage(img,100,100);
-          }
-        }    
-      } else {
-          alert("not an image");
-      }
-    }*/
 
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       
       reader.onload = (e) => $('#fileImage').attr('src', e.target.result);      
       reader.readAsDataURL(input.files[0]);
+    }
     var fileImage = document.getElementById("fileImage");
-  
-
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
     document.getElementById("buttons").style.display = "block";   
@@ -284,13 +266,9 @@ function takeSnapshot(input = null) {
     canvas.width = width;
     canvas.height = height;
     
-    /*fileImage.onload = () => {
-      context.drawImage(fileImage, 0, 0, width, height);
-    };
-    console.log(fileImage);*/
     context.drawImage(fileImage, 0, 0, width, height);
+    console.log(fileImage);
     context.drawImage(frame, 0, 0, width, height);
-  }
   } else {
     var width = video.videoWidth;
     var height = video.videoHeight;
@@ -327,6 +305,7 @@ function takeSnapshot(input = null) {
     // do something with the image blob
     urlCreator = window.URL || window.webkitURL;
     imageUrl = urlCreator.createObjectURL(blob);
+    console.log(imageUrl);
     document.querySelector("#cap").src = imageUrl;
     document.getElementById("imgURL").href = imageUrl;  
   });
