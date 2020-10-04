@@ -254,40 +254,31 @@ function takeSnapshot(input = null) {
       reader.readAsDataURL(input.files[0]);
     }
 
-    
-    fileImage.onload = function (e) {
-      var fileImage = document.getElementById("fileImage");
-      console.log(fileImage.src);
-
-      console.log("E");
-      console.log(e);
-    };
-
-    console.log(input.files[0]);
-    //console.log(fileImage);
-
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
     document.getElementById("buttons").style.display = "block";   
 
-    
-    var width = 1280;
-    var height = 1080;
+    fileImage.onload = function (e) {
+      var fileImage = document.getElementById("fileImage");
+      console.log(fileImage.src);
+  
+      var width = 1280;
+      var height = 1080;
 
-    /*var ctx = document.getElementById('canvas').getContext('2d');
-    var img = new Image;
-    img.src = URL.createObjectURL(e.target.files[0]);
-    img.onload = function() {
-      ctx.drawImage(fileImage, 0, 0, width, height);
-      ctx.drawImage(frame, 0, 0, width, height);
-    }*/
-    
-    canvas.width = width;
-    canvas.height = height;
-    context = canvas.getContext('2d');
-    context.drawImage(fileImage, 0, 0, width, height);
-    context.drawImage(frame, 0, 0, width, height);
-     
+      /*var ctx = document.getElementById('canvas').getContext('2d');
+      var img = new Image;
+      img.src = URL.createObjectURL(input.files[0]);
+      img.onload = function() {
+        ctx.drawImage(fileImage, 0, 0, width, height);
+        ctx.drawImage(frame, 0, 0, width, height);
+      }*/
+      
+      canvas.width = width;
+      canvas.height = height;
+      context = canvas.getContext('2d');
+      context.drawImage(fileImage, 0, 0, width, height);
+      context.drawImage(frame, 0, 0, width, height);
+    }
   } else {
     var width = video.videoWidth;
     var height = video.videoHeight;
