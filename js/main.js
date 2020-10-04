@@ -244,7 +244,6 @@ function takeSnapshot(input = null) {
 
   if(input != null) {
     var _URL = window.URL || window.webkitURL;
-    console.log(input.files[0]);
     var file, img;
 
     var reader = new FileReader();      
@@ -282,6 +281,7 @@ function takeSnapshot(input = null) {
           //context.drawImage(frame, 0, 0, width * .75, height);
           context.drawImage(frame, 0, 0, width, height);
       };
+      reader.readAsDataURL(input.files[0]);
       /*img.src = objectUrl;
       console.log(img.src);
     }*/
