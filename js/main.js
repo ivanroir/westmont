@@ -285,11 +285,10 @@ function takeSnapshot(input = null) {
     
     var fileImage = document.getElementById("fileImage");
     image.onload = () => {
-      console.log(fileImage.src);
+      context.drawImage(fileImage, 0, 0, width, height);
     };
     console.log(image);
     
-    context.drawImage(image, 0, 0, width, height);
     context.drawImage(frame, 0, 0, width, height);
 
   } else {
