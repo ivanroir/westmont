@@ -248,8 +248,8 @@ function takeSnapshot(input = null) {
     var reader = new FileReader();      
     reader.onload = function (e) {
       $('#cap').attr('src', e.target.result);
-      var pict = document.getElementById("cap");
-      console.log(pict);
+      /*var pict = document.getElementById("cap");
+      console.log(pict);*/
     /*};
 
     if ((file = input.files[0])) {
@@ -262,8 +262,8 @@ function takeSnapshot(input = null) {
           console.log(_URL);*/
 
 
-          var width = "1280px";
-          var height = "1080px";
+          var width = 1280;
+          var height = 1080;
           canvas.width = width;
           canvas.height = height;
     
