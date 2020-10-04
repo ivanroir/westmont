@@ -284,7 +284,7 @@ function takeSnapshot(input = null) {
     canvas.height = height;
     
     image.onload = () => { 
-      document.getElementById("fileImage");   
+      document.getElementById("fileImage").target.result;   
     }
     console.log(image);
     context.drawImage(image, 0, 0, width, height);
