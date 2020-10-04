@@ -67,8 +67,8 @@
             <img src="img/frame2.png" style="width: 100%; height: -webkit-fill-available;" />
             <img src="img/frame3.png" style="width: 100%; height: -webkit-fill-available;" />
             <!--<img id="fileImage" style="width: 100%; height: -webkit-fill-available;" />-->
-            <img id="fileImage" class="image" />
           </div>
+          <img id="fileImage" class="image" height="1080px" width="1280px" />
         </div>
       </div>    
       <div id="gui_controls">
@@ -157,10 +157,6 @@
                 $('#fileImage')
                   .attr('src', e.target.result);
             };
-            document.getElementById("captured").style.display = "block";
-            document.getElementById("controls").style.display = "none";
-            document.getElementById("buttons").style.display = "block";
-            //document.getElementById("imgURL").href = urlCreator.createObjectURL(input.files[0]); 
             reader.readAsDataURL(input.files[0]);
           }
         }
