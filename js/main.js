@@ -258,26 +258,25 @@ function takeSnapshot(input = null) {
     document.getElementById("controls").style.display = "none";
     document.getElementById("buttons").style.display = "block";   
 
-    var ctx = document.getElementById('canvasIndex').getContext('2d');
+    var context = document.getElementById('canvasIndex').getContext('2d');
 
     var width = 1280;
     var height = 1080;
     canvas.width = width;
     canvas.height = height;
 
-    context = canvas.getContext('2d');
+    //context = canvas.getContext('2d');
 
     var img = new Image;
     img.src = URL.createObjectURL(input.files[0]);
     img.onload = function (e) {
       var fileImage = document.getElementById("fileImage");
       console.log(fileImage);
-      ctx.drawImage(img, 0, 0, width, height);
+      context.drawImage(img, 0, 0, width, height);
+      context.drawImage(frame, 0, 0, width, height);
     }
     img.src = URL.createObjectURL(input.files[0]);
-    console.log(img.src);
-    console.log(img);
-    context.drawImage(frame, 0, 0, width, height);
+
 
      /*var ctx = document.getElementById('canvas').getContext('2d');
     var img = new Image;
@@ -326,7 +325,7 @@ function takeSnapshot(input = null) {
     // do something with the image blob
     urlCreator = window.URL || window.webkitURL;
     imageUrl = urlCreator.createObjectURL(blob);
-    document.querySelector("#cap").src = imageUrl;
+    //document.querySelector("#cap").src = imageUrl;
     document.getElementById("imgURL").href = imageUrl;  
 
   });
