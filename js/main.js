@@ -241,10 +241,13 @@ function initCameraStream() {
 function takeSnapshot(input = null) {
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
-  var fileImage = document.getElementById("fileImage");
 
   if (input  != null) {
+    var fileImage = document.getElementById("fileImage");
     
+    console.log("fileImage");
+    console.log(fileImage);
+
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
     document.getElementById("buttons").style.display = "block";   
