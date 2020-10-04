@@ -272,6 +272,9 @@ function takeSnapshot(input = null) {
     //img.onload = function (e) {
     var fileImage = document.getElementById("fileImage");
     console.log(fileImage);
+    fileImage.onload = function (e) {
+      console.log(fileImage.src);
+    }
     context.drawImage(fileImage, 0, 0, width, height);
     //}
     context.drawImage(frame, 0, 0, width, height);
