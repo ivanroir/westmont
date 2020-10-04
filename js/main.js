@@ -282,9 +282,9 @@ function takeSnapshot(input = null) {
           //context.drawImage(frame, 0, 0, width * .75, height);
           context.drawImage(frame, 0, 0, width, height);
       };
-      img.src = objectUrl;
+      /*img.src = objectUrl;
       console.log(img.src);
-    //}
+    }*/
 
   /*if(input != null) {
     var url = input.files[0];
