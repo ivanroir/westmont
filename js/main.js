@@ -254,11 +254,13 @@ function takeSnapshot(input = null) {
     }
 
     var fileImage = document.getElementById("fileImage");
+    console.log(fileImage.src);
+
     fileImage.onload = function (e) {
       console.log("E");
       console.log(e);
     };
-    
+
     console.log("fileImage");
     console.log(fileImage);
 
