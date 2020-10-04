@@ -241,25 +241,15 @@ function initCameraStream() {
 function takeSnapshot(input = null) {
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
-  var cap = document.getElementById("cap");
+  var fileImage = document.getElementById("fileImage");
 
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
+  if (input  != null) {
     
-    var urlCreator = window.URL || window.webkitURL;
-    
-    reader.onload = function (e) {
-        $('#cap')
-          .attr('src', e.target.result);
-    };
-
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
-    document.getElementById("buttons").style.display = "block";
-    /*document.getElementById("imgURL").href = urlCreator.createObjectURL(input.files[0]); 
-    reader.readAsDataURL(input.files[0]);*/
+    document.getElementById("buttons").style.display = "block";   
 
-    /*var width = 1280;
+    var width = 1280;
     var height = 1080;
     canvas.width = width;
     canvas.height = height;
@@ -268,11 +258,11 @@ function takeSnapshot(input = null) {
     // context.save(); 
     //context.scale(-1, 1); 
     //context.clearRect(0, 0, width, height);
-    context.drawImage(cap, 0, 0, width, height);
+    context.drawImage(fileImage, 0, 0, width, height);
     //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
     //context.restore();
     //context.drawImage(frame, 0, 0, width * .75, height);
-    context.drawImage(frame, 0, 0, width, height);*/
+    context.drawImage(frame, 0, 0, width, height);
      
 
   /*img.src = objectUrl;
