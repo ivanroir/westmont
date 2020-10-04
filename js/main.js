@@ -16,6 +16,7 @@ var amountOfCameras = 0;
 var currentFacingMode = 'environment';
 var urlCreator;
 var imageUrl;
+var pict = document.getElementById("cap");
 
 // this function counts the amount of video inputs
 // it replaces DetectRTC that was previously implemented.
@@ -247,7 +248,8 @@ function takeSnapshot(input = null) {
 
     var reader = new FileReader();      
     reader.onload = function (e) {
-      $('#cap').attr('src', e.target.result);      
+      $('#cap').attr('src', e.target.result);
+      console.log(e.target.result);
     /*};
 
     if ((file = input.files[0])) {
@@ -259,30 +261,28 @@ function takeSnapshot(input = null) {
           _URL.revokeObjectURL(objectUrl);
           console.log(_URL);*/
 
-          
-          var width = 1280;
-          var height = 1080;
+
+          var width = this.width;
+          var height = this.height;
           canvas.width = width;
           canvas.height = height;
     
           document.getElementById("captured").style.display = "block";
           document.getElementById("controls").style.display = "none";
           document.getElementById("buttons").style.display = "block";
-
-          var pict = document.getElementById("cap");
-          console.log(pict);
-
+    
           context = canvas.getContext('2d');
          // context.save(); 
           //context.scale(-1, 1); 
           //context.clearRect(0, 0, width, height);
-          context.drawImage(pict, 0, 0, width, height);
+          context.drawImage(e.target.result, 0, 0, width, height);
           //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
           //context.restore();
           //context.drawImage(frame, 0, 0, width * .75, height);
           context.drawImage(frame, 0, 0, width, height);
       };
       reader.readAsDataURL(input.files[0]);
+
       /*img.src = objectUrl;
       console.log(img.src);
     }*/
