@@ -242,6 +242,7 @@ function takeSnapshot(input = null) {
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
 
+
   if (input  != null) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -262,15 +263,25 @@ function takeSnapshot(input = null) {
       console.log(e);
     };
 
-    console.log("fileImage");
-    console.log(fileImage);
+    console.log(input.target.files[0]);
+    //console.log(fileImage);
 
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
     document.getElementById("buttons").style.display = "block";   
 
+    
     var width = 1280;
     var height = 1080;
+
+    /*var ctx = document.getElementById('canvas').getContext('2d');
+    var img = new Image;
+    img.src = URL.createObjectURL(e.target.files[0]);
+    img.onload = function() {
+      ctx.drawImage(fileImage, 0, 0, width, height);
+      ctx.drawImage(frame, 0, 0, width, height);
+    }*/
+    
     canvas.width = width;
     canvas.height = height;
     context = canvas.getContext('2d');
