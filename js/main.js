@@ -248,35 +248,26 @@ function takeSnapshot(input = null) {
     var fileinput = document.getElementById('file');
     context = canvas.getContext('2d');
     var img = new Image;
-
-    var width = 1280;
-    var height = 1080;
-    canvas.width = width;
-    canvas.height = height;
-
-    document.getElementById("captured").style.display = "block";
-    document.getElementById("controls").style.display = "none";
-    document.getElementById("buttons").style.display = "block"; 
-
-    fileinput.onchange = function(evt) {
-      var files = evt.target.files; // FileList object
-      var file = files[0];
-      if(file.type.match('image.*')) {
+    
+    /*fileinput.onchange = function(evt) {
+	    var files = evt.target.files; // FileList object
+	    var file = files[0];
+	    if(file.type.match('image.*')) {
         var reader = new FileReader();
         // Read in the image file as a data URL.
         reader.readAsDataURL(file);
         reader.onload = function(evt){
           if( evt.target.readyState == FileReader.DONE) {
             img.src = evt.target.result;
-            img.onload = () => context.drawImage(img, 0, 0, width, height);
-            console.log(img);
+            img.onload = () => context.drawImage(img,100,100);
           }
         }    
       } else {
           alert("not an image");
       }
-    }
-    /*if (input.files && input.files[0]) {
+    }*/
+
+    if (input.files && input.files[0]) {
       var reader = new FileReader();
       
       reader.onload = function (e) {
@@ -284,11 +275,26 @@ function takeSnapshot(input = null) {
             .attr('src', e.target.result);
       };
       reader.readAsDataURL(input.files[0]);
-    }*/
+    }
 
-    /*img.src = URL.createObjectURL(input.files[0]);
-    var fileImage = document.getElementById("fileImage");   
-    context.drawImage(fileImage, 0, 0, width, height);*/
+    document.getElementById("captured").style.display = "block";
+    document.getElementById("controls").style.display = "none";
+    document.getElementById("buttons").style.display = "block";   
+
+    var width = 1280;
+    var height = 1080;
+    canvas.width = width;
+    canvas.height = height;
+
+    img.src = URL.createObjectURL(input.files[0]);
+    //img.onload = function (e) {
+    var fileImage = document.getElementById("fileImage");
+    console.log(fileImage);
+    fileImage.onload = function (e) {
+      console.log(fileImage.src);
+    }
+    context.drawImage(fileImage, 0, 0, width, height);
+    //}
     context.drawImage(frame, 0, 0, width, height);
 
   } else {
