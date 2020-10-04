@@ -284,7 +284,7 @@ function takeSnapshot(input = null) {
       };
       img.src = objectUrl;
       console.log(img.src);
-    }
+    //}
 
   /*if(input != null) {
     var url = input.files[0];
