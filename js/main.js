@@ -268,15 +268,12 @@ function takeSnapshot(input = null) {
     //context = canvas.getContext('2d');
 
     var img = new Image;
-    img.src = URL.createObjectURL(input.files[0]);
     img.onload = function (e) {
       var fileImage = document.getElementById("fileImage");
       console.log(fileImage);
       context.drawImage(img, 0, 0, width, height);
       context.drawImage(frame, 0, 0, width, height);
     }
-    img.src = URL.createObjectURL(input.files[0]);
-
 
      /*var ctx = document.getElementById('canvas').getContext('2d');
     var img = new Image;
