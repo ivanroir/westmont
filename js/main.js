@@ -248,7 +248,7 @@ function takeSnapshot(input = null) {
     var fileinput = document.getElementById('file');
     context = canvas.getContext('2d');
     var image = new Image();
-
+    
     /*fileinput.onchange = function(evt) {
 	    var files = evt.target.files; // FileList object
 	    var file = files[0];
@@ -282,12 +282,11 @@ function takeSnapshot(input = null) {
     var height = 1080;
     canvas.width = width;
     canvas.height = height;
-    
-    image.onload = () => {  
-    }
-    console.log(input.files[0].src);
-    console.log(image.src);
-    context.drawImage(image, 0, 0, width, height);
+
+    var fileImage = document.getElementById("fileImage");
+    console.log(fileImage);
+    fileImage.onload = () => {};
+    context.drawImage(fileImage, 0, 0, width, height);
     context.drawImage(frame, 0, 0, width, height);
 
   } else {
