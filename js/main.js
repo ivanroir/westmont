@@ -263,7 +263,7 @@ function takeSnapshot(input = null) {
       console.log(e);
     };
 
-    console.log(input.target.files[0]);
+    console.log(input.files[0]);
     //console.log(fileImage);
 
     document.getElementById("captured").style.display = "block";
