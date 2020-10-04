@@ -328,7 +328,7 @@ function takeSnapshot(input = null) {
     //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
     //context.drawImage(frame, 0, 0, width * .75, height);
     context.drawImage(frame, 0, 0, width, height);
- // }
+  }
   // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
 
   // https://developers.google.com/web/fundamentals/primers/promises
