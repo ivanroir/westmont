@@ -262,8 +262,8 @@ function takeSnapshot(input = null) {
           console.log(_URL);*/
 
 
-          var width = this.width;
-          var height = this.height;
+          var width = 1280;
+          var height = 1080;
           canvas.width = width;
           canvas.height = height;
     
