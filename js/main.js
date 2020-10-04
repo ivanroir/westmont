@@ -246,41 +246,37 @@ function takeSnapshot(input = null) {
     var _URL = window.URL || window.webkitURL;
     console.log(input.files[0]);
     var file, img;
-    var width;
-    var height;
-
     if ((file = input.files[0])) {
       console.log("FILE");
       img = new Image();
       var objectUrl = _URL.createObjectURL(input.files[0]);              
-      img.onload = function () {
+      img.onload = function (e) {
           console.log(this.width + " " + this.height);
           _URL.revokeObjectURL(objectUrl);
           console.log(_URL);
 
-          width = this.width;
-          height = this.height;
-          console.log(width);
-        };   
-        console.log(width);
-        canvas.width = width;
-        canvas.height = height;
-  
-        document.getElementById("captured").style.display = "block";
-        document.getElementById("controls").style.display = "none";
-        document.getElementById("buttons").style.display = "block";
-  
-        context = canvas.getContext('2d');
-        // context.save(); 
-        //context.scale(-1, 1); 
-        //context.clearRect(0, 0, width, height);
-        context.drawImage(input, 0, 0, width, height);
-        //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
-        //context.restore();
-        //context.drawImage(frame, 0, 0, width * .75, height);
-        context.drawImage(frame, 0, 0, width, height);
+          $('#cap').attr('src', e.target.result);
+          console.log(e.target.result);
 
-     
+          var width = this.width;
+          var height = this.height;
+          canvas.width = width;
+          canvas.height = height;
+    
+          document.getElementById("captured").style.display = "block";
+          document.getElementById("controls").style.display = "none";
+          document.getElementById("buttons").style.display = "block";
+    
+          context = canvas.getContext('2d');
+         // context.save(); 
+          //context.scale(-1, 1); 
+          //context.clearRect(0, 0, width, height);
+          context.drawImage(e.target.result, 0, 0, width, height);
+          //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
+          //context.restore();
+          //context.drawImage(frame, 0, 0, width * .75, height);
+          context.drawImage(frame, 0, 0, width, height);
+      };
       img.src = objectUrl;
       console.log(img.src);
     }
