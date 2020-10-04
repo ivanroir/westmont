@@ -118,8 +118,8 @@
         </div>
         
         <div>
-         <input type='file' id="file" name="file" onchange="readURL(this);" />
-         <!--<input type='file' id="file" onchange="takeSnapshot(this);" />-->
+         <!--<input type='file' id="file" name="file" onchange="readURL(this);" />-->
+         <input type='file' id="file" name="file" onchange="takeSnapshot(this);" />
         </div>
       </div>
     
@@ -161,8 +161,7 @@
             document.getElementById("imgURL").href = urlCreator.createObjectURL(input.files[0]); 
             reader.readAsDataURL(input.files[0]);
           }
-        }*/
-
+        }
         function readURL(input) {
           var _URL = window.URL || window.webkitURL;
           console.log(input.files[0]);
@@ -179,7 +178,8 @@
               img.src = objectUrl;
               console.log(img.src);
             }
-        } 
+        } */
+
         
     </script>
     <script src="js/adapter.min.js"></script>

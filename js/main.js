@@ -242,22 +242,42 @@ function takeSnapshot(input = null) {
   var canvas = document.createElement('canvas');
   var frame = document.getElementById("frame");
 
-/*
-  var _URL = window.URL || window.webkitURL;
-  $("#file").change(function (e) {
-    console.log("FILE");
-      var file, img;
-      if ((file = input.files[0])) {
-          img = new Image();
-          var objectUrl = _URL.createObjectURL(file);
+  if(input != null) {
+    var _URL = window.URL || window.webkitURL;
+    console.log(input.files[0]);
+    var file, img;
+    if ((file = input.files[0])) {
+      console.log("FILE");
+      img = new Image();
+      var objectUrl = _URL.createObjectURL(input.files[0]);              
+      img.onload = function () {
           console.log(this.width + " " + this.height);
-          img.onload = function () {
-              console.log(this.width + " " + this.height);
-              _URL.revokeObjectURL(objectUrl);
-          };
-          img.src = objectUrl;
-      }
-  });*/
+          _URL.revokeObjectURL(objectUrl);
+          console.log(_URL);
+
+          var width = this.width;
+          var height = this.height;
+          canvas.width = width;
+          canvas.height = height;
+    
+          document.getElementById("captured").style.display = "block";
+          document.getElementById("controls").style.display = "none";
+          document.getElementById("buttons").style.display = "block";
+    
+          context = canvas.getContext('2d');
+         // context.save(); 
+          //context.scale(-1, 1); 
+          //context.clearRect(0, 0, width, height);
+          context.drawImage(input.files[0], 0, 0, width, height);
+          //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
+          //context.restore();
+          //context.drawImage(frame, 0, 0, width * .75, height);
+          context.drawImage(frame, 0, 0, width, height);
+
+      };
+      img.src = objectUrl;
+      console.log(img.src);
+    }
 
   /*if(input != null) {
     var url = input.files[0];
@@ -289,9 +309,8 @@ function takeSnapshot(input = null) {
       context.restore();
       //context.drawImage(frame, 0, 0, width * .75, height);
       context.drawImage(frame, 0, 0, width, height);
-   // }
-  }
-  else {    */
+   // }*/
+  } else {    
     var width = video.videoWidth;
     var height = video.videoHeight;
     canvas.width = width;
