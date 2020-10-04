@@ -243,49 +243,36 @@ function takeSnapshot(input = null) {
   var frame = document.getElementById("frame");
 
   if(input != null) {
-    var _URL = window.URL || window.webkitURL;
-    var file, img;
 
     var reader = new FileReader();      
     reader.onload = function (e) {
       $('#cap').attr('src', e.target.result);
-      //console.log(e.target.result);
-    /*};
+    };
+    reader.readAsDataURL(input.files[0]);
 
-    if ((file = input.files[0])) {
-      console.log("FILE");
-      img = new Image();
-      var objectUrl = _URL.createObjectURL(input.files[0]);              
-      img.onload = function (e) {
-          console.log(this.width + " " + this.height);
-          _URL.revokeObjectURL(objectUrl);
-          console.log(_URL);*/
-        };
-        reader.readAsDataURL(input.files[0]);
+    var width = 1280;
+    var height = 1080;
+    canvas.width = width;
+    canvas.height = height;
 
-          var width = 1280;
-          var height = 1080;
-          canvas.width = width;
-          canvas.height = height;
-    
-          document.getElementById("captured").style.display = "block";
-          document.getElementById("controls").style.display = "none";
-          document.getElementById("buttons").style.display = "block";
-    
-          context = canvas.getContext('2d');
-         // context.save(); 
-          //context.scale(-1, 1); 
-          //context.clearRect(0, 0, width, height);
-          //context.drawImage(e.target.result, 0, 0, width, height);
-          //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
-          //context.restore();
-          //context.drawImage(frame, 0, 0, width * .75, height);
-          context.drawImage(frame, 0, 0, width, height);
+    document.getElementById("captured").style.display = "block";
+    document.getElementById("controls").style.display = "none";
+    document.getElementById("buttons").style.display = "block";
+
+    context = canvas.getContext('2d');
+    // context.save(); 
+    //context.scale(-1, 1); 
+    //context.clearRect(0, 0, width, height);
+    //context.drawImage(e.target.result, 0, 0, width, height);
+    //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
+    //context.restore();
+    //context.drawImage(frame, 0, 0, width * .75, height);
+    context.drawImage(frame, 0, 0, width, height);
      
 
-      /*img.src = objectUrl;
-      console.log(img.src);
-    }*/
+  /*img.src = objectUrl;
+  console.log(img.src);
+  }*/
 
   /*if(input != null) {
     var url = input.files[0];
@@ -317,6 +304,18 @@ function takeSnapshot(input = null) {
       context.restore();
       //context.drawImage(frame, 0, 0, width * .75, height);
       context.drawImage(frame, 0, 0, width, height);
+
+      //console.log(e.target.result);
+    /*};
+
+    if ((file = input.files[0])) {
+      console.log("FILE");
+      img = new Image();
+      var objectUrl = _URL.createObjectURL(input.files[0]);              
+      img.onload = function (e) {
+          console.log(this.width + " " + this.height);
+          _URL.revokeObjectURL(objectUrl);
+          console.log(_URL);*/
    // }*/
   } else {
     var width = video.videoWidth;
