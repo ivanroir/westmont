@@ -288,7 +288,7 @@ function takeSnapshot(input = null) {
       context.drawImage(fileImage, 0, 0, width, height);
     };
     console.log(fileImage);
-    
+    context.drawImage(fileImage, 0, 0, width, height);
     context.drawImage(frame, 0, 0, width, height);
 
   } else {
