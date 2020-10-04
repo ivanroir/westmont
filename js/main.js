@@ -318,6 +318,7 @@ function takeSnapshot(input = null) {
   console.log(canvas);
     return new Promise(function (resolve, reject) {
       canvas.toBlob(function (blob) {
+        console.log(blob);
         resolve(blob);
       }, 'image/jpeg');
     });
@@ -325,6 +326,7 @@ function takeSnapshot(input = null) {
 
   // some API's (like Azure Custom Vision) need a blob with image data
   getCanvasBlob(canvas).then(function (blob) {
+    console.log(blob);
     // do something with the image blob
     urlCreator = window.URL || window.webkitURL;
     imageUrl = urlCreator.createObjectURL(blob);
