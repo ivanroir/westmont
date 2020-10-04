@@ -270,9 +270,9 @@ function takeSnapshot(input = null) {
     var img = new Image;
     img.src = URL.createObjectURL(input.files[0]);
     //img.onload = function (e) {
-      var fileImage = document.getElementById("fileImage");
-      console.log(fileImage);
-      context.drawImage(img, 0, 0, width, height);
+    var fileImage = document.getElementById("fileImage");
+    console.log(fileImage);
+    context.drawImage(fileImage, 0, 0, width, height);
     //}
     context.drawImage(frame, 0, 0, width, height);
 
