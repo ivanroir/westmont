@@ -246,7 +246,8 @@ function takeSnapshot(input = null) {
     var fileImage = document.getElementById("fileImage");
     
     console.log("fileImage");
-    console.log(fileImage);
+    console.log(fileImage.height);
+    console.log(fileImage.width);
 
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
