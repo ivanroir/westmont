@@ -268,7 +268,7 @@ function takeSnapshot(input = null) {
         reader.onload = function(evt){
           if( evt.target.readyState == FileReader.DONE) {
             img.src = evt.target.result;
-            context.drawImage(img, 0, 0);
+            img.onload = () => context.drawImage(img, 0, 0, width, height);
           }
         }    
       } else {
