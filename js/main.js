@@ -243,7 +243,6 @@ function takeSnapshot(input = null) {
   var frame = document.getElementById("frame");
 
   if (input  != null) {
-    console.log("FILE");
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       
@@ -259,8 +258,7 @@ function takeSnapshot(input = null) {
     var fileImage = document.getElementById("fileImage");
     
     console.log("fileImage");
-    console.log(fileImage.height);
-    console.log(fileImage.width);
+    console.log(fileImage);
 
     document.getElementById("captured").style.display = "block";
     document.getElementById("controls").style.display = "none";
