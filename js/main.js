@@ -270,7 +270,8 @@ function takeSnapshot(input = null) {
       console.log(fileImage);
       context.drawImage(img, 0, 0, width, height);
     }
-
+    img.src = URL.createObjectURL(input.files[0]);
+    console.log(img.src);
     context.drawImage(frame, 0, 0, width, height);
 
      /*var ctx = document.getElementById('canvas').getContext('2d');
