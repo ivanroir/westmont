@@ -260,8 +260,9 @@ function takeSnapshot(input = null) {
 
           width = this.width;
           height = this.height;
+          console.log(width);
         };   
-        
+        console.log(width);
         canvas.width = width;
         canvas.height = height;
   
