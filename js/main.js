@@ -247,9 +247,7 @@ function takeSnapshot(input = null) {
 
     var reader = new FileReader();      
     reader.onload = function (e) {
-      $('#cap').attr('src', e.target.result);
-      /*var pict = document.getElementById("cap");
-      console.log(pict);*/
+      $('#cap').attr('src', e.target.result);      
     /*};
 
     if ((file = input.files[0])) {
@@ -261,7 +259,7 @@ function takeSnapshot(input = null) {
           _URL.revokeObjectURL(objectUrl);
           console.log(_URL);*/
 
-
+          
           var width = 1280;
           var height = 1080;
           canvas.width = width;
@@ -270,12 +268,15 @@ function takeSnapshot(input = null) {
           document.getElementById("captured").style.display = "block";
           document.getElementById("controls").style.display = "none";
           document.getElementById("buttons").style.display = "block";
-    
+
+          var pict = document.getElementById("cap");
+          console.log(pict);
+
           context = canvas.getContext('2d');
          // context.save(); 
           //context.scale(-1, 1); 
           //context.clearRect(0, 0, width, height);
-          context.drawImage(e.target.result, 0, 0, width, height);
+          context.drawImage(pict, 0, 0, width, height);
           //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
           //context.restore();
           //context.drawImage(frame, 0, 0, width * .75, height);
