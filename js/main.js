@@ -246,6 +246,13 @@ function takeSnapshot(input = null) {
     var _URL = window.URL || window.webkitURL;
     console.log(input.files[0]);
     var file, img;
+
+    var reader = new FileReader();      
+    reader.onload = function (e) {
+      $('#cap').attr('src', e.target.result);
+      console.log(e.target.result);
+    };
+
     if ((file = input.files[0])) {
       console.log("FILE");
       img = new Image();
@@ -255,8 +262,6 @@ function takeSnapshot(input = null) {
           _URL.revokeObjectURL(objectUrl);
           console.log(_URL);
 
-          $('#cap').attr('src', e.target.result);
-          console.log(e.target.result);
 
           var width = this.width;
           var height = this.height;
