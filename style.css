@@ -85,10 +85,8 @@ button {
   background-image: url('img/ic_fullscreen_exit_white_48px.svg');
 }
 #frameTitle {
-  width: 32px;
-  height: 32px; 
   border-style: none;
-  font-size: 12x;
+  font-size: 10x;
 }
 
 
