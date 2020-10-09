@@ -165,8 +165,6 @@
 
       function upload(input){
 
-        console.log(window.innerWidth);
-        console.log(window.innerHeight);
         var frame = document.getElementById("frame");
         var context = document.getElementById('cap').getContext('2d');
         var fileImage = document.getElementById("fileImage");
@@ -175,25 +173,11 @@
 
           var fileinput = document.getElementById('file');
           var image = new Image;
-          
-          var width = 1280;
-          var height = 1080;
+
+          var width = window.innerWidth;
+          var height = window.innerHeight;
           canvas.width = width;
           canvas.height = height;
-
-          if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = (e) => $('#fileImage').attr('src', e.target.result);      
-            reader.readAsDataURL(input.files[0]);
-          }
-
-          var image = new Image;
-          image.onload = function() {
-            //context.drawImage(image, 0,0);
-            context.drawImage(image, 0, 0, width, height);
-          }
-          image.src = URL.createObjectURL(input.files[0]);
 
           document.getElementById("captured").style.display = "block";
           document.getElementById("controls").style.display = "none";
@@ -202,6 +186,20 @@
           document.getElementById("uploadCanvas").style.display = "block";
 
           
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = (e) => $('#fileImage').attr('src', e.target.result);      
+            reader.readAsDataURL(input.files[0]);
+          }
+
+          image.src = URL.createObjectURL(input.files[0]);
+          image.onload = function() {
+            //context.drawImage(image, 0,0);
+            context.drawImage(image, 0, 0, width, height);
+          }
+
+          console.log(image);
           context.drawImage(frame, 0, 0, width, height);
 
           //context.drawImage(fileImage, 0, 0, width, height);
