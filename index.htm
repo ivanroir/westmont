@@ -141,7 +141,7 @@
               <img alt="capture" id="cap" class="image" /> 
             </div>
             <div class="uploadCanvas" id="uploadCanvas">
-              <canvas id="cap" >
+              <canvas id="uploadCanvasImage" >
             </div>
           </div>
       </div>
@@ -166,7 +166,7 @@
       function upload(input){
 
         var frame = document.getElementById("frame");
-        var context = document.getElementById('cap').getContext('2d');
+        var context = document.getElementById('uploadCanvasImage').getContext('2d');
         var fileImage = document.getElementById("fileImage");
 
         if (input  != null) {
