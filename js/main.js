@@ -238,38 +238,10 @@ function initCameraStream() {
   }
 }
 
-function takeSnapshot(input = null) {
-  var canvas = document.createElement('canvas');
-  var frame = document.getElementById("frame");
+  function takeSnapshot(input = null) {
+    var canvas = document.createElement('canvas');
+    var frame = document.getElementById("frame");
 
-  //var context = document.getElementById('cap').getContext('2d');
-  if (input  != null) {
-
-    var fileinput = document.getElementById('file');
-    context = canvas.getContext('2d');
-    var image = new Image();
-    
-
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      
-      reader.onload = (e) => $('#fileImage').attr('src', e.target.result);      
-      reader.readAsDataURL(input.files[0]);
-    }
-    var fileImage = document.getElementById("fileImage");
-    document.getElementById("captured").style.display = "block";
-    document.getElementById("controls").style.display = "none";
-    document.getElementById("buttons").style.display = "block";   
-
-    var width = 1280;
-    var height = 1080;
-    canvas.width = width;
-    canvas.height = height;
-    
-    context.drawImage(fileImage, 0, 0, width, height);
-    console.log(fileImage);
-    context.drawImage(frame, 0, 0, width, height);
-  } else {
     var width = video.videoWidth;
     var height = video.videoHeight;
     canvas.width = width;
@@ -308,7 +280,7 @@ function takeSnapshot(input = null) {
     document.querySelector("#cap").src = imageUrl;
     document.getElementById("imgURL").href = imageUrl;  
   });
-}
+
 
 // https://hackernoon.com/how-to-use-javascript-closures-with-confidence-85cd1f841a6b
 // closure; store this in a variable and call the variable as function

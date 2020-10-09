@@ -52,6 +52,11 @@
         display: none;
       }
 
+      .captureCanvas
+      {
+        display: block;
+      }
+
       </style>      
   </head>
   <body>
@@ -121,7 +126,7 @@
         </div>
         
         <div>
-         <!--<input type='file' id="file" name="file" onchange="takeSnapshot(this);" />-->
+         <input type='file' id="file" name="file" onchange="upload(this);" />
         </div>
       </div>
     
@@ -132,21 +137,75 @@
               <img src="img/frame4.png" alt="Frame" id="frame" class="image">
               <canvas width="400" height="300" id="canvas" >
             </div>-->
-            <!--<canvas width="1280" height="1080" id="cap" >-->
-            <img alt="capture" id="cap" class="image" /> 
+            <div class="captureCanvas" id="captureCanvas">
+              <img alt="capture" id="cap" class="image" /> 
+            </div>
+            <div class="uploadCanvas" id="uploadCanvas">
+              <canvas id="cap" >
+            </div>
           </div>
       </div>
     </div>
     <script>
       function divCapture() {
+        document.getElementById("captured").style.display = "block";
+        document.getElementById("controls").style.display = "none";
+        document.getElementById("buttons").style.display = "block";
+        document.getElementById("captureCanvas").style.display = "block";
+        document.getElementById("uploadCanvas").style.display = "none";
+          
+      }
+      function divCaptureClose() {
+        document.getElementById("captured").style.display = "none";
+        document.getElementById("controls").style.display = "block";
+        document.getElementById("buttons").style.display = "none";
+        document.getElementById("captureCanvas").style.display = "block";
+        document.getElementById("uploadCanvas").style.display = "none";
+      }
+
+      function upload(input){
+
+        console.log(window.innerWidth);
+        console.log(window.innerHeight);
+        var frame = document.getElementById("frame");
+        var context = document.getElementById('cap').getContext('2d');
+        var fileImage = document.getElementById("fileImage");
+
+        if (input  != null) {
+
+          var fileinput = document.getElementById('file');
+          var image = new Image;
+          
+          var width = 1280;
+          var height = 1080;
+          canvas.width = width;
+          canvas.height = height;
+
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = (e) => $('#fileImage').attr('src', e.target.result);      
+            reader.readAsDataURL(input.files[0]);
+          }
+
+          var image = new Image;
+          image.onload = function() {
+            //context.drawImage(image, 0,0);
+            context.drawImage(image, 0, 0, width, height);
+          }
+          image.src = URL.createObjectURL(input.files[0]);
+
           document.getElementById("captured").style.display = "block";
           document.getElementById("controls").style.display = "none";
           document.getElementById("buttons").style.display = "block";
-      }
-      function divCaptureClose() {
-          document.getElementById("captured").style.display = "none";
-          document.getElementById("controls").style.display = "block";
-          document.getElementById("buttons").style.display = "none";
+          document.getElementById("captureCanvas").style.display = "none";
+          document.getElementById("uploadCanvas").style.display = "block";
+
+          
+          context.drawImage(frame, 0, 0, width, height);
+
+          //context.drawImage(fileImage, 0, 0, width, height);
+        } 
       }
 
       function readURL(input) {
