@@ -213,7 +213,7 @@
             // some API's (like Azure Custom Vision) need a blob with image data
             getCanvasBlob(canvas).then(function (blob) {
               // do something with the image blob          
-              uploadImageUrl = uploadUrlCreator.createObjectURL(blob);
+              uploadImageUrl = uploadUrlCreator.createObjectURL(dataURL);
               console.log(uploadImageUrl);
             });
           }
