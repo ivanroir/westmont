@@ -14,7 +14,9 @@
     <title>Westmont PhotoBooth</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <style>    
+    <script src="js/canvas2image.js"></script>
+
+    <style>
       .overlay {
         position: absolute; 
         bottom: 0;
@@ -197,14 +199,14 @@
           image.onload = function() {
             //context.drawImage(image, 0,0);
             context.drawImage(image, 0, 0, width, height);
-            context.drawImage(frame, 0, 0, width, height);
-
-            
+            context.drawImage(frame, 0, 0, width, height);            
           }
           
-          var dataURL = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-          window.location.href=image;
-          console.log(dataURL);
+          //var dataURL = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+          //window.location.href=image;
+
+
+          console.log(Canvas2Image.convertToPNG(canvas, width, height));
 
           /*console.log(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
           console.log(image);
