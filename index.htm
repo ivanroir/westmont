@@ -199,30 +199,34 @@
             context.drawImage(image, 0, 0, width, height);
             context.drawImage(frame, 0, 0, width, height);
 
-            var dataURL = canvas.toDataURL("image/png");
-            dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+            var dataURL = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
 
-            function getCanvasBlob(canvas) {
-              return new Promise(function (resolve, reject) {
-                canvas.toBlob(function (blob) {
-                  resolve(blob);
-                }, 'image/jpeg');
-              });
-            }
-
-            // some API's (like Azure Custom Vision) need a blob with image data
-            getCanvasBlob(canvas).then(function (blob) {
-              // do something with the image blob          
-              uploadImageUrl = uploadUrlCreator.createObjectURL(dataURL);
-              console.log(uploadImageUrl);
-            });
+            console.log(dataURL);
           }
+          
+          
+
           /*console.log(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
           console.log(image);
           console.log(image.src);
           console.log(input.files[0]);*/
           //context.drawImage(fileImage, 0, 0, width, height);
         } 
+
+        function getCanvasBlob(canvas) {
+          return new Promise(function (resolve, reject) {
+            canvas.toBlob(function (blob) {
+              resolve(blob);
+            }, 'image/jpeg');
+          });
+        }
+
+        // some API's (like Azure Custom Vision) need a blob with image data
+        getCanvasBlob(canvas).then(function (blob) {
+          // do something with the image blob          
+          uploadImageUrl = uploadUrlCreator.createObjectURL(blob);
+          console.log(uploadImageUrl);
+        });
       }
 
       function readURL(input) {
