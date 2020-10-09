@@ -169,11 +169,9 @@
         var context = document.getElementById('uploadCanvasImage').getContext('2d');
         var fileImage = document.getElementById("fileImage");
         var canvas = document.createElement('canvas');
+        var image = new Image;
 
         if (input  != null) {
-
-          var fileinput = document.getElementById('file');
-          var image = new Image;
 
           var width = window.innerWidth;
           var height = window.innerHeight;
@@ -185,7 +183,6 @@
           document.getElementById("buttons").style.display = "block";
           document.getElementById("captureCanvas").style.display = "none";
           document.getElementById("uploadCanvas").style.display = "block";
-
           
           if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -202,7 +199,6 @@
           }
 
           console.log(image);
-
           //context.drawImage(fileImage, 0, 0, width, height);
         } 
       }
