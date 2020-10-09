@@ -171,7 +171,7 @@
         var canvas = document.createElement('canvas');
         var image = new Image;
         var uploadImageUrl;
-        var uploadUrlCreator;
+        var uploadUrlCreator = window.URL || window.webkitURL;
 
         if (input  != null) {
 
@@ -200,7 +200,10 @@
             context.drawImage(frame, 0, 0, width, height);
           }
 
-          console.log(URL.createObjectURL(canvas));
+          console.log(uploadUrlCreator.createObjectURL(canvas));
+          console.log(canvas);
+          console.log(image);
+          console.log(image.src);
           //context.drawImage(fileImage, 0, 0, width, height);
         } 
 
@@ -214,8 +217,7 @@
 
         // some API's (like Azure Custom Vision) need a blob with image data
         getCanvasBlob(canvas).then(function (blob) {
-          // do something with the image blob
-          uploadUrlCreator = window.URL || window.webkitURL;
+          // do something with the image blob          
           uploadImageUrl = uploadUrlCreator.createObjectURL(blob);
           console.log(uploadImageUrl);
         });
