@@ -191,13 +191,12 @@
             reader.readAsDataURL(input.files[0]);
           }
 
-          image.src = URL.createObjectURL(input.files[0]);
           image.onload = function() {
             //context.drawImage(image, 0,0);
             context.drawImage(image, 0, 0, width, height);
             context.drawImage(frame, 0, 0, width, height);
           }
-
+          image.src = URL.createObjectURL(image);
           console.log(image);
           //context.drawImage(fileImage, 0, 0, width, height);
         } 
