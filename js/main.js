@@ -238,7 +238,7 @@ function initCameraStream() {
   }
 }
 
-  function takeSnapshot(input = null) {
+  function takeSnapshot() {
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
 
@@ -259,7 +259,7 @@ function initCameraStream() {
     //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
     //context.drawImage(frame, 0, 0, width * .75, height);
     context.drawImage(frame, 0, 0, width, height);
-  }
+  
   // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
 
   // https://developers.google.com/web/fundamentals/primers/promises
@@ -280,7 +280,7 @@ function initCameraStream() {
     document.querySelector("#cap").src = imageUrl;
     document.getElementById("imgURL").href = imageUrl;  
   });
-
+}
 
 // https://hackernoon.com/how-to-use-javascript-closures-with-confidence-85cd1f841a6b
 // closure; store this in a variable and call the variable as function
