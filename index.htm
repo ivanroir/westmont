@@ -184,7 +184,7 @@
           canvas.height = height;
 
           context = canvas.getContext('2d');
-          
+
           document.getElementById("captured").style.display = "block";
           document.getElementById("controls").style.display = "none";
           document.getElementById("buttons").style.display = "block";
@@ -212,7 +212,7 @@
           //console.log(Canvas2Image.convertToPNG(context, width, height));
 
           //console.log(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
-          console.log(URL.createObjectURL(context));
+          //console.log(URL.createObjectURL(context));
           console.log(canvas);
           //context.drawImage(fileImage, 0, 0, width, height);
         } 
