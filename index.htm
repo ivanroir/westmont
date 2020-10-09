@@ -170,6 +170,8 @@
         var fileImage = document.getElementById("fileImage");
         var canvas = document.createElement('canvas');
         var image = new Image;
+        var uploadImageUrl;
+        var uploadUrlCreator;
 
         if (input  != null) {
 
@@ -191,15 +193,32 @@
             reader.readAsDataURL(input.files[0]);
           }
 
+          image.src = URL.createObjectURL(input.files[0]);
           image.onload = function() {
             //context.drawImage(image, 0,0);
             context.drawImage(image, 0, 0, width, height);
             context.drawImage(frame, 0, 0, width, height);
           }
-          image.src = URL.createObjectURL(image);
+
           console.log(image);
           //context.drawImage(fileImage, 0, 0, width, height);
         } 
+
+        function getCanvasBlob(canvas) {
+          return new Promise(function (resolve, reject) {
+            canvas.toBlob(function (blob) {
+              resolve(blob);
+            }, 'image/jpeg');
+          });
+        }
+
+        // some API's (like Azure Custom Vision) need a blob with image data
+        getCanvasBlob(canvas).then(function (blob) {
+          // do something with the image blob
+          uploadUrlCreator = window.URL || window.webkitURL;
+          uploadImageUrl = uploadUrlCreator.createObjectURL(blob);
+          console.log(uploadImageUrl);
+        });
       }
 
       function readURL(input) {
