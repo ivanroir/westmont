@@ -199,12 +199,12 @@
             context.drawImage(image, 0, 0, width, height);
             context.drawImage(frame, 0, 0, width, height);
 
-            var dataURL = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-            window.location.href=image;
-            console.log(dataURL);
+            
           }
           
-          
+          var dataURL = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+          window.location.href=image;
+          console.log(dataURL);
 
           /*console.log(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""));
           console.log(image);
