@@ -200,7 +200,7 @@
             context.drawImage(frame, 0, 0, width, height);
 
             var dataURL = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-
+            window.location.href=image;
             console.log(dataURL);
           }
           
