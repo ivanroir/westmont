@@ -168,6 +168,7 @@
         var frame = document.getElementById("frame");
         var context = document.getElementById('uploadCanvasImage').getContext('2d');
         var fileImage = document.getElementById("fileImage");
+        var canvas = document.createElement('canvas');
 
         if (input  != null) {
 
@@ -197,10 +198,10 @@
           image.onload = function() {
             //context.drawImage(image, 0,0);
             context.drawImage(image, 0, 0, width, height);
+            context.drawImage(frame, 0, 0, width, height);
           }
 
           console.log(image);
-          context.drawImage(frame, 0, 0, width, height);
 
           //context.drawImage(fileImage, 0, 0, width, height);
         } 
