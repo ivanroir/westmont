@@ -293,16 +293,13 @@ function initCameraStream() {
       var uploadImageUrl;
       var uploadUrlCreator = window.URL || window.webkitURL;       
 
-      //var width = window.innerHeight > window.innerWidth ? window.innerWidth : window.innerWidth * .8;
-      //var height = window.innerHeight > window.innerWidth ? window.innerHeight * .8 : window.innerHeight;
       var width = video.videoWidth;
       var height = video.videoHeight;
       canvas.width = width;
       canvas.height = height;
 
       context = canvas.getContext('2d');
-      //1280
-      //1080
+      
       document.getElementById("captured").style.display = "block";
       document.getElementById("controls").style.display = "none";
       document.getElementById("buttons").style.display = "block";
@@ -316,17 +313,10 @@ function initCameraStream() {
         reader.readAsDataURL(input.files[0]);
       }
 
-
       image.src = URL.createObjectURL(input.files[0]);
       image.onload = function() {
         context.drawImage(image, 0, 0, width, height);
         context.drawImage(frame, 0, 0, width, height);   
-
-        alert(width);
-        alert(height);
-        alert("----");
-        alert(canvas.width);
-        alert(canvas.height);
         function getCanvasBlob(canvas) {
           return new Promise(function (resolve, reject) {
             canvas.toBlob(function (blob) {
@@ -338,9 +328,7 @@ function initCameraStream() {
         // some API's (like Azure Custom Vision) need a blob with image data
         getCanvasBlob(canvas).then(function (blob) {
           // do something with the image blob          
-          console.log(blob);
           uploadImageUrl = uploadUrlCreator.createObjectURL(blob);
-          console.log(uploadImageUrl);
           document.querySelector("#fileImageCapture").src = uploadImageUrl;
           document.getElementById("imgURL").href = uploadImageUrl;  
         });         
