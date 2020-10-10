@@ -177,11 +177,12 @@
 
           var width = window.innerHeight > window.innerWidth ? window.innerWidth : window.innerWidth * .8;
           var height = window.innerHeight > window.innerWidth ? window.innerHeight * .8 : window.innerHeight;
-          canvas.width = width;
-          canvas.height = height;
+          canvas.width = 1280;
+          canvas.height = 1080;
 
           context = canvas.getContext('2d');
-
+          //1280
+          //1080
           document.getElementById("captured").style.display = "block";
           document.getElementById("controls").style.display = "none";
           document.getElementById("buttons").style.display = "block";
