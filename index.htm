@@ -177,8 +177,6 @@
 
           var width = window.innerHeight > window.innerWidth ? window.innerWidth : window.innerWidth * .8;
           var height = window.innerHeight > window.innerWidth ? window.innerHeight * .8 : window.innerHeight;
-          console.log(width);
-          console.log(height);
           canvas.width = width;
           canvas.height = height;
 
@@ -199,6 +197,8 @@
 
           image.src = URL.createObjectURL(input.files[0]);
           image.onload = function() {
+            console.log(width);
+            console.log(height);
             context.drawImage(image, 0, 0, width, height);
             context.drawImage(frame, 0, 0, width, height);   
 
