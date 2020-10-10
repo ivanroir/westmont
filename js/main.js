@@ -287,7 +287,8 @@ function initCameraStream() {
     }
     else {
       var frame = document.getElementById("frame");
-      var canvas = document.getElementById('uploadCanvasImage');
+      //var canvas = document.getElementById('uploadCanvasImage');
+      var canvas = document.createElement('canvas');
       var image = new Image;
       var uploadImageUrl;
       var uploadUrlCreator = window.URL || window.webkitURL;       
