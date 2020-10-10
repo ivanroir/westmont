@@ -135,19 +135,9 @@ button {
   top: calc(50% - 40px);
   width: 80px;
   height: 80px;
-  
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
-}
-
-/*#file {
-  left: calc(400% - 40px);
-  top: calc(40% - 40px);
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
-}*/
+} 
 
 @media screen and (orientation: portrait) {
   /* portrait-specific styles */
@@ -203,13 +193,8 @@ button {
 
   .fileDiv {
     bottom: 0%;
-    left: calc(50% - 32px);
-  }
-
-  /*#file {
-    left: calc(50% - 32px);
-    top: calc(0% - 32px);
-  }*/
+    left: calc(50% - 40px);
+  } 
 
 }
 
@@ -268,27 +253,19 @@ button {
   #backButton {
     left: calc(50% - 32px);
     top: calc(18% - 32px);
-  }
-
-  /*#file {
-    left: calc(0% - 32px);
-    top: calc(50% - 32px);
-  }*/
+  } 
 
   .fileDiv {
     top: calc(50% - 40px);
     right: 0%
   }
 
-
 }
 
 .fileDiv {
   position: absolute;
-  margin: auto;
-  /*text-align: center;
-  top: calc(50% - 40px);
-  right: 0%*/
+  margin: auto; 
+  border: solid 2px #fff;
 }
 
 .inputfile {
