@@ -244,6 +244,8 @@ function initCameraStream() {
 
     var width = video.videoWidth;
     var height = video.videoHeight;
+    console.log(width);
+    console.log(height);
     canvas.width = width;
     canvas.height = height;
 
