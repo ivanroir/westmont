@@ -261,6 +261,7 @@ function initCameraStream() {
     //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
     //context.drawImage(frame, 0, 0, width * .75, height);
     context.drawImage(frame, 0, 0, width, height);
+    console.log(canvas);
   
   // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
 
@@ -277,8 +278,10 @@ function initCameraStream() {
   // some API's (like Azure Custom Vision) need a blob with image data
   getCanvasBlob(canvas).then(function (blob) {
     // do something with the image blob
+    console.log(blob);
     urlCreator = window.URL || window.webkitURL;
     imageUrl = urlCreator.createObjectURL(blob);
+    console.log(uploadImageUrl);
     document.querySelector("#cap").src = imageUrl;
     document.getElementById("imgURL").href = imageUrl;  
   });
