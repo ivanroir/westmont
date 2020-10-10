@@ -140,14 +140,14 @@ button {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-#file {
+/*#file {
   left: calc(400% - 40px);
   top: calc(40% - 40px);
   width: 64px;
   height: 64px;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
-}
+}*/
 
 @media screen and (orientation: portrait) {
   /* portrait-specific styles */
@@ -278,6 +278,8 @@ button {
   overflow: hidden;
   position: absolute;
   z-index: -1;
+  left: calc(400% - 40px);
+  top: calc(40% - 40px);
 }
 
 .inputfile-4 + label {
