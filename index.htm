@@ -177,8 +177,8 @@
 
           var width = window.innerHeight > window.innerWidth ? window.innerWidth : window.innerWidth * .8;
           var height = window.innerHeight > window.innerWidth ? window.innerHeight * .8 : window.innerHeight;
-          canvas.width = 1280;
-          canvas.height = 1080;
+          canvas.width = width;
+          canvas.height = height;
 
           context = canvas.getContext('2d');
           //1280
@@ -200,8 +200,8 @@
           image.onload = function() {
             console.log(width);
             console.log(height);
-            context.drawImage(image, 0, 0, width, height);
-            context.drawImage(frame, 0, 0, width, height);   
+            context.drawImage(image, 0, 0, 1280, 1080);
+            context.drawImage(frame, 0, 0, 1280, 1080);   
 
             function getCanvasBlob(canvas) {
               return new Promise(function (resolve, reject) {
