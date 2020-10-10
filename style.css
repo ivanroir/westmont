@@ -191,10 +191,10 @@ button {
     top: calc(50% - 32px);
   }
 
-  .fileDiv {
+  /*.fileDiv {
     bottom: 0%;
     left: calc(50% - 40px);
-  } 
+  }*/
 
 }
 
@@ -255,10 +255,10 @@ button {
     top: calc(18% - 32px);
   } 
 
-  .fileDiv {
+  /*.fileDiv {
     top: calc(50% - 40px);
     right: 0%
-  }
+  }*/
 
 }
 
@@ -266,6 +266,8 @@ button {
   position: absolute;
   margin: auto; 
   border: solid 2px #fff;
+  bottom: 0%;
+  left: calc(50% - 40px);
 }
 
 .inputfile {
