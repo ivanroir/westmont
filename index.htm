@@ -167,6 +167,13 @@
 
       function upload(input){
 
+        if(window.innerHeight > window.innerWidth){
+            alert("Landscape!");
+        }
+        else {
+          alert("Portrait!");
+        }
+
         var frame = document.getElementById("frame");
         var canvas = document.getElementById('uploadCanvasImage');
         
