@@ -340,6 +340,7 @@ function initCameraStream() {
           console.log(blob);
           uploadImageUrl = uploadUrlCreator.createObjectURL(blob);
           console.log(uploadImageUrl);
+          document.querySelector("#fileImageCapture").src = uploadImageUrl;
           document.getElementById("imgURL").href = uploadImageUrl;  
         });         
       }                  
