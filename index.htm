@@ -74,6 +74,7 @@
             <img src="img/frame1.png" style="width: 100%; height: -webkit-fill-available;" />
             <img src="img/frame2.png" style="width: 100%; height: -webkit-fill-available;" />
             <img src="img/frame3.png" style="width: 100%; height: -webkit-fill-available;" />
+            <img src="img/frame5.png" style="width: 100%; height: -webkit-fill-available;" />
           </div>
         </div>
       </div>    
@@ -104,8 +105,9 @@
                 id="frame2"
                 name="frame 2"
                 type="button"
-                onclick="document.getElementById('frame').src='img/frame2.png'">2</button>
+                onclick="document.getElementById('frame').src='img/frame5.png'">2</button>
             <button
+                style="display: none;"
                 id="frame3"
                 name="frame 3"
                 type="button"
@@ -231,24 +233,7 @@
           };
           reader.readAsDataURL(input.files[0]);
         }
-      }
-      /*function readURL(input) {
-        var _URL = window.URL || window.webkitURL;
-        console.log(input.files[0]);
-        var file, img;
-        if ((file = input.files[0])) {
-            console.log("FILE");
-            img = new Image();
-            var objectUrl = _URL.createObjectURL(input.files[0]);              
-            img.onload = function () {
-                console.log(this.width + " " + this.height);
-                _URL.revokeObjectURL(objectUrl);
-                console.log(_URL);
-            };
-            img.src = objectUrl;
-            console.log(img.src);
-          }
-      } */        
+      }      
     </script>
     <script src="js/adapter.min.js"></script>
     <script src="js/screenfull.min.js"></script>
