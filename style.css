@@ -201,6 +201,11 @@ button {
     top: calc(50% - 32px);
   }
 
+  .fileDiv {
+    bottom: 0%;
+    left: calc(50% - 32px);
+  }
+
   /*#file {
     left: calc(50% - 32px);
     top: calc(0% - 32px);
@@ -269,14 +274,21 @@ button {
     left: calc(0% - 32px);
     top: calc(50% - 32px);
   }*/
+
+  .fileDiv {
+    top: calc(50% - 40px);
+    right: 0%
+  }
+
+
 }
 
 .fileDiv {
   position: absolute;
   margin: auto;
-  text-align: center;
+  /*text-align: center;
   top: calc(50% - 40px);
-  right: 0%
+  right: 0%*/
 }
 
 .inputfile {
@@ -289,20 +301,20 @@ button {
 }
 
 .inputfile-4 + label {
-  color: #d3394c;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .inputfile-4:focus + label,
 .inputfile-4.has-focus + label,
 .inputfile-4 + label:hover {
-  color: #722040;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .inputfile-4 + label figure {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #d3394c;
+  background-color: rgba(0, 0, 0, 0.5);
   display: block;
   padding: 20px;
   margin: 0 auto 10px;
@@ -311,7 +323,7 @@ button {
 .inputfile-4:focus + label figure,
 .inputfile-4.has-focus + label figure,
 .inputfile-4 + label:hover figure {
-  background-color: #722040;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .inputfile-4 + label svg {
