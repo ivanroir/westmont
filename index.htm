@@ -220,6 +220,7 @@
         function getCanvasBlob(canvas) {
           return new Promise(function (resolve, reject) {
             canvas.toBlob(function (blob) {
+              console.log(blob);
               resolve(blob);
             }, 'image/jpeg');
           });
@@ -228,6 +229,7 @@
         // some API's (like Azure Custom Vision) need a blob with image data
         getCanvasBlob(canvas).then(function (blob) {
           // do something with the image blob          
+          console.log(blob);
           uploadImageUrl = uploadUrlCreator.createObjectURL(blob);
           console.log(uploadImageUrl);
         });
