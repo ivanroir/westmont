@@ -194,18 +194,17 @@
             reader.readAsDataURL(input.files[0]);
           }
 
-          console.log(input.files[0]);
 
           image.src = URL.createObjectURL(input.files[0]);
           image.onload = function() {
             context.drawImage(image, 0, 0, width, height);
             context.drawImage(frame, 0, 0, width, height);   
 
-            console.log(width);
-            console.log(height);
-            console.log("---------");
-            console.log(canvas.width);
-            console.log(canvas.height);
+            alert(width);
+            alert(height);
+            alert("----");
+            alert(canvas.width);
+            alert(canvas.height);
             function getCanvasBlob(canvas) {
               return new Promise(function (resolve, reject) {
                 canvas.toBlob(function (blob) {
