@@ -169,7 +169,7 @@
         var fileImage = document.getElementById("fileImage");
         var image = new Image;
         var uploadImageUrl;
-        var uploadUrlCreator = window.URL || window.webkitURL;
+        var uploadUrlCreator = window.URL || window.webkitURL;       
 
         if (input  != null) {
 
@@ -193,7 +193,7 @@
             reader.onload = (e) => $('#fileImage').attr('src', e.target.result);      
             reader.readAsDataURL(input.files[0]);
           }
-          
+
           console.log(input.files[0]);
 
           image.src = URL.createObjectURL(input.files[0]);
