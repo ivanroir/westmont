@@ -238,51 +238,114 @@ function initCameraStream() {
   }
 }
 
-  function takeSnapshot() {
-    var canvas = document.createElement('canvas');
-    var frame = document.getElementById("frame");
+  function takeSnapshot(input = null) {
+    
 
-    var width = video.videoWidth;
-    var height = video.videoHeight;
-    canvas.width = width;
-    canvas.height = height;
+    if (input == null){
+      var canvas = document.createElement('canvas');
+      var frame = document.getElementById("frame");
 
-    context = canvas.getContext('2d');
-    if (currentFacingMode == "environment"){
-      context.drawImage(video, 0, 0, width, height);
-    }else{
-      context.save(); 
-      context.scale(-1, 1); 
-      context.drawImage(video, width * -1, 0, width, height);
-      context.restore();
+      var width = video.videoWidth;
+      var height = video.videoHeight;
+      canvas.width = width;
+      canvas.height = height;
+
+      context = canvas.getContext('2d');
+      if (currentFacingMode == "environment"){
+        context.drawImage(video, 0, 0, width, height);
+      }else{
+        context.save(); 
+        context.scale(-1, 1); 
+        context.drawImage(video, width * -1, 0, width, height);
+        context.restore();
+      }
+      //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
+      //context.drawImage(frame, 0, 0, width * .75, height);
+      context.drawImage(frame, 0, 0, width, height);
+      console.log(canvas);
+      // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
+      // https://developers.google.com/web/fundamentals/primers/promises
+      // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
+      function getCanvasBlob(canvas) {
+        return new Promise(function (resolve, reject) {
+          canvas.toBlob(function (blob) {
+            resolve(blob);
+          }, 'image/jpeg');
+        });
+      }
+
+      // some API's (like Azure Custom Vision) need a blob with image data
+      getCanvasBlob(canvas).then(function (blob) {
+        // do something with the image blob
+        console.log(blob);
+        urlCreator = window.URL || window.webkitURL;
+        imageUrl = urlCreator.createObjectURL(blob);
+        console.log(imageUrl);
+        document.querySelector("#cap").src = imageUrl;
+        document.getElementById("imgURL").href = imageUrl;  
+      });
     }
-    //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
-    //context.drawImage(frame, 0, 0, width * .75, height);
-    context.drawImage(frame, 0, 0, width, height);
-    console.log(canvas);
-  
-  // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
+    else {
+      var frame = document.getElementById("frame");
+      var canvas = document.getElementById('uploadCanvasImage');
+      var image = new Image;
+      var uploadImageUrl;
+      var uploadUrlCreator = window.URL || window.webkitURL;       
 
-  // https://developers.google.com/web/fundamentals/primers/promises
-  // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
-  function getCanvasBlob(canvas) {
-    return new Promise(function (resolve, reject) {
-      canvas.toBlob(function (blob) {
-        resolve(blob);
-      }, 'image/jpeg');
-    });
-  }
+      //var width = window.innerHeight > window.innerWidth ? window.innerWidth : window.innerWidth * .8;
+      //var height = window.innerHeight > window.innerWidth ? window.innerHeight * .8 : window.innerHeight;
+      var width = video.videoWidth;
+      var height = video.videoHeight;
+      canvas.width = width;
+      canvas.height = height;
 
-  // some API's (like Azure Custom Vision) need a blob with image data
-  getCanvasBlob(canvas).then(function (blob) {
-    // do something with the image blob
-    console.log(blob);
-    urlCreator = window.URL || window.webkitURL;
-    imageUrl = urlCreator.createObjectURL(blob);
-    console.log(imageUrl);
-    document.querySelector("#cap").src = imageUrl;
-    document.getElementById("imgURL").href = imageUrl;  
-  });
+      context = canvas.getContext('2d');
+      //1280
+      //1080
+      document.getElementById("captured").style.display = "block";
+      document.getElementById("controls").style.display = "none";
+      document.getElementById("buttons").style.display = "block";
+      document.getElementById("captureCanvas").style.display = "none";
+      document.getElementById("uploadCanvas").style.display = "block";
+      
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = (e) => $('#fileImage').attr('src', e.target.result);      
+        reader.readAsDataURL(input.files[0]);
+      }
+
+
+      image.src = URL.createObjectURL(input.files[0]);
+      image.onload = function() {
+        context.drawImage(image, 0, 0, width, height);
+        context.drawImage(frame, 0, 0, width, height);   
+
+        alert(width);
+        alert(height);
+        alert("----");
+        alert(canvas.width);
+        alert(canvas.height);
+        function getCanvasBlob(canvas) {
+          return new Promise(function (resolve, reject) {
+            canvas.toBlob(function (blob) {
+              resolve(blob);
+            }, 'image/jpeg');
+          });
+        }
+
+        // some API's (like Azure Custom Vision) need a blob with image data
+        getCanvasBlob(canvas).then(function (blob) {
+          // do something with the image blob          
+          console.log(blob);
+          uploadImageUrl = uploadUrlCreator.createObjectURL(blob);
+          console.log(uploadImageUrl);
+          document.getElementById("imgURL").href = uploadImageUrl;  
+        });         
+      }                  
+      
+    }
+
 }
 
 // https://hackernoon.com/how-to-use-javascript-closures-with-confidence-85cd1f841a6b
