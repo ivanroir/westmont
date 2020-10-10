@@ -140,6 +140,12 @@ button {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+#file {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 @media screen and (orientation: portrait) {
   /* portrait-specific styles */
 
@@ -190,6 +196,11 @@ button {
   #backButton {
     left: calc(20% - 32px);
     top: calc(50% - 32px);
+  }
+
+  #file {
+    left: calc(50% - 32px);
+    top: calc(0% - 32px);
   }
 
 }
@@ -246,9 +257,13 @@ button {
     top: calc(92% - 32px);
   }
 
-
   #backButton {
     left: calc(50% - 32px);
     top: calc(18% - 32px);
+  }
+
+  #file {
+    left: calc(0% - 32px);
+    top: calc(50% - 32px);
   }
 }
