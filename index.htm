@@ -196,8 +196,8 @@
 
           image.src = URL.createObjectURL(input.files[0]);
           image.onload = function() {
-            context.drawImage(image, 0, 0, width, height);
-            context.drawImage(frame, 0, 0, width, height);   
+            context.drawImage(image, 0, 0, image.width, image.height);
+            context.drawImage(frame, 0, 0, image.width, image.height);   
 
             console.log(width);
             console.log(height);
