@@ -141,8 +141,11 @@ button {
 }
 
 #file {
-  width: 32px;
-  height: 32px;
+  left: calc(400% - 40px);
+  top: calc(40% - 40px);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -198,10 +201,10 @@ button {
     top: calc(50% - 32px);
   }
 
-  #file {
+  /*#file {
     left: calc(50% - 32px);
     top: calc(0% - 32px);
-  }
+  }*/
 
 }
 
@@ -262,8 +265,8 @@ button {
     top: calc(18% - 32px);
   }
 
-  #file {
+  /*#file {
     left: calc(0% - 32px);
     top: calc(50% - 32px);
-  }
+  }*/
 }

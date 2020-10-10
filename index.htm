@@ -111,6 +111,7 @@
                 type="button"
                 onclick="document.getElementById('frame').src='img/frame3.png'">3</button>
           </div>
+          <input type='file' id="file" name="file" onchange="upload(this);" />
         </div>
         <div class="buttons" id="buttons">
           <button 
@@ -126,19 +127,10 @@
               onclick="divCaptureClose()">Download</button>
           </a>
         </div>
-        
-        <div>
-         <input type='file' id="file" name="file" onchange="upload(this);" />
-        </div>
       </div>
     
       <div class="captured" id="captured" onclick="divCaptureClose()">
         <div id="vid_container">
-            <!--<a id="imgURL" download></a>
-            <div class="overlay">
-              <img src="img/frame4.png" alt="Frame" id="frame" class="image">
-              <canvas width="400" height="300" id="canvas" >
-            </div>-->
             <div class="captureCanvas" id="captureCanvas">
               <img alt="capture" id="cap" class="image" /> 
             </div>
