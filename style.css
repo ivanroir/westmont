@@ -272,8 +272,11 @@ button {
 }
 
 .fileDiv {
+  position: absolute;
+  margin: auto;
   text-align: center;
-	margin: 0 auto;
+  top: calc(50% - 40px);
+  right: 0%
 }
 
 .inputfile {
@@ -283,7 +286,6 @@ button {
   overflow: hidden;
   position: absolute;
   z-index: -1;
-  
 }
 
 .inputfile-4 + label {
