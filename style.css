@@ -58,8 +58,8 @@ button {
 }
 
 #takePhotoButton {
-  width: 80px;
-  height: 80px;
+  width: 96px;
+  height: 96px;
   background-image: url('img/baseline_photo_camera_black_18dp.png');
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 1);
@@ -125,7 +125,7 @@ button {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 1);
   background-image: url('img/arrow_back-24px.svg');
 }
 
@@ -135,7 +135,7 @@ button {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(255, 255, 255, 1);
   background-image: url('img/outline_get_app_black_18dp.png');
 } 
 
