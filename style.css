@@ -115,14 +115,14 @@ button {
   display: none;
   width: 64px;
   height: 64px;
-  background-image: url('img/camera_rear_black_36dp.svg');
+  background-image: url('img/flip_camera_ios_black_36dp.svg');
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 1);
 }
 
-#switchCameraButton[aria-pressed='true'] {
+/*#switchCameraButton[aria-pressed='true'] {
   background-image: url('img/camera_front_black_36dp.svg');
-}
+}*/
 
 #backButton {
   width: 64px;
@@ -203,10 +203,10 @@ button {
     top: calc(40% - 40px);
   }
   
-  /*.fileDiv {
-    bottom: 0%;
-    left: calc(50% - 40px);
-  }*/
+  .fileDiv {
+    top: calc(40% - 32px);
+    left: calc(100% - 32px);
+  }
 
 }
 
@@ -286,8 +286,6 @@ button {
 .fileDiv {
   position: absolute;
   margin: auto; 
-  bottom: 0%;
-  left: calc(50% - 40px);
 }
 
 .inputfile {
