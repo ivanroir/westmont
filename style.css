@@ -19,7 +19,7 @@ body {
 
 #gui_controls {
   position: fixed;
-  background-color: #111; /*rgba(255, 0, 0, 0.5);*/
+  background-color: #fff;
   z-index: 2;
   bottom: 0;
 }
