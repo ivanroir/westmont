@@ -204,7 +204,7 @@ button {
   }
   
   .fileDiv {
-    top: calc(40% - 32px);
+    top: calc(40% - 40px);
     left: calc(90% - 32px);
   }
 
