@@ -136,7 +136,7 @@ button {
   height: 80px;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5); 
-  background-image: url('img/get_app-24px.svg');
+  background-image: url('img/outline_get_app_black_18dp.png');
 } 
 
 @media screen and (orientation: portrait) {
