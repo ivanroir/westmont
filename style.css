@@ -48,7 +48,7 @@ button {
   display: block;
   opacity: 1;
   background: transparent;
-  border: solid 2px #fff;
+  border: solid 2px #111;
   padding: 0;
   text-shadow: 0px 0px 4px black;
   background-position: center center;
@@ -66,7 +66,7 @@ button {
 }
 
 #takePhotoButton:active {
-  background-color: #fff;
+  background-color: #111;
 }
 
 #toggleFullScreenButton {
