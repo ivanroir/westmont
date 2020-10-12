@@ -115,7 +115,7 @@
           </div>
           <div class="fileDiv">
             <input type='file' id="file" name="file" class="inputfile inputfile-4" onchange="takeSnapshot(this);" />
-            <label for="file"><img src="img/outline_collections_black_36dp.png"></label>
+            <label for="file"><img src="img/collections_black_36dp.svg"></label>
           </div>
         </div>
         <div class="buttons" id="buttons">
@@ -199,12 +199,7 @@
         image.onload = function() {
           context.drawImage(image, 0, 0, width, height);
           context.drawImage(frame, 0, 0, width, height);   
-
-          alert(width);
-          alert(height);
-          alert("----");
-          alert(canvas.width);
-          alert(canvas.height);
+          
           function getCanvasBlob(canvas) {
             return new Promise(function (resolve, reject) {
               canvas.toBlob(function (blob) {
