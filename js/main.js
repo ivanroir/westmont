@@ -197,7 +197,7 @@ function initCameraStream() {
   // we ask for a square resolution, it will cropped on top (landscape)
   // or cropped at the sides (landscape)
   var size = 1280;
-  var heightSize = 1280;
+  var heightSize = 1920;
   var widthSize = 1080;
   
   var constraints = {
