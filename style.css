@@ -276,10 +276,10 @@ button {
     left: calc(50% - 40px);
     top: calc(50% - 40px);
   }
-  /*.fileDiv {
-    top: calc(50% - 40px);
-    right: 0%
-  }*/
+  .fileDiv {
+    left: calc(40% - 32px);
+    top: calc(80% - 32px);
+  }
 
 }
 
