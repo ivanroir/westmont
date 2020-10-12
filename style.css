@@ -300,13 +300,13 @@ button {
 }
 
 .inputfile-4 + label {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .inputfile-4:focus + label,
 .inputfile-4.has-focus + label,
 .inputfile-4 + label:hover {
-  color: rgb(255, 255, 255, 0.5);
+  color: rgb(0, 0, 0, 0.5);
 }
 
 .inputfile-4 + label figure {
