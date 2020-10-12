@@ -93,7 +93,7 @@ button {
   height: 32px;
   border-radius: 50%;
   color: rgba(0, 0, 0, 1);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 #frame2 {
@@ -101,7 +101,7 @@ button {
   height: 32px;
   border-radius: 50%;
   color: rgba(0, 0, 0, 1);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 #frame3 {
@@ -109,7 +109,7 @@ button {
   height: 32px;
   border-radius: 50%;
   color: rgba(0, 0, 0, 1);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 1);
 }
 #switchCameraButton {
   display: none;
@@ -133,8 +133,7 @@ button {
 }
 
 #downloadButton {
-  left: calc(50% - 40px);
-  top: calc(50% - 40px);
+  
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -197,9 +196,13 @@ button {
 
   #backButton {
     left: calc(20% - 32px);
-    top: calc(50% - 32px);
+    top: calc(40% - 32px);
   }
-
+  #downloadButton {
+    left: calc(50% - 40px);
+    top: calc(40% - 40px);
+  }
+  
   /*.fileDiv {
     bottom: 0%;
     left: calc(50% - 40px);
@@ -269,6 +272,10 @@ button {
     top: calc(18% - 32px);
   } 
 
+  #downloadButton {
+    left: calc(50% - 40px);
+    top: calc(50% - 40px);
+  }
   /*.fileDiv {
     top: calc(50% - 40px);
     right: 0%
