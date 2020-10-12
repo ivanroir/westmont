@@ -126,6 +126,7 @@ button {
   height: 64px;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
+  background-image: url('img/arrow_back-24px.svg');
 }
 
 #downloadButton {
@@ -134,7 +135,8 @@ button {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); 
+  background-image: url('img/get_app-24px.svg');
 } 
 
 @media screen and (orientation: portrait) {
