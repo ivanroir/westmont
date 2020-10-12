@@ -58,9 +58,9 @@ button {
 }
 
 #takePhotoButton {
-  width: 96px;
-  height: 96px;
-  background-image: url('img/baseline_photo_camera_black_18dp.png');
+  width: 80px;
+  height: 80px;
+  background-image: url('img/photo_camera_black_48dp.svg');
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 1);
 }
@@ -92,6 +92,7 @@ button {
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  color: rgba(0, 0, 0, 1);
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -99,6 +100,7 @@ button {
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  color: rgba(0, 0, 0, 1);
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -106,19 +108,20 @@ button {
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  color: rgba(0, 0, 0, 1);
   background-color: rgba(0, 0, 0, 0.5);
 }
 #switchCameraButton {
   display: none;
   width: 64px;
   height: 64px;
-  background-image: url('img/ic_camera_rear_white_36px.svg');
+  background-image: url('img/camera_rear_black_36dp.svg');
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 #switchCameraButton[aria-pressed='true'] {
-  background-image: url('img/ic_camera_front_white_36px.svg');
+  background-image: url('img/camera_front_black_36dp.svg');
 }
 
 #backButton {
