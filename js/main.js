@@ -254,11 +254,11 @@ function initCameraStream() {
 
       context = canvas.getContext('2d');
       if (currentFacingMode == "environment"){
-        context.drawImage(video, 0, 0, width * 1.10, height);
+        context.drawImage(video, 0, 0, width * 1.20, height);
       }else{
         context.save(); 
         context.scale(-1, 1); 
-        context.drawImage(video, width * -1, 0, width * 1.25, height);
+        context.drawImage(video, width * -1, 0, width * 1.20, height);
         context.restore();
       }
       //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
