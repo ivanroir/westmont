@@ -258,7 +258,7 @@ function initCameraStream() {
       }else{
         context.save(); 
         context.scale(-1, 1); 
-        context.drawImage(video, (width * -1) - 20, 0, width * 1.25, height);
+        context.drawImage(video, (width * -1) - 30, 0, width * 1.3, height);
         context.restore();
       }
       //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
