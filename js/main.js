@@ -203,8 +203,8 @@ function initCameraStream() {
   var constraints = {
     audio: false,
     video: {
-      width: { ideal: widthSize },
-      height: { ideal: heightSize },
+      width: { ideal: size },
+      height: { ideal: size },
       //width: { min: 1024, ideal: window.innerWidth, max: 1920 },
       //height: { min: 776, ideal: window.innerHeight, max: 1080 },
       facingMode: currentFacingMode,
@@ -297,8 +297,8 @@ function initCameraStream() {
       var uploadImageUrl;
       var uploadUrlCreator = window.URL || window.webkitURL;       
 
-      var width = video.videoWidth;
-      var height = video.videoHeight;
+      var width = 1920;
+      var height = 1080;
       canvas.width = width;
       canvas.height = height;
 
