@@ -319,7 +319,8 @@ function initCameraStream() {
 
       image.src = URL.createObjectURL(input.files[0]);
       image.onload = function() {
-        context.drawImage(image, 0, 0, width, height);
+        //context.drawImage(image, 0, 0, width, height);
+        context.drawImage(video, -180, 0, width * 1.32, height);
         context.drawImage(frame, 0, 0, width, height);   
         function getCanvasBlob(canvas) {
           return new Promise(function (resolve, reject) {
