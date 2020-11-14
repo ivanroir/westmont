@@ -203,8 +203,8 @@ function initCameraStream() {
   var constraints = {
     audio: false,
     video: {
-      width: { ideal: widthSize },
-      height: { ideal: heightSize },
+      width: { ideal: size },
+      height: { ideal: size },
       //width: { min: 1024, ideal: window.innerWidth, max: 1920 },
       //height: { min: 776, ideal: window.innerHeight, max: 1080 },
       facingMode: currentFacingMode,
@@ -254,13 +254,13 @@ function initCameraStream() {
 
       context = canvas.getContext('2d');
       if (currentFacingMode == "environment"){                                
-        //context.drawImage(video, -170, 0, width * 1.25, height);                          //portrait size
-        context.drawImage(video, 0, -300, width, height * 1.32);
+        context.drawImage(video, -170, 0, width * 1.25, height);                          //portrait size
+        //context.drawImage(video, 0, -300, width, height * 1.32);
       }else{
         context.save(); 
         context.scale(-1, 1); 
-        //context.drawImage(video, (width * -1) - 170, 0, width * 1.25, height);
-        context.drawImage(video, width * -1, -300, width, height * 1.32);                   // portrait size
+        context.drawImage(video, (width * -1) - 170, 0, width * 1.25, height);
+        //context.drawImage(video, width * -1, -300, width, height * 1.32);                   // portrait size
         context.restore();
       }
       //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
