@@ -138,39 +138,67 @@
         <div class="modal-content">
           <div class="modal-body" style="background-color: #00793f;">
             <div class="row">
-              <div class="col-12 text-center m-5">
-                <img src="https://virtualbooth.tk/img/westmont.png" width="150" height="75"/>
+              <div class="col-12 text-center mb-5">
+                <img class="img-responsive" src="https://virtualbooth.tk/img/westmont.png" style="width: 75%;"/>
               </div>
-              <div class="col-12 text-center m-5">
-                <img src="https://virtualbooth.tk/img/register.png" width="150" height="75"/>
+              <div class="col-12 text-center mb-5">
+                <img class="img-responsive"  src="https://virtualbooth.tk/img/register.png" style="width: 50%;"/>
               </div>
               <div class="col-8">
                 <div class="form-group">
-                  <label for="first_name">First Name</label>
-                  <input type="text" class="form-control" id="first_name">
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="first_name">First Name</label>
+                    </div>
+                    <div class="col-6" style="text-align: end;">
+                      <label id="firstname_required" style="color: red;  display: none;">* Required</label>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" id="first_name" required>
                 </div>
               </div>
               <div class="col-4">
                 <div class="form-group">
-                  <label for="middle_initial">Middle Initial</label>
-                  <input type="text" class="form-control" id="middle_initial">
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="middle_initial">Middle Initial</label>
+                    </div>
+                    <div class="col-6" style="text-align: end;">
+                      <label id="middleinitial_required" style="color: red;  display: none;">* Required</label>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" id="middle_initial" required>
                 </div>
               </div>
               <div class="col-8">
                 <div class="form-group">
-                  <label for="last_name">Last Name</label>
-                  <input type="text" class="form-control" id="last_name">
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="last_name">Last Name</label>
+                    </div>
+                    <div class="col-6" style="text-align: end;">
+                      <label id="lastname_required" style="color: red; display: none;">* Required</label>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" id="last_name" required>
                 </div>
               </div>
               <div class="col-8">
                 <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="text" class="form-control" id="email">
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="email">Email</label>
+                    </div>
+                    <div class="col-6" style="text-align: end; ">
+                      <label id="email_required" style="color: red; display: none;">* Required</label>
+                    </div>
+                  </div>
+                  <input type="text" class="form-control" id="email" required>
                 </div>
               </div>
               <div class="col-12 text-center">
-                <button type="button" id="submit" onclick="sendBackMessage()" data-dismiss="modal">
-                  <img src="https://virtualbooth.tk/img/submit.png" width="15" height="25" />
+                <button type="button" id="submit" onclick="sendBackMessage()">
+                  <img src="https://virtualbooth.tk/img/submit.png" style="width: 50%;"/>
                 </button>
               </div>
             </div>
@@ -181,13 +209,53 @@
 
     <script>
       function sendBackMessage(){
+        var fname = true, initial = true, lname = true, emailadd = true;
         var firstName = document.getElementById("first_name").value;
         var middleInitial = document.getElementById("middle_initial").value;
         var lastName = document.getElementById("last_name").value;
         var email = document.getElementById("email").value;
 
-        var data = firstName + "\t" + middleInitial + "\t" + lastName + "\t" + email;
-        gameInstance.SendMessage("GameManager", "SendToUnity", data );
+        if (!document.getElementById('first_name').validity.valid){
+          document.getElementById('firstname_required').style.display = "inline";
+          fname = false;
+        }
+        else {
+          document.getElementById('firstname_required').style.display = "none";
+          fname = true;
+        }
+
+        if (!document.getElementById('middle_initial').validity.valid){
+          document.getElementById('middleinitial_required').style.display = "inline";
+          initial = false;
+        }
+        else {
+          document.getElementById('middleinitial_required').style.display = "none";
+          initial = true;
+        }
+
+        if (!document.getElementById('last_name').validity.valid){
+          document.getElementById('lastname_required').style.display = "inline";
+          lname = false;
+        }
+        else {
+          document.getElementById('lastname_required').style.display = "none";
+          lname = true;
+        }
+
+        if (!document.getElementById('email').validity.valid){
+          document.getElementById('email_required').style.display = "inline";
+          emailadd = false;
+        }
+        else {
+          document.getElementById('email_required').style.display = "none";
+          emailadd = true;
+        }
+
+        if (fname && initial && lname && emailadd) {
+          var data = firstName + "\t" + middleInitial + "\t" + lastName + "\t" + email;
+          gameInstance.SendMessage("GameManager", "SendToUnity", data );
+          $('#exampleModal').modal('hide');
+        }
       }
     </script>
     
