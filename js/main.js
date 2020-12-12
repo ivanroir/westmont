@@ -286,7 +286,7 @@ function initCameraStream() {
         return new Promise(function (resolve, reject) {
           canvas.toBlob(function (blob) {
             resolve(blob);
-          }, 'image/jpeg');
+          }, 'image/png');
         });
       }
 
@@ -341,7 +341,7 @@ function initCameraStream() {
           return new Promise(function (resolve, reject) {
             canvas.toBlob(function (blob) {
               resolve(blob);
-            }, 'image/jpeg');
+            }, 'image/png');
           });
         }
 
