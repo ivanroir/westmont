@@ -309,8 +309,8 @@ function initCameraStream() {
       var uploadImageUrl;
       var uploadUrlCreator = window.URL || window.webkitURL;       
 
-      var width = 1080;
-      var height = 1920;
+      var width = 720; //1080;
+      var height = 1280; //1920;
       canvas.width = width;
       canvas.height = height;
 
