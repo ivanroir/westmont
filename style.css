@@ -208,6 +208,11 @@ button {
     top: calc(40% - 32px);
   }
 
+  #rotate {
+    left: calc(80% - 32px);
+    top: calc(40% - 32px);
+  }
+
 }
 
 @media screen and (orientation: landscape) {
@@ -272,9 +277,25 @@ button {
     top: calc(80% - 32px);
   }
 
+  #rotate {
+    left: calc(50% - 32px);
+    top: calc(80% - 32px);
+  }
+
 }
 
 .fileDiv {
+  position: absolute;
+  margin: auto; 
+  border: solid 2px #111;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 12px;
+  height: 64px;
+  width: 64px;
+}
+
+#rotate {
   position: absolute;
   margin: auto; 
   border: solid 2px #111;
