@@ -309,7 +309,7 @@ function initCameraStream() {
       var uploadImageUrl;
       var uploadUrlCreator = window.URL || window.webkitURL;       
 
-      var width = 720; //1080;
+      var width = 1280; //1080;
       var height = 1280; //1920;
       canvas.width = width;
       canvas.height = height;
@@ -331,8 +331,8 @@ function initCameraStream() {
 
       image.src = URL.createObjectURL(input.files[0]);
       image.onload = function() {
-        //context.drawImage(image, 0, 0, width, height);
-        context.drawImage(image, -180, 0, width * 1.25, height);
+        context.drawImage(image, 0, 0, width, height);
+        //context.drawImage(image, -180, 0, width * 1.25, height);
         context.drawImage(frame, 0, 0, width, height);   
 
         //context.drawImage(image, 0, 0, image.width, image.height);
