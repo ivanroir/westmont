@@ -362,8 +362,13 @@ function initCameraStream() {
 
 function rotate(degree){
 
+  var image = document.getElementById('fileImageCapture');
+  degrees += degree;
 
-  var uploadImageUrl;
+  image.css('transform','rotate(' + degrees + 'deg)');
+
+
+  /*var uploadImageUrl;
   var uploadUrlCreator = window.URL || window.webkitURL;  
   var frame = document.getElementById("frame");
   var image = document.getElementById('fileImageCapture');
@@ -379,6 +384,7 @@ function rotate(degree){
   canvas.height = height;
 
   context = canvas.getContext('2d');
+  context.save();
 
   context.translate(canvas.width/2,canvas.height/2);
   context.rotate(degrees * Math.PI/180);
@@ -389,8 +395,10 @@ function rotate(degree){
   context.drawImage(image, -width, -height);
   context.drawImage(frame, -width, -height); 
 
+  context.restore();
+
   /*context.rotate(degrees * -Math.PI/180);
-  context.translate(-canvas.width/2,-canvas.height/2);*/
+  context.translate(-canvas.width/2,-canvas.height/2);
 
   function getCanvasBlob(canvas) {
     return new Promise(function (resolve, reject) {
@@ -406,7 +414,7 @@ function rotate(degree){
     uploadImageUrl = uploadUrlCreator.createObjectURL(blob);
     document.querySelector("#fileImageCapture").src = uploadImageUrl;
     document.getElementById("imgURL").href = uploadImageUrl;  
-  });
+  });*/
 
 }
 
