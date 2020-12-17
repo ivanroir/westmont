@@ -144,6 +144,9 @@
             <div class="uploadCanvas" id="uploadCanvas">
               <!--<canvas id="uploadCanvasImage">-->
               <img id="fileImageCapture" class="image"/>
+              
+              <img src="img/frame7.png" style="width: 100%; height: -webkit-fill-available;" />            
+              
             </div>
         </div>
       </div>
@@ -165,75 +168,6 @@
         document.getElementById("uploadCanvas").style.display = "none";
       }
 
-      function upload(input){
-
-        var frame = document.getElementById("frame");
-        var canvas = document.getElementById('uploadCanvasImage');
-        var fileImage = document.getElementById("fileImage");
-        var image = new Image;
-        var uploadImageUrl;
-        var uploadUrlCreator = window.URL || window.webkitURL;       
-
-
-        var width = window.innerHeight > window.innerWidth ? window.innerWidth : window.innerWidth * .8;
-        var height = window.innerHeight > window.innerWidth ? window.innerHeight * .8 : window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
-
-        context = canvas.getContext('2d');
-        //1280
-        //1080
-        document.getElementById("captured").style.display = "block";
-        document.getElementById("controls").style.display = "none";
-        document.getElementById("buttons").style.display = "block";
-        document.getElementById("captureCanvas").style.display = "none";
-        document.getElementById("uploadCanvas").style.display = "block";
-        
-        if (input.files && input.files[0]) {
-          var reader = new FileReader();
-          
-          reader.onload = (e) => $('#fileImage').attr('src', e.target.result);      
-          reader.readAsDataURL(input.files[0]);
-        }
-
-
-        image.src = URL.createObjectURL(input.files[0]);
-        image.onload = function() {
-          context.drawImage(image, 0, 0, width, height);
-          context.drawImage(frame, 0, 0, width, height);   
-          
-          function getCanvasBlob(canvas) {
-            return new Promise(function (resolve, reject) {
-              canvas.toBlob(function (blob) {
-                resolve(blob);
-              }, 'image/jpeg');
-            });
-          }
-
-          // some API's (like Azure Custom Vision) need a blob with image data
-          getCanvasBlob(canvas).then(function (blob) {
-            // do something with the image blob          
-            console.log(blob);
-            uploadImageUrl = uploadUrlCreator.createObjectURL(blob);
-            console.log(uploadImageUrl);
-            document.getElementById("imgURL").href = uploadImageUrl;  
-          });         
-        } 
-      }
-
-      function readURL(input) {
-        if (input.files && input.files[0]) {
-          var reader = new FileReader();
-          
-          var urlCreator = window.URL || window.webkitURL;
-
-          reader.onload = function (e) {
-              $('#fileImage')
-                .attr('src', e.target.result);
-          };
-          reader.readAsDataURL(input.files[0]);
-        }
-      }      
     </script>
     <script src="js/adapter.min.js"></script>
     <script src="js/screenfull.min.js"></script>

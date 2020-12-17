@@ -336,7 +336,7 @@ function initCameraStream() {
       image.onload = function() {
         context.drawImage(image, 0, 0, width, height);
         //context.drawImage(image, -180, 0, width * 1.25, height);
-        context.drawImage(frame, 0, 0, width, height);   
+        //context.drawImage(frame, 0, 0, width, height);   
 
         //context.drawImage(image, 0, 0, image.width, image.height);
         //context.drawImage(frame, 0, 0, image.width, image.height);   
