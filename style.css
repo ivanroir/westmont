@@ -324,6 +324,7 @@ button {
   padding: 12px;
   height: 64px;
   width: 64px;
+  background-image: url('img/rotate-black-24dp.svg');
 }
 
 .inputfile {
