@@ -243,8 +243,47 @@ function initCameraStream() {
   }
 }
 
-  function takeSnapshot(input = null) {
+
+  function downloadUpload () {
+
+    var canvas = document.createElement('canvas');
+    var frame = document.getElementById("frame");
+
+    var width = video.videoWidth;
+    var height = video.videoHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    context = canvas.getContext('2d');
+
+    context.drawImage(video, 0, 0, width, height);
+    context.drawImage(frame, 0, 0, width, height);
     
+    function getCanvasBlob(canvas) {
+      return new Promise(function (resolve, reject) {
+        canvas.toBlob(function (blob) {
+          resolve(blob);
+        }, 'image/png');
+      });
+    }
+
+    // some API's (like Azure Custom Vision) need a blob with image data
+    getCanvasBlob(canvas).then(function (blob) {
+      // do something with the image blob
+      urlCreator = window.URL || window.webkitURL;
+      imageUrl = urlCreator.createObjectURL(blob);
+      var a = $("<a>")
+        .attr("href", imageUrl)
+        .attr("download", imageUrl)
+        .appendTo("body");
+      a[0].click();
+      a.remove();
+
+      //document.getElementById("imgURL").href = imageUrl;  
+    });
+
+  }
+  function takeSnapshot(input = null) {    
 
     if (input == null){
       var canvas = document.createElement('canvas');
@@ -281,7 +320,6 @@ function initCameraStream() {
       //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
       //context.drawImage(frame, 0, 0, width * .75, height);
       context.drawImage(frame, 0, 0, width, height);
-      console.log(canvas);
       // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
       // https://developers.google.com/web/fundamentals/primers/promises
       // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
@@ -296,10 +334,8 @@ function initCameraStream() {
       // some API's (like Azure Custom Vision) need a blob with image data
       getCanvasBlob(canvas).then(function (blob) {
         // do something with the image blob
-        console.log(blob);
         urlCreator = window.URL || window.webkitURL;
         imageUrl = urlCreator.createObjectURL(blob);
-        console.log(imageUrl);
         document.querySelector("#cap").src = imageUrl;
         document.getElementById("imgURL").href = imageUrl;  
       });
@@ -328,7 +364,7 @@ function initCameraStream() {
       document.getElementById("capturedDownload").style.display = "none";
       document.getElementById("uploadDownload").style.display = "block";
       
-      
+
       if (input.files && input.files[0]) {
         var reader = new FileReader();
         

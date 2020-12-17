@@ -141,6 +141,15 @@ button {
   background-image: url('img/outline_get_app_black_18dp.png');
 } 
 
+#downloadUploadButton {
+  
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 1);
+  background-image: url('img/outline_get_app_black_18dp.png');
+} 
+
 @media screen and (orientation: portrait) {
   /* portrait-specific styles */
 
@@ -202,7 +211,12 @@ button {
     left: calc(50% - 40px);
     top: calc(40% - 40px);
   }
-  
+
+  #downloadUploadButton {
+    left: calc(50% - 40px);
+    top: calc(40% - 40px);
+  }
+
   .fileDiv {
     left: calc(80% - 32px);
     top: calc(40% - 32px);
@@ -272,6 +286,12 @@ button {
     left: calc(50% - 40px);
     top: calc(50% - 40px);
   }
+
+  #downloadButton {
+    left: calc(50% - 40px);
+    top: calc(50% - 40px);
+  }
+
   .fileDiv {
     left: calc(50% - 32px);
     top: calc(80% - 32px);
