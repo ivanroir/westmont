@@ -362,13 +362,13 @@ function initCameraStream() {
 
 function rotate(degree){
 
-  degrees += degree;
-
-  alert(degrees);
-  
+  var uploadImageUrl;
+  var uploadUrlCreator = window.URL || window.webkitURL;  
   var frame = document.getElementById("frame");
   var image = document.getElementById('fileImageCapture');
   var canvas = document.createElement('canvas');
+
+  degrees += degree;
 
   var width = 1280; //1080;
   var height = 1280; //1920;
@@ -385,7 +385,7 @@ function rotate(degree){
 
   context.drawImage(image, -width, -height);
   context.drawImage(frame, -width, -height); 
-
+  context.fillRect(120, -50, 100, 10);
 
   /*context.rotate(degrees * -Math.PI/180);
   context.translate(-canvas.width/2,-canvas.height/2);*/
