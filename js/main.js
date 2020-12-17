@@ -296,7 +296,6 @@ function initCameraStream() {
         console.log(blob);
         urlCreator = window.URL || window.webkitURL;
         imageUrl = urlCreator.createObjectURL(blob);
-        console.log(imageUrl);
         document.querySelector("#cap").src = imageUrl;
         document.getElementById("imgURL").href = imageUrl;  
       });

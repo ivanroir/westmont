@@ -257,7 +257,15 @@ function initCameraStream() {
 
     context = canvas.getContext('2d');
 
-    context.drawImage(image, 0, 0, width, height);
+    context.clearRect(0,0,canvas.width,canvas.height);
+    context.save();
+    context.translate(canvas.width/2,canvas.height/2);
+    context.rotate(degrees*Math.PI/180);
+    context.drawImage(image,-image.width/2,-image.height/2);
+    context.restore();
+
+    //context.drawImage(image, 0, 0, width, height);
+
     context.drawImage(frame, 0, 0, width, height);
     
     function getCanvasBlob(canvas) {
@@ -405,8 +413,6 @@ function rotate(degree){
 
   var image = document.getElementById('fileImageCapture');
   degrees += degree;
-
-  alert(degrees);
 
   image.style.transform =  "rotate("+ (degrees) +"deg)";
 
