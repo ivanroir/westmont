@@ -125,13 +125,19 @@
             name="back"
             id="backButton"
             onclick="divCaptureClose()"></button>
-          <a id="imgURL" download>
+          <div id="capturedDownload">
             <button 
               type="button" 
               name="download"
               id="downloadButton"
-              onclick="divCaptureClose()"></button>
-          </a>
+              onclick="divCaptureClose()">
+                <a id="imgURL" download>
+              </button>
+            </a>
+          </div>
+          <div id="uploadDownload">
+            
+          </div>
           <button 
             type="button" 
             name="rotate"
