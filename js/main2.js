@@ -364,6 +364,8 @@ function rotate(degree){
 
   var image = document.getElementById('fileImageCapture');
   degrees += degree;
+  
+  alert(degrees);
 
   image.css('transform','rotate(' + degrees + 'deg)');
 
