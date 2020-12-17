@@ -248,6 +248,7 @@ function initCameraStream() {
 
     var canvas = document.createElement('canvas');
     var frame = document.getElementById("frame");
+    var image = document.getElementById("fileImageCapture");
 
     var width = video.videoWidth;
     var height = video.videoHeight;
@@ -256,7 +257,7 @@ function initCameraStream() {
 
     context = canvas.getContext('2d');
 
-    context.drawImage(video, 0, 0, width, height);
+    context.drawImage(image, 0, 0, width, height);
     context.drawImage(frame, 0, 0, width, height);
     
     function getCanvasBlob(canvas) {
