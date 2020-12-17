@@ -324,6 +324,10 @@ function initCameraStream() {
       document.getElementById("buttons").style.display = "block";
       document.getElementById("captureCanvas").style.display = "none";
       document.getElementById("uploadCanvas").style.display = "block";
+
+      document.getElementById("capturedDownload").style.display = "none";
+      document.getElementById("uploadDownload").style.display = "block";
+      
       
       if (input.files && input.files[0]) {
         var reader = new FileReader();

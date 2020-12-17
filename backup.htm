@@ -125,18 +125,19 @@
             name="back"
             id="backButton"
             onclick="divCaptureClose()"></button>
-          <div id="capturedDownload">
+          <div id="capturedDownload" style="display: none;">
+            <a id="imgURL" download>
             <button 
               type="button" 
               name="download"
               id="downloadButton"
-              onclick="divCaptureClose()">
-                <a id="imgURL" download>
-              </button>
+              onclick="divCaptureClose()"></button>
             </a>
           </div>
-          <div id="uploadDownload">
+          <div id="uploadDownload" style="display: none;">
             
+            
+
           </div>
           <button 
             type="button" 
@@ -168,6 +169,9 @@
         document.getElementById("buttons").style.display = "block";
         document.getElementById("captureCanvas").style.display = "block";
         document.getElementById("uploadCanvas").style.display = "none";
+
+        document.getElementById("capturedDownload").style.display = "block";
+        document.getElementById("uploadDownload").style.display = "none";
           
       }
       function divCaptureClose() {
