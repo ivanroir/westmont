@@ -261,7 +261,8 @@ function initCameraStream() {
     context.save();
     context.translate(canvas.width/2,canvas.height/2);
     context.rotate(degrees*Math.PI/180);
-    context.drawImage(image,-image.width/2,-image.height/2);
+    //context.drawImage(image,-image.width/2,-image.height/2);
+    context.drawImage(image, 0, 0, width, height);
     context.restore();
 
     //context.drawImage(image, 0, 0, width, height);
