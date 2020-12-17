@@ -18,7 +18,7 @@ var urlCreator;
 var imageUrl;
 var pict = document.getElementById("cap");
 
-var degrees = 90;
+var degrees = 0;
 
 
 // this function counts the amount of video inputs
