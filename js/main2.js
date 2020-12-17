@@ -287,7 +287,6 @@ function initCameraStream() {
         .attr("download", imageUrl)
         .appendTo("body");
       a[0].click();
-      a.remove();
 
       //document.getElementById("imgURL").href = imageUrl;  
     });
