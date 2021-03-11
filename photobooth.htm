@@ -1,0 +1,249 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1"
+    />
+    <meta
+      name="description"
+      content="Westmont PhotoBooth"
+    />
+    <meta name="keywords" content="HTML,CSS,JavaScript, WebRTC, Camera" />
+    <meta name="author" content="Kasper Kamperman" />
+    <title>Westmont PhotoBooth</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="js/canvas2image.js"></script>
+
+    <style>
+      .overlay {
+        position: absolute; 
+        bottom: 0;
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+      }
+      
+      .image {
+          display: block;
+          width: 100%;
+          height: -webkit-fill-available;
+      }
+      
+      .captured {
+        position:fixed;
+        width: 100%;
+        height: 100%;
+        display: none;
+      }
+
+      .buttons{
+        display: none;
+      }
+      
+      .user{
+        display: none;
+      }
+
+      .environment{
+        display: block;
+      }
+
+      .try{
+        display: none;
+      }
+
+      .captureCanvas
+      {
+        display: block;
+      }
+
+      </style>      
+  </head>
+  <body>
+    <img id="fileImage" class="image" style="opacity: 0;"/>
+    <div id="container">
+      <div id="vid_container">
+        <video id="video" autoplay playsinline></video>
+        <div id="video_overlay"></div>
+        <div class="overlay">
+          <img src="img/frame7.png" alt="Frame" id="frame" class="image">
+          <div class="try">
+            <img src="img/frame7.png" style="width: 100%; height: -webkit-fill-available;" />            
+          </div>
+        </div>
+      </div>    
+      <div id="gui_controls">
+        <div id="controls">
+          <button
+            id="switchCameraButton"
+            name="switch Camera"
+            type="button"
+            aria-pressed="false"
+            onclick="switchCamera()"
+          ></button>
+          <button id="takePhotoButton" name="Take Photo" type="button" onclick="divCapture()"></button>
+          <button
+            id="toggleFullScreenButton"
+            name="toggle FullScreen"
+            type="button"
+            aria-pressed="false"
+          ></button>
+          <div style="display: none;">
+            <button id="frameTitle" disabled>Choose a Frame</button>
+            <button
+                id="frame1"
+                name="frame 1"
+                type="button"
+                onclick="document.getElementById('frame').src='img/frame4.png'">1</button>
+            <button
+                id="frame2"
+                name="frame 2"
+                type="button"
+                onclick="document.getElementById('frame').src='img/frame5.png'">2</button>
+            <button
+                style="display: none;"
+                id="frame3"
+                name="frame 3"
+                type="button"
+                onclick="document.getElementById('frame').src='img/frame3.png'">3</button>
+          </div>
+          <div class="fileDiv">
+            <input type='file' id="file" name="file" class="inputfile inputfile-4" onchange="takeSnapshot(this);" />
+            <label for="file"><img src="img/collections_black_36dp.svg"></label>
+          </div>
+        </div>
+        <div class="buttons" id="buttons">
+          <button 
+            type="button" 
+            name="back"
+            id="backButton"
+            onclick="divCaptureClose()"></button>
+          <a id="imgURL" download>
+            <button 
+              type="button" 
+              name="download"
+              id="downloadButton"
+              onclick="divCaptureClose()"></button>
+          </a>
+        </div>
+      </div>
+    
+      <div class="captured" id="captured" onclick="divCaptureClose()">
+        <div id="vid_container">
+            <div class="captureCanvas" id="captureCanvas">
+              <img alt="capture" id="cap" class="image" /> 
+            </div>
+            <div class="uploadCanvas" id="uploadCanvas">
+              <!--<canvas id="uploadCanvasImage">-->
+              <img id="fileImageCapture" class="image"/>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function divCapture() {
+        document.getElementById("captured").style.display = "block";
+        document.getElementById("controls").style.display = "none";
+        document.getElementById("buttons").style.display = "block";
+        document.getElementById("captureCanvas").style.display = "block";
+        document.getElementById("uploadCanvas").style.display = "none";
+          
+      }
+      function divCaptureClose() {
+        document.getElementById("captured").style.display = "none";
+        document.getElementById("controls").style.display = "block";
+        document.getElementById("buttons").style.display = "none";
+        document.getElementById("captureCanvas").style.display = "block";
+        document.getElementById("uploadCanvas").style.display = "none";
+      }
+
+      function upload(input){
+
+        var frame = document.getElementById("frame");
+        var canvas = document.getElementById('uploadCanvasImage');
+        var fileImage = document.getElementById("fileImage");
+        var image = new Image;
+        var uploadImageUrl;
+        var uploadUrlCreator = window.URL || window.webkitURL;       
+
+
+        var width = window.innerHeight > window.innerWidth ? window.innerWidth : window.innerWidth * .8;
+        var height = window.innerHeight > window.innerWidth ? window.innerHeight * .8 : window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+
+        context = canvas.getContext('2d');
+        //1280
+        //1080
+        document.getElementById("captured").style.display = "block";
+        document.getElementById("controls").style.display = "none";
+        document.getElementById("buttons").style.display = "block";
+        document.getElementById("captureCanvas").style.display = "none";
+        document.getElementById("uploadCanvas").style.display = "block";
+        
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          
+          reader.onload = (e) => $('#fileImage').attr('src', e.target.result);      
+          reader.readAsDataURL(input.files[0]);
+        }
+
+
+        image.src = URL.createObjectURL(input.files[0]);
+        image.onload = function() {
+          context.drawImage(image, 0, 0, width, height);
+          context.drawImage(frame, 0, 0, width, height);   
+          
+          function getCanvasBlob(canvas) {
+            return new Promise(function (resolve, reject) {
+              canvas.toBlob(function (blob) {
+                resolve(blob);
+              }, 'image/jpeg');
+            });
+          }
+
+          // some API's (like Azure Custom Vision) need a blob with image data
+          getCanvasBlob(canvas).then(function (blob) {
+            // do something with the image blob          
+            console.log(blob);
+            uploadImageUrl = uploadUrlCreator.createObjectURL(blob);
+            console.log(uploadImageUrl);
+            document.getElementById("imgURL").href = uploadImageUrl;  
+          });         
+        } 
+      }
+
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          
+          var urlCreator = window.URL || window.webkitURL;
+
+          reader.onload = function (e) {
+              $('#fileImage')
+                .attr('src', e.target.result);
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }      
+    </script>
+    <script src="js/adapter.min.js"></script>
+    <script src="js/screenfull.min.js"></script>
+    <script src="js/howler.core.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      function switchCamera(){
+        if (currentFacingMode != "environment"){
+          document.getElementById("video").style.transform = "scaleX(1)";
+        }else{
+          document.getElementById("video").style.transform = "scaleX(-1)";
+        }
+      }
+    </script>
+  </body>
+</html>
