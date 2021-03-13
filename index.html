@@ -517,5 +517,9 @@
     $('#close').click(function () {
       $('iframe').attr('src', $('iframe').attr('src'));
     });
+    
+    setTimeout(function(){
+      $("#gameContainer").find("button").click();
+    }, 100);
   </script>
 </html>
