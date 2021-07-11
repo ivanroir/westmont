@@ -262,7 +262,7 @@ function initCameraStream() {
           document.getElementById("video").style.transform = "scaleX(-1)";
         }
       }else {
-        document.getElementById("video").style.transform = "scaleX(-1)";
+        document.getElementById("video").style.transform = "scaleX(1)";
       }
 
       if (currentFacingMode == "environment"){   
