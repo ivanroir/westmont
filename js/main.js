@@ -263,31 +263,36 @@ function initCameraStream() {
         }
         else if (screen.availHeight < screen.availWidth) {*/
           if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-            context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height); // small == shrink img , large == stretch img
+            context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
             
             //context.drawImage(video, (screen.availWidth * -1 ), 0, width, height);
           }
           else {
             //context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
-            context.drawImage(video, 0, 0, width , height, 0, 0, width, height);
+            //context.drawImage(video, 0, 0, width , height, 0, 0, width, height);
+            context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
           }
         //}
         //context.drawImage(video, (width * -1) + -170, 0, width * 2, height);                           //portrait size
         context.restore();
       }else{
         context.save(); 
+        context.translate(width, 0);
         context.scale(-1, 1); 
         //context.drawImage(video, (width * -1) - 170, 0, width * 1.25, height);
 
         if (screen.availHeight > screen.availWidth) {
-          context.drawImage(video, (width * -1) + 60, 0, width, height);
+          //context.drawImage(video, (width * -1) + 60, 0, width, height);
+          context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
         }
         else if (screen.availHeight < screen.availWidth) {
           if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-            context.drawImage(video, (width * -1) + -170, -170, width * 1.25, height * 1.25);
+            //context.drawImage(video, (width * -1) + -170, -170, width * 1.25, height * 1.25);
+            context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
           }
           else {
-            context.drawImage(video, (width * -1) + -180, -170, width * 1.30, height * 1.25);
+            //context.drawImage(video, (width * -1) + -180, -170, width * 1.30, height * 1.25);
+            context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
           }
         }
         //context.drawImage(video, width * -1, -300, width, height * 1.32);                   // portrait size
