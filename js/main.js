@@ -197,8 +197,8 @@ function initCameraStream() {
   // we ask for a square resolution, it will cropped on top (landscape)
   // or cropped at the sides (landscape)
   var size = 1280;
-  var widthSize = 1920;
-  var heightSize = 1080;
+  var widthSize = 1080;
+  var heightSize = 1920;
   
   var constraints = {
     audio: false,
@@ -250,12 +250,16 @@ function initCameraStream() {
       canvas.width = width;
       canvas.height = height;
 
+      console.log(screen.availWidth);
+      console.log(screen.availHeight);
+
       context = canvas.getContext('2d');
       if (currentFacingMode == "environment"){   
         context.save(); 
         context.scale(-1, 1);         
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-          context.drawImage(video, (width * -1) + -700, 0, width * 2.1, height);
+          context.drawImage(video, (width * -1) + -700, 0, screen.availWidth, height);
+          //context.drawImage(video, (width * -1) + -700, 0, width * 2.1, height);
         }
         else {
           context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
