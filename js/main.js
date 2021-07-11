@@ -257,7 +257,7 @@ function initCameraStream() {
       if (currentFacingMode == "environment"){   
         context.save(); 
         context.translate(width, 0);
-        context.scale(-1, 1);
+        //context.scale(-1, 1);
         /*if (screen.availHeight > screen.availWidth) {
           context.drawImage(video, (width * -1) + 60, 0, width, height);
         }
@@ -285,7 +285,7 @@ function initCameraStream() {
 
         if (screen.availHeight > screen.availWidth) {
           //context.drawImage(video, (width * -1) + 60, 0, width, height);
-          context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
+          context.drawImage(video, (width / 2) * -1, 0, width, height);
           alert("1");
         }
         else if (screen.availHeight < screen.availWidth) {
