@@ -243,11 +243,14 @@ function initCameraStream() {
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
     if (currentFacingMode == "environment"){   
       document.getElementById("video").style.transform = "scaleX(1)";
+      console.log("1");
     }else {
       document.getElementById("video").style.transform = "scaleX(-1)";
+      console.log("2");
     }
   }else {
     document.getElementById("video").style.transform = "scaleX(-1)";
+    console.log("3");
   }
 
 
