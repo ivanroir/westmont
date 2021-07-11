@@ -247,11 +247,11 @@ function initCameraStream() {
 
       var width = video.videoWidth;
       var height = video.videoHeight;
-      //canvas.width = width;
-      //canvas.height = height;
+      canvas.width = width;
+      canvas.height = height;
 
-      //console.log(window.innerWidth);
-      //console.log(window.innerHeight);
+      console.log(window.innerWidth);
+      console.log(window.innerHeight);
 
       context = canvas.getContext('2d');
       if (currentFacingMode == "environment"){   
@@ -259,9 +259,9 @@ function initCameraStream() {
         context.translate(width, 0);
         context.scale(-1, 1);
 
-        var scale = Math.max(canvas.width / width, canvas.height / height);
-        var x = (canvas.width / 2) - (width / 2) * scale;
-        var y = (canvas.height / 2) - (height / 2) * scale;
+        var scale = Math.max(canvas.width / innerWidth, canvas.height / innerHeight);
+        var x = (canvas.width / 2) - (innerWidth / 2) * scale;
+        var y = (canvas.height / 2) - (innerHeight / 2) * scale;
 
         /*if (screen.availHeight > screen.availWidth) {
           context.drawImage(video, (width * -1) + 60, 0, width, height);
