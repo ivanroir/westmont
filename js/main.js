@@ -300,7 +300,7 @@ function initCameraStream() {
 
         if (screen.availHeight > screen.availWidth) {
           //context.drawImage(video, (width * -1) + 60, 0, width, height);
-          context.drawImage(video, (width) * -1, 0, width, height);
+          context.drawImage(video, (width), 0, width, height);
           alert("1");
         }
         else if (screen.availHeight < screen.availWidth) {
