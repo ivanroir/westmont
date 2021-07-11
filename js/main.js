@@ -247,11 +247,11 @@ function initCameraStream() {
 
       var width = video.videoWidth;
       var height = video.videoHeight;
-      canvas.width = width;
-      canvas.height = height;
+      //canvas.width = width;
+      //canvas.height = height;
 
-      console.log(window.innerWidth);
-      console.log(window.innerHeight);
+      //console.log(window.innerWidth);
+      //console.log(window.innerHeight);
 
       context = canvas.getContext('2d');
       if (currentFacingMode == "environment"){   
@@ -276,7 +276,8 @@ function initCameraStream() {
             //context.drawImage(video, (width * -1) + -700, 0, width * 2.1, height);
           }
           else {
-            context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
+            //context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
+            context.drawImage(video, x, y, width * scale, height * scale);
           }
         //}
         //context.drawImage(video, (width * -1) + -170, 0, width * 2, height);                           //portrait size
