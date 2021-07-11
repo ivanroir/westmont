@@ -260,7 +260,7 @@ function initCameraStream() {
         }
         else if (screen.availHeight < screen.availWidth) {*/
           if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-            context.drawImage(video, 0, 0, width , height, 0, 0, width, height);
+            context.drawImage(video, width / 2, 0, width / 1.5 , height, 0, 0, width, height);
             //context.drawImage(video, (screen.availWidth * -1 ), 0, width, height);
           }
           else {
