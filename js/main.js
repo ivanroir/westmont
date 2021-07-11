@@ -240,6 +240,17 @@ function initCameraStream() {
   }
 }
 
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+    if (currentFacingMode == "environment"){   
+      document.getElementById("video").style.transform = "scaleX(1)";
+    }else {
+      document.getElementById("video").style.transform = "scaleX(-1)";
+    }
+  }else {
+    document.getElementById("video").style.transform = "scaleX(-1)";
+  }
+
+
   function takeSnapshot(input = null) {
     if (input == null){
       var canvas = document.createElement('canvas');
@@ -254,17 +265,7 @@ function initCameraStream() {
       console.log(screen.availWidth);
 
       context = canvas.getContext('2d');
-
-      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-        if (currentFacingMode == "environment"){   
-          document.getElementById("video").style.transform = "scaleX(1)";
-        }else {
-          document.getElementById("video").style.transform = "scaleX(-1)";
-        }
-      }else {
-        document.getElementById("video").style.transform = "scaleX(1)";
-      }
-
+      
       if (currentFacingMode == "environment"){   
         context.save(); 
         context.translate(width, 0);
@@ -274,7 +275,7 @@ function initCameraStream() {
         }
         else if (screen.availHeight < screen.availWidth) {*/
           if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-            context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
+            context.drawImage(video, (width) * -1, 0, width * 1.5, height);
             alert("5");
             
             //context.drawImage(video, (screen.availWidth * -1 ), 0, width, height);
