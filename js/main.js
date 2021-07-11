@@ -256,7 +256,8 @@ function initCameraStream() {
       context = canvas.getContext('2d');
       if (currentFacingMode == "environment"){   
         context.save(); 
-        //context.scale(-1, 1);
+        context.translate(width, 0);
+        context.scale(-1, 1);
         /*if (screen.availHeight > screen.availWidth) {
           context.drawImage(video, (width * -1) + 60, 0, width, height);
         }
