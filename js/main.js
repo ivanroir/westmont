@@ -254,6 +254,17 @@ function initCameraStream() {
       console.log(screen.availWidth);
 
       context = canvas.getContext('2d');
+
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+        if (currentFacingMode == "environment"){   
+          document.getElementById("video").style.transform = "scaleX(1)";
+        }else {
+          document.getElementById("video").style.transform = "scaleX(-1)";
+        }
+      }else {
+        document.getElementById("video").style.transform = "scaleX(-1)";
+      }
+
       if (currentFacingMode == "environment"){   
         context.save(); 
         context.translate(width, 0);
