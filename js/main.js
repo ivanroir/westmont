@@ -256,7 +256,7 @@ function initCameraStream() {
         context.scale(-1, 1);         
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
           //context.drawImage(video, (width * -1) + -170, 0, width * 1.30, height);
-          context.drawImage(video, (width * -1) + -680, 0, width * 2.1, height);
+          context.drawImage(video, (width * -1) + -700, 0, width * 2.1, height);
           //context.drawImage(video, (width * -1) + -170, 0, width * 2, height);                           //portrait size
         }
         else {
