@@ -243,14 +243,14 @@ function initCameraStream() {
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
     if (currentFacingMode == "environment"){   
       document.getElementById("video").style.transform = "scaleX(1)";
-      alert("1");
+      //alert("1");
     }else {
       document.getElementById("video").style.transform = "scaleX(-1)";
-      alert("2");
+      //alert("2");
     }
   }else {
     document.getElementById("video").style.transform = "scaleX(-1)";
-    alert("3");
+    //alert("3");
   }
 
 
@@ -284,8 +284,8 @@ function initCameraStream() {
             context.translate(width, 0);
             context.scale(-1, 1);
             //context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
-            //context.drawImage(video, 0, 0, width , height, 0, 0, width, height);
-            context.drawImage(video, (width / 2) - 480 , 0, width, height);
+            //context.drawImage(video, 0, 0, width, height, 0, 0, width, height);
+            context.drawImage(video, (width / 2) - 580 , 0, width * 1.5 , height);
             context.restore();
             alert("4");
         }
