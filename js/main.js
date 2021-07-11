@@ -203,8 +203,8 @@ function initCameraStream() {
   var constraints = {
     audio: false,
     video: {
-      width: { ideal: size },
-      height: { ideal: size },
+      width: { ideal: widthSize },
+      height: { ideal: heightSize },
       //width: { min: 1024, ideal: window.innerWidth, max: 1920 },
       //height: { min: 776, ideal: window.innerHeight, max: 1080 },
       facingMode: currentFacingMode,
@@ -255,14 +255,12 @@ function initCameraStream() {
         context.save(); 
         context.scale(-1, 1);         
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-          //context.drawImage(video, (width * -1) + -170, 0, width * 1.30, height);
           context.drawImage(video, (width * -1) + -700, 0, width * 2.1, height);
-          //context.drawImage(video, (width * -1) + -170, 0, width * 2, height);                           //portrait size
         }
         else {
           context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
         }
-        //context.drawImage(video, 0, -300, width, height * 1.32);
+        //context.drawImage(video, (width * -1) + -170, 0, width * 2, height);                           //portrait size
         context.restore();
       }else{
         context.save(); 
