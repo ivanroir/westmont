@@ -264,6 +264,7 @@ function initCameraStream() {
         else if (screen.availHeight < screen.availWidth) {*/
           if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
             context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
+            alert("5");
             
             //context.drawImage(video, (screen.availWidth * -1 ), 0, width, height);
           }
@@ -271,6 +272,7 @@ function initCameraStream() {
             //context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
             //context.drawImage(video, 0, 0, width , height, 0, 0, width, height);
             context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
+            alert("4");
           }
         //}
         //context.drawImage(video, (width * -1) + -170, 0, width * 2, height);                           //portrait size
