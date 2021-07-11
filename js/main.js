@@ -284,15 +284,18 @@ function initCameraStream() {
         if (screen.availHeight > screen.availWidth) {
           //context.drawImage(video, (width * -1) + 60, 0, width, height);
           context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
+          alert("1");
         }
         else if (screen.availHeight < screen.availWidth) {
           if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
             //context.drawImage(video, (width * -1) + -170, -170, width * 1.25, height * 1.25);
             context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
+            alert("2");
           }
           else {
             //context.drawImage(video, (width * -1) + -180, -170, width * 1.30, height * 1.25);
             context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
+            alert("3");
           }
         }
         //context.drawImage(video, width * -1, -300, width, height * 1.32);                   // portrait size
