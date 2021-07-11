@@ -245,41 +245,27 @@ function initCameraStream() {
       var canvas = document.createElement('canvas');
       var frame = document.getElementById("frame");
 
-
-      ratio = video.videoWidth/video.videoHeight;
-      var width = video.videoWidth-100;
-      var height = parseInt(width/ratio,10);
-      canvas.width = width;
-      canvas.height = height;
-
-/*
       var width = video.videoWidth;
       var height = video.videoHeight;
       canvas.width = width;
       canvas.height = height;
-*/
-      console.log(window.innerWidth);
-      console.log(window.innerHeight);
 
       context = canvas.getContext('2d');
       if (currentFacingMode == "environment"){   
         context.save(); 
         context.translate(width, 0);
         context.scale(-1, 1);
-
-       
         /*if (screen.availHeight > screen.availWidth) {
           context.drawImage(video, (width * -1) + 60, 0, width, height);
         }
         else if (screen.availHeight < screen.availWidth) {*/
           if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-            //context.drawImage(video, 0, 0, width, height, 0, 0, width, height);
-            context.drawImage(video, 0, 0, width, height);
+            context.drawImage(video, 0, 0, width / 2 , height, 0, 0, width, height);
             //context.drawImage(video, (screen.availWidth * -1 ), 0, width, height);
           }
           else {
             //context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
-            context.drawImage(video, x, y, width * scale, height * scale);
+            context.drawImage(video, 0, 0, width , height, 0, 0, width, height);
           }
         //}
         //context.drawImage(video, (width * -1) + -170, 0, width * 2, height);                           //portrait size
