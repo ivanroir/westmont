@@ -251,9 +251,12 @@ function initCameraStream() {
       canvas.height = height;
 
       context = canvas.getContext('2d');
-      if (currentFacingMode == "environment"){            
-        context.drawImage(video, 170, 0, width * 1.25, height);                          //portrait size
+      if (currentFacingMode == "environment"){   
+        context.save(); 
+        context.scale(-1, 1);          
+        context.drawImage(video, -170, 0, width * 1.25, height);                          //portrait size
         //context.drawImage(video, 0, -300, width, height * 1.32);
+        context.restore();
       }else{
         context.save(); 
         context.scale(-1, 1); 
