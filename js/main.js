@@ -270,9 +270,6 @@ function initCameraStream() {
       context = canvas.getContext('2d');
       
       if (currentFacingMode == "environment"){   
-        context.save(); 
-        context.translate(width, 0);
-        context.scale(-1, 1);
         /*if (screen.availHeight > screen.availWidth) {
           context.drawImage(video, (width * -1) + 60, 0, width, height);
         }
@@ -283,14 +280,17 @@ function initCameraStream() {
             //context.drawImage(video, (screen.availWidth * -1 ), 0, width, height);
           }
           else {
+          context.save(); 
+            context.translate(width, 0);
+            context.scale(-1, 1);
             //context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
             //context.drawImage(video, 0, 0, width , height, 0, 0, width, height);
             context.drawImage(video, (width / 2) - 480 , 0, width, height);
+            context.restore();
             alert("4");
-          }
+        }
         //}
         //context.drawImage(video, (width * -1) + -170, 0, width * 2, height);                           //portrait size
-        context.restore();
       }else{
         context.save(); 
         context.translate(width, 0);
