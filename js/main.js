@@ -203,8 +203,8 @@ function initCameraStream() {
   var constraints = {
     audio: false,
     video: {
-      width: { ideal: widthSize },
-      height: { ideal: heightSize },
+      width: { ideal: size },
+      height: { ideal: size },
       //width: { min: 1024, ideal: window.innerWidth, max: 1920 },
       //height: { min: 776, ideal: window.innerHeight, max: 1080 },
       facingMode: currentFacingMode,
@@ -283,7 +283,7 @@ function initCameraStream() {
       }
       //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
       //context.drawImage(frame, 0, 0, width * .75, height);
-      context.drawImage(frame, 0, 0, width, height);
+      context.drawImage(frame, 0, 0, height, width );
       console.log(canvas);
       // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
       // https://developers.google.com/web/fundamentals/primers/promises
