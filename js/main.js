@@ -263,7 +263,7 @@ function initCameraStream() {
         }
         else if (screen.availHeight < screen.availWidth) {*/
           if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-            context.drawImage(video, 0, 0, width, height);
+            context.drawImage(video, 0, 0, width / 2 , height);
             //context.drawImage(video, (screen.availWidth * -1 ), 0, width, height);
           }
           else {
