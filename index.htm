@@ -96,12 +96,12 @@
                 id="frame1"
                 name="frame 1"
                 type="button"
-                onclick="document.getElementById('frame').src='img/frameM.png'">M</button>
+                onclick="document.getElementById('frame').src='img/frame1.png'">M</button>
             <button
                 id="frame2"
                 name="frame 2"
                 type="button"
-                onclick="document.getElementById('frame').src='img/frameM.png'">F</button>
+                onclick="document.getElementById('frame').src='img/frame2.png'">F</button>
             <button
                 style="display: none;"
                 id="frame3"
@@ -109,7 +109,7 @@
                 type="button"
                 onclick="document.getElementById('frame').src='img/frame3.png'">3</button>
           </div>
-          <div class="fileDiv">
+          <div class="fileDiv" style="display: none;">
             <input type='file' id="file" name="file" class="inputfile inputfile-4" onchange="takeSnapshot(this);" />
             <label for="file"><img src="img/collections_black_36dp.svg"></label>
           </div>
@@ -135,7 +135,7 @@
             <div class="captureCanvas" id="captureCanvas">
               <img alt="capture" id="cap" class="image" /> 
             </div>
-            <div class="uploadCanvas" id="uploadCanvas" style="display: none;">
+            <div class="uploadCanvas" id="uploadCanvas">
               <!--<canvas id="uploadCanvasImage">-->
               <img id="fileImageCapture" class="image"/>
             </div>
@@ -233,9 +233,9 @@
     <script src="js/screenfull.min.js"></script>
     <script src="js/howler.core.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script>
       function switchCamera(){
         if (currentFacingMode != "environment"){

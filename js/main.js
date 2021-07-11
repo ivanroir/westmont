@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
           alert('Permission denied. Please refresh and give permission.');
         }
 
-        console.error('getUserMedia() error: ', error);
+        //console.error('getUserMedia() error: ', error);
       });
   } else {
     alert(
