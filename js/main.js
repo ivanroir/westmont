@@ -259,19 +259,18 @@ function initCameraStream() {
         context.translate(width, 0);
         context.scale(-1, 1);
 
-        var hRatio = canvas.width  / width    ;
-        var vRatio =  canvas.height / height  ;
-        var ratio  = Math.min ( hRatio, vRatio );
-        var centerShift_x = ( canvas.width - width*ratio ) / 2;
-        var centerShift_y = ( canvas.height - height*ratio ) / 2;  
+        var scale = Math.max(canvas.width / width, canvas.height / height);
+        var x = (canvas.width / 2) - (width / 2) * scale;
+        var y = (canvas.height / 2) - (height / 2) * scale;
 
         /*if (screen.availHeight > screen.availWidth) {
           context.drawImage(video, (width * -1) + 60, 0, width, height);
         }
         else if (screen.availHeight < screen.availWidth) {*/
           if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-            context.drawImage(video, 0 , 0, width, height, 
-              centerShift_x, centerShift_y, width*ratio, height*ratio);
+            context.drawImage(video, x, y, width * scale, height * scale);
+
+            //context.drawImage(video, 0 , 0, width, height, centerShift_x, centerShift_y, width*ratio, height*ratio);
             //context.drawImage(video, (screen.availWidth * -1 ), 0, width, height);
             
             //context.drawImage(video, (width * -1) + -700, 0, width * 2.1, height);
