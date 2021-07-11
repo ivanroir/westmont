@@ -84,7 +84,7 @@ button {
 }
 #frameTitle {
   border-style: none;
-  font-size: 10x;
+  font-size: 2vh;
 }
 
 
@@ -189,13 +189,17 @@ button {
   }
 
   #frame1 {
+    /*left: calc(75% - 32px);
+    top: calc(60% - 32px);*/
     left: calc(75% - 32px);
-    top: calc(60% - 32px);
+    top: calc(50% - 32px);
   }
   
   #frame2 {
-    left: calc(85% - 32px);
-    top: calc(60% - 32px);
+    /*left: calc(85% - 32px);
+    top: calc(60% - 32px);*/
+    left: calc(95% - 32px);
+    top: calc(50% - 32px);
   }
 
   #frame3 {
@@ -258,12 +262,14 @@ button {
   }
 
   #frameTitle {
-    left: calc(40% - 32px);
+    /*left: calc(40% - 32px);*/
+    left: calc(45% - 32px);
     top: calc(80% - 32px);
   }
   
   #frame1 {
-    left: calc(35% - 32px);
+    /*left: calc(35% - 32px);*/
+    left: calc(45% - 32px);
     top: calc(89% - 32px);
   }
 
