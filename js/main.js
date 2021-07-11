@@ -285,7 +285,7 @@ function initCameraStream() {
             context.scale(-1, 1);
             //context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
             //context.drawImage(video, 0, 0, width, height, 0, 0, width, height);
-            context.drawImage(video, (width * -1) + 220 , 0, width * 1.8 , height);
+            context.drawImage(video, (width * -1) + 520 , 0, width * 1.8 , height);
             context.restore();
             alert("4");
         }
