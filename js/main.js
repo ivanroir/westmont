@@ -253,8 +253,14 @@ function initCameraStream() {
       context = canvas.getContext('2d');
       if (currentFacingMode == "environment"){   
         context.save(); 
-        context.scale(-1, 1);          
-        context.drawImage(video, (width * -1) + -170, 0, width * 2, height);                          //portrait size
+        context.scale(-1, 1);         
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+          context.drawImage(video, (width * -1) + -170, 0, width * 1.15, height);
+          //context.drawImage(video, (width * -1) + -170, 0, width * 2, height);                          //portrait size
+        }
+        else {
+          context.drawImage(video, (width * -1) + -180, -170, width * 1.30, height);
+        }
         //context.drawImage(video, 0, -300, width, height * 1.32);
         context.restore();
       }else{
