@@ -250,8 +250,8 @@ function initCameraStream() {
       canvas.width = width;
       canvas.height = height;
 
-      console.log(video.width);
-      console.log(video.height);
+      console.log(video.videoWidth);
+      console.log(video.videoHeight);
 
       context = canvas.getContext('2d');
       if (currentFacingMode == "environment"){   
