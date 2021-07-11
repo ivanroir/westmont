@@ -259,7 +259,7 @@ function initCameraStream() {
           //context.drawImage(video, (width * -1) + -170, 0, width * 2, height);                           //portrait size
         }
         else {
-          context.drawImage(video, (width * -1) + -320, 0, width * 1.75, height);
+          context.drawImage(video, (width * -1) + -360, 0, width * 1.5, height);
         }
         //context.drawImage(video, 0, -300, width, height * 1.32);
         context.restore();
