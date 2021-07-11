@@ -285,7 +285,7 @@ function initCameraStream() {
             context.scale(-1, 1);
             //context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
             //context.drawImage(video, 0, 0, width, height, 0, 0, width, height);
-            context.drawImage(video, (width * -1) + 520 , 0, width * 1.8 , height);
+            context.drawImage(video, (width * -1) + 820 , 0, width * 1.8 , height);
             context.restore();
             alert("4");
         }
@@ -299,7 +299,7 @@ function initCameraStream() {
 
         if (screen.availHeight > screen.availWidth) {
           //context.drawImage(video, (width * -1) + 60, 0, width, height);
-          context.drawImage(video, (width / 2) - 760, 0, width, height);
+          context.drawImage(video, (width / 2) - 560, 0, width, height);
           alert("1");
         }
         else if (screen.availHeight < screen.availWidth) {
