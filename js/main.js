@@ -250,8 +250,8 @@ function initCameraStream() {
       canvas.width = width;
       canvas.height = height;
 
-      console.log(video.videoWidth);
-      console.log(video.videoHeight);
+      console.log(video.naturalWidth);
+      console.log(video.naturalHeight);
 
       context = canvas.getContext('2d');
       if (currentFacingMode == "environment"){   
@@ -262,11 +262,10 @@ function initCameraStream() {
         }
         else if (screen.availHeight < screen.availWidth) {*/
           if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-            context.drawImage(video, (screen.availWidth * -1 ) + 265, 0, height, width);
-            
-            
+            video.onload = function() {
+              context.drawImage(video, (screen.availWidth * -1 ) , 0, window.innerWidth, window.innerHeight );
+            }
             //context.drawImage(video, (screen.availWidth * -1 ), 0, width, height);
-            
             
             //context.drawImage(video, (width * -1) + -700, 0, width * 2.1, height);
           }
