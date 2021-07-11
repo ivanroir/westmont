@@ -245,11 +245,19 @@ function initCameraStream() {
       var canvas = document.createElement('canvas');
       var frame = document.getElementById("frame");
 
+
+      ratio = video.videoWidth/video.videoHeight;
+      var width = video.videoWidth-100;
+      var height = parseInt(width/ratio,10);
+      canvas.width = width;
+      canvas.height = height;
+
+/*
       var width = video.videoWidth;
       var height = video.videoHeight;
       canvas.width = width;
       canvas.height = height;
-
+*/
       console.log(window.innerWidth);
       console.log(window.innerHeight);
 
@@ -265,7 +273,8 @@ function initCameraStream() {
         }
         else if (screen.availHeight < screen.availWidth) {*/
           if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-            context.drawImage(video, 0, 0, width, height, 0, 0, width, height);
+            //context.drawImage(video, 0, 0, width, height, 0, 0, width, height);
+            context.drawImage(video, 0, 0, width, height);
             //context.drawImage(video, (screen.availWidth * -1 ), 0, width, height);
           }
           else {
