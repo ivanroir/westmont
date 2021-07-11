@@ -278,7 +278,7 @@ function initCameraStream() {
         }
         else if (screen.availHeight < screen.availWidth) {*/
           if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-            context.drawImage(video, (width) * -1, 0, width * 1, height);
+            context.drawImage(video, (width / 2) * -1, 0, width * 1, height);
             alert("5");
             
             //context.drawImage(video, (screen.availWidth * -1 ), 0, width, height);
@@ -286,7 +286,7 @@ function initCameraStream() {
           else {
             //context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
             //context.drawImage(video, 0, 0, width , height, 0, 0, width, height);
-            context.drawImage(video, (width) * -1, 0, width , height);
+            context.drawImage(video, (width / 2) * -1, 0, width , height);
             alert("4");
           }
         //}
@@ -300,7 +300,7 @@ function initCameraStream() {
 
         if (screen.availHeight > screen.availWidth) {
           //context.drawImage(video, (width * -1) + 60, 0, width, height);
-          context.drawImage(video, (width), 0, width, height);
+          context.drawImage(video, (width / 2), 0, width, height);
           alert("1");
         }
         else if (screen.availHeight < screen.availWidth) {
