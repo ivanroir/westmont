@@ -241,19 +241,6 @@ function initCameraStream() {
   }
 }
 
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-  if (currentFacingMode == "environment"){   
-    document.getElementById("video").style.transform = "scaleX(1)";
-    alert("1");
-  }else {
-    document.getElementById("video").style.transform = "scaleX(-1)";
-    alert("2");
-  }
-}else {
-  document.getElementById("video").style.transform = "scaleX(-1)";
-  alert("3");
-}
-
   function takeSnapshot(input = null) {
     
     var canvas = document.createElement('canvas');
@@ -286,7 +273,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
           alert("2");
         }
         else {
-          context.drawImage(video, (width * -1) + -180, -170, width * 1.30, height * 1.25);
+          context.drawImage(video, (width * -1) + -180, -170, width * 1.30, height);
           alert("3");
         }
       }
