@@ -13,10 +13,11 @@ var takePhotoButton;
 var toggleFullScreenButton;
 var switchCameraButton;
 var amountOfCameras = 0;
-var currentFacingMode = 'environment';
+var currentFacingMode = 'user';
 var urlCreator;
 var imageUrl;
 var pict = document.getElementById("cap");
+var angle; 
 
 // this function counts the amount of video inputs
 // it replaces DetectRTC that was previously implemented.
@@ -81,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
           alert('Permission denied. Please refresh and give permission.');
         }
 
-        //console.error('getUserMedia() error: ', error);
+        console.error('getUserMedia() error: ', error);
       });
   } else {
     alert(
@@ -138,7 +139,7 @@ function initCameraUI() {
 
   // -- switch camera part
   if (amountOfCameras > 1) {
-    switchCameraButton.style.display = 'block';
+    switchCameraButton.style.display = 'none';
 
     switchCameraButton.addEventListener('click', function () {
       if (currentFacingMode === 'environment') currentFacingMode = 'user';
@@ -197,8 +198,8 @@ function initCameraStream() {
   // we ask for a square resolution, it will cropped on top (landscape)
   // or cropped at the sides (landscape)
   var size = 1280;
-  var widthSize = 1080;
-  var heightSize = 1920;
+  var widthSize = 1920;
+  var heightSize = 1080;
   
   var constraints = {
     audio: false,
@@ -240,160 +241,63 @@ function initCameraStream() {
   }
 }
 
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-    if (currentFacingMode == "environment"){   
-      document.getElementById("video").style.transform = "scaleX(1)";
-      //alert("1");
-    }else {
-      document.getElementById("video").style.transform = "scaleX(-1)";
-      //alert("2");
-    }
-  }else {
-    document.getElementById("video").style.transform = "scaleX(-1)";
-    //alert("3");
-  }
-
-
   function takeSnapshot(input = null) {
-    if (input == null){
-      var canvas = document.createElement('canvas');
-      var frame = document.getElementById("frame");
+    
+    var canvas = document.createElement('canvas');
+    var frame = document.getElementById("frame");
 
-      var width = video.videoWidth;
-      var height = video.videoHeight;
-      canvas.width = width;
-      canvas.height = height;
+    var width = 1280;
+    var height = 1280;
+    canvas.width = width;
+    canvas.height = height;
 
-      context = canvas.getContext('2d');
-      
-      if (currentFacingMode == "environment"){   
-        /*if (screen.availHeight > screen.availWidth) {
-          context.drawImage(video, (width * -1) + 60, 0, width, height);
-        }
-        else if (screen.availHeight < screen.availWidth) {*/
-          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-            context.drawImage(video, (width / 2) - 580 , 0, width, height);
-            //alert("5");
-            //context.drawImage(video, (screen.availWidth * -1 ), 0, width, height);
-          }
-          else {
-          context.save(); 
-            context.translate(width, 0);
-            context.scale(-1, 1);
-            //context.drawImage(video, (width * -1) + -270, 0, width * 1.43, height);
-            //context.drawImage(video, 0, 0, width, height, 0, 0, width, height);
-            context.drawImage(video, (width * -1) + 800 , 0, width * 1.75 , height);
-            context.restore();
-            //alert("4");
-        }
-        //}
-        //context.drawImage(video, (width * -1) + -170, 0, width * 2, height);                           //portrait size
-      }else{
-        context.save(); 
-        context.translate(width, 0);
-        context.scale(-1, 1); 
-        //context.drawImage(video, (width * -1) - 170, 0, width * 1.25, height);
-
-        if (screen.availHeight > screen.availWidth) {
-          //context.drawImage(video, (width * -1) + 60, 0, width, height);
-          context.drawImage(video, (width / 2) - 560, 0, width, height);
-          //alert("1");
-        }
-        else if (screen.availHeight < screen.availWidth) {
-          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-            //context.drawImage(video, (width * -1) + -170, -170, width * 1.25, height * 1.25);
-            context.drawImage(video, (width / 2) * -1, 0, width * 1.75, height);
-            //alert("2");
-          }
-          else {
-            //context.drawImage(video, (width * -1) + -180, -170, width * 1.30, height * 1.25);
-            context.drawImage(video, (width / 2) * -1, 0, width * 1.5, height);
-            //alert("3");
-          }
-        }
-        //context.drawImage(video, width * -1, -300, width, height * 1.32);                   // portrait size
-        context.restore();
+    context = canvas.getContext('2d');
+    if (currentFacingMode == "environment"){
+      context.drawImage(video, -170, 0, width * 1.25, height);
+      //context.drawImage(video, 0, -300, width, height * 1.32);
+    }else{
+      context.save(); 
+      context.scale(-1, 1); 
+      //context.drawImage(video, (width * -1) - 170, 0, width * 1.25, height);
+      //context.drawImage(video, width * -1, -300, width, height * 1.32);
+      //if (screen.orientation.type == "portrait-primary")
+      //else if (screen.orientation.type == "landscape-primary")
+      if (screen.availHeight > screen.availWidth) {
+        context.drawImage(video, (width * -1), 0, width, height);
       }
-      //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
-      //context.drawImage(frame, 0, 0, width * .75, height);
-      context.drawImage(frame, 0, 0, width, height);
-      console.log(canvas);
-      // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
-      // https://developers.google.com/web/fundamentals/primers/promises
-      // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
-      function getCanvasBlob(canvas) {
-        return new Promise(function (resolve, reject) {
-          canvas.toBlob(function (blob) {
-            resolve(blob);
-          }, 'image/png');
-        });
+      else if (screen.availHeight < screen.availWidth) {
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+          context.drawImage(video, (width * -1) + -170, -170, width * 1.25, height * 1.25);
+        }
+        else {
+          context.drawImage(video, (width * -1) + -180, -170, width * 1.30, height * 1.25);
+        }
       }
-
-      // some API's (like Azure Custom Vision) need a blob with image data
-      getCanvasBlob(canvas).then(function (blob) {
-        // do something with the image blob
-        console.log(blob);
-        urlCreator = window.URL || window.webkitURL;
-        imageUrl = urlCreator.createObjectURL(blob);
-        document.querySelector("#cap").src = imageUrl;
-        document.getElementById("imgURL").href = imageUrl;  
+      context.restore();
+    }
+    //context.drawImage(video, 30, 0, width * .75, height, width * -.75, 0, width * .75, height);
+    //context.drawImage(frame, 0, 0, width * .75, height);
+    context.drawImage(frame, 0, 0, width, height);
+    console.log(canvas);
+    // polyfil if needed https://github.com/blueimp/JavaScript-Canvas-to-Blob
+    // https://developers.google.com/web/fundamentals/primers/promises
+    // https://stackoverflow.com/questions/42458849/access-blob-value-outside-of-canvas-toblob-async-function
+    function getCanvasBlob(canvas) {
+      return new Promise(function (resolve, reject) {
+        canvas.toBlob(function (blob) {
+          resolve(blob);
+        }, 'image/jpg');
       });
     }
-    else {
-      var frame = document.getElementById("frame");
-      //var canvas = document.getElementById('uploadCanvasImage');
-      var canvas = document.createElement('canvas');
-      var image = new Image;
-      var uploadImageUrl;
-      var uploadUrlCreator = window.URL || window.webkitURL;       
 
-      var width = 1280; //1080;
-      var height = 1280; //1920;
-      canvas.width = width;
-      canvas.height = height;
-
-      context = canvas.getContext('2d');
-      
-      document.getElementById("captured").style.display = "block";
-      document.getElementById("controls").style.display = "none";
-      document.getElementById("buttons").style.display = "block";
-      document.getElementById("captureCanvas").style.display = "none";
-      document.getElementById("uploadCanvas").style.display = "block";
-      
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        
-        reader.onload = (e) => $('#fileImage').attr('src', e.target.result);      
-        reader.readAsDataURL(input.files[0]);
-      }
-
-      image.src = URL.createObjectURL(input.files[0]);
-      image.onload = function() {
-        context.drawImage(image, 0, 0, width, height);
-        //context.drawImage(image, -180, 0, width * 1.25, height);
-        context.drawImage(frame, 0, 0, width, height);   
-
-        //context.drawImage(image, 0, 0, image.width, image.height);
-        //context.drawImage(frame, 0, 0, image.width, image.height);   
-        function getCanvasBlob(canvas) {
-          return new Promise(function (resolve, reject) {
-            canvas.toBlob(function (blob) {
-              resolve(blob);
-            }, 'image/png');
-          });
-        }
-
-        // some API's (like Azure Custom Vision) need a blob with image data
-        getCanvasBlob(canvas).then(function (blob) {
-          // do something with the image blob          
-          uploadImageUrl = uploadUrlCreator.createObjectURL(blob);
-          document.querySelector("#fileImageCapture").src = uploadImageUrl;
-          document.getElementById("imgURL").href = uploadImageUrl;  
-        });         
-      }                  
-      
-    }
-
+    // some API's (like Azure Custom Vision) need a blob with image data
+    getCanvasBlob(canvas).then(function (blob) {
+      // do something with the image blob
+      urlCreator = window.URL || window.webkitURL;
+      imageUrl = urlCreator.createObjectURL(blob);
+      document.querySelector("#cap").src = imageUrl;
+      document.getElementById("imgURL").href = imageUrl;  
+    });
 }
 
 // https://hackernoon.com/how-to-use-javascript-closures-with-confidence-85cd1f841a6b
