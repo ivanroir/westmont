@@ -139,7 +139,7 @@ function initCameraUI() {
 
   // -- switch camera part
   if (amountOfCameras > 1) {
-    //switchCameraButton.style.display = 'none';
+    switchCameraButton.style.display = 'none';
 
     switchCameraButton.addEventListener('click', function () {
       if (currentFacingMode === 'environment') currentFacingMode = 'user';
@@ -255,6 +255,7 @@ function initCameraStream() {
     if (currentFacingMode == "environment"){
       context.drawImage(video, -170, 0, width * 1.25, height);
       //context.drawImage(video, 0, -300, width, height * 1.32);
+      alert("4");
     }else{
       context.save(); 
       context.scale(-1, 1); 
