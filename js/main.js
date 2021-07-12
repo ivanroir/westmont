@@ -244,14 +244,14 @@ function initCameraStream() {
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
   if (currentFacingMode == "environment"){   
     document.getElementById("video").style.transform = "scaleX(1)";
-    //alert("1");
+    alert("1");
   }else {
     document.getElementById("video").style.transform = "scaleX(-1)";
-    //alert("2");
+    alert("2");
   }
 }else {
   document.getElementById("video").style.transform = "scaleX(-1)";
-  //alert("3");
+  alert("3");
 }
 
   function takeSnapshot(input = null) {
