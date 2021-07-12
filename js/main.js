@@ -139,7 +139,7 @@ function initCameraUI() {
 
   // -- switch camera part
   if (amountOfCameras > 1) {
-    switchCameraButton.style.display = 'none';
+    switchCameraButton.style.display = 'block';
 
     switchCameraButton.addEventListener('click', function () {
       if (currentFacingMode === 'environment') currentFacingMode = 'user';
