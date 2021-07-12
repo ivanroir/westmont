@@ -253,9 +253,9 @@ function initCameraStream() {
 
     context = canvas.getContext('2d');
     if (currentFacingMode == "environment"){
-      context.drawImage(video, -170, 0, width * 1.25, height);
+      context.drawImage(video, width * -1, 0, width, height);
       //context.drawImage(video, 0, -300, width, height * 1.32);
-      alert("4");
+      //alert("4"); phone back camrera 
     }else{
       context.save(); 
       context.scale(-1, 1); 
@@ -265,7 +265,7 @@ function initCameraStream() {
       //else if (screen.orientation.type == "landscape-primary")
       if (screen.availHeight > screen.availWidth) {
         context.drawImage(video, (width * -1), 0, width, height);
-        alert("1");
+        //alert("1"); phone front cam
       }
       else if (screen.availHeight < screen.availWidth) {
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
@@ -273,8 +273,8 @@ function initCameraStream() {
           alert("2");
         }
         else {
-          context.drawImage(video, (width * -1) + -180, -170, width * 1.30, height);
-          alert("3");
+          context.drawImage(video, (width * -1) + -180, -0, width * 1.30, height / .5);
+          //alert("3"); Laptop
         }
       }
       context.restore();
