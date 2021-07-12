@@ -139,7 +139,7 @@ function initCameraUI() {
 
   // -- switch camera part
   if (amountOfCameras > 1) {
-    switchCameraButton.style.display = 'none';
+    //switchCameraButton.style.display = 'none';
 
     switchCameraButton.addEventListener('click', function () {
       if (currentFacingMode === 'environment') currentFacingMode = 'user';
@@ -264,13 +264,16 @@ function initCameraStream() {
       //else if (screen.orientation.type == "landscape-primary")
       if (screen.availHeight > screen.availWidth) {
         context.drawImage(video, (width * -1), 0, width, height);
+        alert("1");
       }
       else if (screen.availHeight < screen.availWidth) {
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
           context.drawImage(video, (width * -1) + -170, -170, width * 1.25, height * 1.25);
+          alert("2");
         }
         else {
           context.drawImage(video, (width * -1) + -180, -170, width * 1.30, height * 1.25);
+          alert("3");
         }
       }
       context.restore();
