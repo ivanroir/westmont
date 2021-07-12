@@ -253,7 +253,7 @@ function initCameraStream() {
 
     context = canvas.getContext('2d');
     if (currentFacingMode == "environment"){
-      context.drawImage(video, 0, 0, width, height);
+      context.drawImage(video, -20, 0, width * 1.1, height);
       //context.drawImage(video, 0, -300, width, height * 1.32);
       //alert("4"); phone back camrera 
     }else{
@@ -273,7 +273,7 @@ function initCameraStream() {
           alert("2");
         }
         else {
-          context.drawImage(video, (width * -1) + -180, 0, width * 1.30, height * 0.75);
+          context.drawImage(video, (width * -1) + -180, -20, width * 1.30, height * 0.95);
           //alert("3"); Laptop
         }
       }
