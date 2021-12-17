@@ -273,7 +273,7 @@ function initCameraStream() {
           alert("2");
         }
         else {
-          context.drawImage(video, (width * -1) + -260, 0, width * 1.4, height);
+          context.drawImage(video, (width * -1) + -260, 0, width * 1.8, height);
           //alert("3"); Laptop
         }
       }
